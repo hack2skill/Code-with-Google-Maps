@@ -1,6 +1,6 @@
-# Code-with-Google-Maps-2023 - Hack2Skill
+# Code-with-Google-Maps-2023 - Hack2skill
 
-Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2Skill!
+Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2skill!
 
 ## Getting Started
 
