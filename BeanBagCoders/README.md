@@ -1,4 +1,4 @@
-Official Launch: Release SnapTrash to the public, with the support of Bennett University's startup incubation center and the Times Group.
+# SnapTrash
 
 ##### Team Name - Bean Bag Coders
 
@@ -14,7 +14,7 @@ Official Launch: Release SnapTrash to the public, with the support of Bennett Un
 * **Efficient Transmission:** The reported information is efficiently transmitted through the backend infrastructure of the application.
 * **Streamlined User Experience:** The prototype embodies the core vision of SnapTrash by empowering users to contribute to cleaner urban environments in a straightforward manner.
 
-![UML Diagram](snaptrash-uml.png)
+![UML Diagram](SnapTrash-uml.png)
 
 ### Tech Stack:
 
