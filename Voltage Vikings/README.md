@@ -20,7 +20,8 @@ Prototype Components:
   - Route Planning: Efficient route guidance to selected charging station.
   - User Dashboard: Personalized management of requests and payments.
   - Administrator Panel: Oversight of user requests and system functionality.
-- Process Flow![Image Alt Text](flow.png)
+- Process Flow
+  ![Image Alt Text](flow.png)
 # Tech Stack
 - Backend
   -  Python, Django Framework
