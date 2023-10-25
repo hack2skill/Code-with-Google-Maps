@@ -22,7 +22,7 @@ Official Launch: Release SnapTrash to the public, with the support of Bennett Un
 
 ### Step-by-Step Code Execution Instructions:
 
-##### [Snap-Trash Repository](https://github.com/Utkarsh-m08/Snap-Trash) , All the Code it Updated here
+##### [Snap-Trash Repository](https://github.com/Utkarsh-m08/Snap-Trash) , All the Code is Updated here
 
 # Future Scope:
 
