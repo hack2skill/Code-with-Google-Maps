@@ -1,4 +1,4 @@
-Official Launch: Release SnapTrash to the public, with the support of Bennett University's startup incubation center and the Times Group.
+#SnapTrash
 
 ##### Team Name - Bean Bag Coders
 
