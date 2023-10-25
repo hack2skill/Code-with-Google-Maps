@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% block toplink %}
+<li class="nav__item">
+    <a href="javascript:history.go(-1)" class="nav__link">Back</a>
+</li>
+<li class="nav__item">
+    <a href="/home" class="nav__link">Home</a>
+</li>
+<li class="nav__item">
+    <a href="/profile" class="nav__link">Profile</a>
+</li>
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% endblock %}
+
+{% block style %}
+<style>
+    .button {
+  padding: 10;
+  width: auto;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+    .info1:hover {
+        box-shadow: 0 10px 66px 0 purple;
+    }
+/* Modal sheet CSS */
+.modal-sheet {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.modal-sheet__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #B38EC6;
+    color:black;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.modal-sheet__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color:black;
+}
+
+.modal-sheet__text {
+    font-size: 16px;
+    margin-bottom: 20px;
+     color:black;
+}
+
+.modal-sheet__button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+</style>
+{% endblock %}
+{% block content %}
+<main class="main">
+    <section class="featured section" id="featured">
+        <h2 class="section__title">Near By Home Charging Stations</h2>
+        <div class="sort-by" style="float:right;margin-right:15%;">
+            <label class="sort-by__label">Sort By Distance: </label>
+            <select onchange="sort()" class="sort-by__select">
+                <option value="1">1 Kms</option>
+                <option value="2" selected>2 Kms</option>
+                <option value="3">3 Kms</option>
+                <option value="5" selected>5 Kms</option>
+                <option value="10">10 Kms</option>
+                <option value="15">15 Kms</option>
+                <option value="25">25 Kms</option>
+            </select>
+        </div><br><br>
+        <div class="featured__container container">
+            <ul class="featured__filters">
+                <a href="/nearbystations">
+                    <li>
+                        <button class="featured__item button" data-filter="all"
+                                onclick="window.location.href='/nearbystations'">
+                            <span>Charging Stations</span>
+                        </button>
+                    </li>
+                </a>
+                <a href="/nearbyhome">
+                    <li>
+                        <button class="featured__item button active-featured" data-filter=".tesla">
+                            <span>Home Stations</span>
+                        </button>
+                    </li>
+                </a>
+            </ul>
+            <div class="featured__content grid">
+                {% if stat %}
+                {% for i in stat %}
+                <article class="featured__card mix tesla">
+                    <div class="shape shape__smaller info1"></div>
+                    <h1 class="featured__title">{{i.address.user.username}}</h1>
+                    <h3 class="featured__subtitle">{{i.address.user.email}}</h3>
+                    <h3 class="featured__subtitle">Phone: {{i.address.phone_number}}</h3>
+                    <h3 class="featured__price">{{i.address.home_address}},{{i.address.district}}</h3>
+                    <h3 class="featured__price">{{i.address.state}}, {{i.address.zipcode}}</h3>
+                    {% if i.address.available %}
+                    <button class="button featured__button" onclick="openModalSheet(this.getAttribute('data-user'))" data-user="{{i.address.id}}">
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                    {% else %}
+                    <button class="button featured__button" disabled>
+                        <i class="ri-close-line"></i>
+                    </button>
+                    {% endif %}
+                </article>
+                {% endfor %} {% else %}
+           <h2 class="section__title">Not Found</h2>
+            {% endif %}
+            </div>
+            <div class="modal-sheet" id="modalSheet">
+                <div class="modal-sheet__content">
+                    <h2 class="modal-sheet__title">Are you sure?</h2>
+                    <p class="modal-sheet__text">We will be sending an request to user with your information.</p>
+                     <input type="number" class="modal-sheet__input" id="charge" placeholder="Enter Charge Time In Minutes"
+               style="display: block; width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc;
+            border-radius: 4px; min-width: 10; max-width: 350;" min="10" max="350"><br>
+                    <button class="modal-sheet__button" id="yesButton">YES</button>
+                    <br>
+                    <button class="modal-sheet__button" onclick="closeModalSheet()">NO</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% block script %}
+<script>
+function openModalSheet(to_id) {
+    document.getElementById('modalSheet').style.display = 'block';
+    const yesButton = document.getElementById("yesButton");
+    const time = document.getElementById("charge");
+    yesButton.addEventListener("click", function() {
+    var charge_time = time.value;
+    closeModalSheet();
+    send(charge_time, to_id);
+    });
+}
+function closeModalSheet() {
+    document.getElementById('modalSheet').style.display = 'none';
+}
+function send(charge_time, to_id){
+   document.getElementById('modalSheet').style.display = 'none';
+   var conf = confirm("We are sending now? Are you sure!!");
+   if(conf){
+              var xhr = new XMLHttpRequest();
+              xhr.open("POST", "/send_request/");
+              xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+              xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+              xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                  if (xhr.status === 200) {
+                     window.alert("Request Sent Sucessfully!!\nKindly Wait For 5 Minutes\nCheck Out Your Request Section!!");
+                  }if (xhr.status === 400) {
+            var response = JSON.parse(xhr.responseText);
+            window.alert(response.message);
+        }
+                }
+              };
+              xhr.send(JSON.stringify({
+                charge_time: charge_time,
+                to_id : to_id,
+              }));
+}
+}
+function sort() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(sort_dist);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+}
+function sort_dist(position){
+ var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+const sortSelect = document.querySelector('.sort-by__select');
+const selectedValue = sortSelect.value;
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "/nearbyhome/");
+xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    if (xhr.status === 200) {
+          document.body.innerHTML = xhr.responseText;
+          var sortSelect = document.querySelector('.sort-by__select');
+          sortSelect.value = selectedValue;
+    } else {
+      console.log("Error:", xhr.status);
+    }
+  }
+};
+xhr.send(JSON.stringify({latitude: latitude, longitude: longitude, dest_got: selectedValue}));
+}
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+</script>
+{% endblock %}
+{% endblock %}

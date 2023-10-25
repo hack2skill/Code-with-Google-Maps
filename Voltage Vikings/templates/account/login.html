@@ -1,0 +1,53 @@
+{% extends 'account/base.html' %}
+{% block links %}
+<li class="nav__item">
+    <a href="/account/signup" class="nav__link">Sign Up</a>
+</li>
+{% endblock %}
+{% block content %}
+<main class="main" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <section class="login" id="login"
+             style="max-width: 400px; padding: 1rem; text-align: center; background-color: #f5f5f5; border-radius: 10px;">
+        <div class="login__container">
+            <h1 class="login__title" style="font-size: 2rem; margin-bottom: 2rem;color:black;">Login</h1>
+            <form method="post" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {% if form.errors %}
+                <p style="text-align:center;color:red">Wrong Credentials.</p>
+                {% if form.captcha.errors %}
+                <p style="text-align:center;color:red">Invalid Captcha</p>
+                {% endif %}
+                {% endif %}
+                <input type="text" name="login" placeholder="Username or Email" class="login__input" id="id_login"
+                       style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 5px;margin-top:2em;"
+                       required>
+                <input type="password" name="password" placeholder="Password" class="login__input" id="id_password"
+                       style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 5px;"
+                       required>
+                <label style="color:black;">Enter Captcha:</label>
+                {{ form.captcha.image }}
+                {{ form.captcha }}
+                <button type="submit" class="login__button"
+                        style="width: 100%; padding: 1rem; background-color: purple; color: #fff; border: none; border-radius: 5px; cursor: pointer;margin-top:5%;">
+                    Login
+                </button>
+            </form>
+            <div class="login__divider"
+                 style="margin-bottom: 1rem;color:red;text-align:right;margin-top:2%;cursor:pointer;">
+                <span class="login__divider-text" style="display: block; font-size: 0.8rem;"><a
+                        href="{% url 'account_reset_password' %}" style="color:red;">Forgot Password?</a></span>
+            </div>
+            <div class="login__divider" style="margin-bottom: 1rem;color:black;">
+                <span class="login__divider-text" style="display: block; font-size: 0.8rem;">or</span>
+            </div>
+            <div class="login__oauth">
+                <a href="/account/google/login/?process=login" class="login__oauth-link"
+                   style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: purple;">
+                    <i class="ri-google-fill login__oauth-icon" style="font-size: 1.5rem; margin-right: 0.5rem;"></i>
+                    Login with Google
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

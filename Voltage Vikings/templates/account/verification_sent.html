@@ -1,0 +1,17 @@
+{% extends "account/base.html" %}
+{% block links %}
+<li class="nav__item">
+    <a href="/account/login" class="nav__link">Login</a>
+</li>
+{% endblock %}
+{% load i18n %}
+{% block content %}
+ <main class="main" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <section class="verification" id="verification" style="max-width: 400px; padding: 1rem; text-align: center; background-color: #f5f5f5; border-radius: 10px;">
+        <div class="verification__container">
+            <h1 class="verification__title" style="font-size: 2rem; margin-bottom: 2rem;color:black;">{% trans "Verify Your E-mail Address" %}</h1>
+            <p class="verification__message" style="font-size: 1rem; margin-bottom: 2rem;color:black;">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}</p>
+        </div>
+    </section>
+</main>
+{% endblock %}

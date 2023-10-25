@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/favion.png' %}" type="image/x-icon" class="favicon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Voltage Vikings</title>
+    {% block style %}{% endblock %}
+    {% block script %}{% endblock %}
+</head>
+<body style="ba">
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo" style="font-size: 0.8cm;margin-top:8px;" >
+                <i class="ri-steering-fill" style="font-size: 1cm;margin-top:1px;"></i>
+                Voltage Vikings
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    {% block toplink %}{% endblock %}
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+{% block content %}{% endblock %}
+    </main>
+    <script src="{% static 'js/scrollrevealAnimation.min.js'%}"></script>
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

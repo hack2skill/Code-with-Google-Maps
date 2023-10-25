@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/favion.png' %}" type="image/x-icon" class="favicon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <title>Voltage Vikings</title>
+    <style>
+.home__button1{
+  z-index: 888;
+  position: relative;
+  border: 2px solid hsl(158, 89%, 30%);
+  width: 220px;
+  height: 50px;
+  border-radius: 5px; /* change to a small value for sharp corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  cursor: pointer;
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
+.home__button2{
+  z-index: 888;
+  position: relative;
+
+  width: 220px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  cursor: pointer;
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
+.home__button1::before{
+  content: '';
+  border: 2px solid hsl(158, 98%, 43%);
+  width: 240px;
+  height: 70px;
+  position: absolute;
+  border-radius: 5px; /* change to a small value for sharp corners */
+  box-shadow: 0 0 12px hsl(158, 98%, 43%);
+  transition: .3s;
+  animation: button 3s infinite;
+}
+.label {
+  height: 50px;
+  width: 100px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  -webkit-box-shadow: inset 0 0 5px 4px rgba(255, 255, 255, 1),
+    inset 0 0 20px 1px rgba(0, 0, 0, 0.488), 10px 20px 30px rgba(0, 0, 0, 0.096),
+    inset 0 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 5px 4px rgba(255, 255, 255, 1),
+    inset 0 0 20px 1px rgba(0, 0, 0, 0.488), 10px 20px 30px rgba(0, 0, 0, 0.096),
+    inset 0 0 0 3px rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.label:hover {
+  -webkit-transform: perspective(100px) rotateX(5deg) rotateY(-5deg);
+  transform: perspective(100px) rotateX(5deg) rotateY(-5deg);
+}
+
+#checkbox:checked ~ .label:hover {
+  -webkit-transform: perspective(100px) rotateX(-5deg) rotateY(5deg);
+  transform: perspective(100px) rotateX(-5deg) rotateY(5deg);
+}
+
+#checkbox {
+  display: none;
+}
+
+#checkbox:checked ~ .label::before {
+  left: 50px;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 70%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.label::before {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #000000;
+  background-image: linear-gradient(
+    130deg,
+    #757272 10%,
+    #ffffff 11%,
+    #726f6f 62%
+  );
+  left: 10px;
+  -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3), 10px 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3), 10px 10px 10px rgba(0, 0, 0, 0.3);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+@media (max-width: 767px) {
+    .med{
+     margin-left:10vh;
+    }
+}
+    </style>
+</head>
+<body>
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo" style="font-size: 0.8cm;margin-top:8px;">
+            <i class="ri-steering-fill" style="font-size: 1cm;margin-top:1px;"></i>
+            Voltage Vikings
+        </a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="/profile" class="nav__link">Profile and Settings</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/request_view" class="nav__link">Requests</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/account/logout" class="nav__link">Logout</a>
+                </li>
+            </ul>
+            <div class="nav__close" id="nav-close">
+                <i class="ri-close-line"></i>
+            </div>
+        </div>
+        <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+        </div>
+    </nav>
+</header>
+<main class="main">
+    <section class="home section" id="home">
+        <div class="shapeX shape__big"></div>
+        <div class="shapeX shape__small"></div>
+        <div class="home__container container grid">
+            <div class="home__data">
+                <h1 class="home__title">
+                    Welcome to
+                </h1>
+                <div class="home__car" style="margin-top:-15%">
+                    <img src="{% static 'img/logo.png' %}" alt="" class="home__img">
+                </div>
+                <h2 class="home__subtitle" style="margin-top:-25%">
+                    Hello!!!<br>
+                    <h1 class="home__title"> {{request.user.username}}</h1>
+                </h2>
+                {% if not profile.completed_profile %}
+                <h3 class="home__elec">
+                    <i class="ri-flashlight-fill"></i>
+                    It seems like you're not yet added any home station address<br>
+                </h3><br>
+                <h3 class="home__elec">If applicable kindly complete your profile</h3><br>
+                {% else %}
+                {% if profile.available %}
+                <h3 class="home__elec">
+                    Turn off if you are not available
+                </h3><br><br>
+                <div class="container home__button2 med">
+                    <input id="checkbox" name="checkbox" type="checkbox" checked>
+                    <label class="label" for="checkbox"></label>
+                </div>
+                {% else %}
+                <h3 class="home__elec">
+                    Turn on if you are available
+                </h3><br><br>
+                <div class="container home__button2 med">
+                    <input id="checkbox" name="checkbox" type="checkbox">
+                    <label class="label" for="checkbox"></label>
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+            <a id="nearby" class="home__button1">Nearby Charging Stations</a>
+            <a class="home__button1" id="nearbyhome">Nearby Home Stations</a>
+        </div>
+        </div>
+    </section>
+    <section class="gallery section">
+        <div class="gallery__container container grid">
+            <video class="video__slide active" src="{% static 'video/vid_1.mp4' %}" autoplay muted loop></video>
+            <video class="video__slide" src="{% static 'video/vid_1.mp4' %}" autoplay muted loop></video>
+            <video class="video__slide" src="{% static 'video/vid.mp4' %}" autoplay muted loop></video>
+            <video class="video__slide" src="{% static 'video/vid_1.mp4' %}" autoplay muted loop></video>
+            <video class="video__slide" src="{% static 'video/vid_1.mp4' %}" autoplay muted loop></video>
+        </div>
+    </section>
+     {% if profile.completed_profile %}
+    <section class="about section" id="so">
+        <div class="about__container container grid">
+            <div class="about__group">
+                <img src="{% static 'img/tra.png' %}" alt="" class="about__img">
+
+                <div class="about__card">
+                    <h3 class="about__card-title">Recent</h3>
+                    <p class="about__card-description">Charge Requests Accepted</p>
+                </div>
+            </div>
+            {% if req %}
+            <div class="about__data">
+                <h2 class="section__title about__title">Name: {{req.0.from_user.user.username}}<br>Date: {{req.0.timestamp}}</h2>
+                <a href="/request_view" class="button">More</a>
+            </div>
+            {% else %}
+             <h2 class="section__title about__title">No Data Found</h2>
+            {% endif %}
+        </div>
+    </section>
+     {% endif %}
+</main>
+<footer style="text-align:center;margin-bottom:40px;margin-top:10%">
+        <span>
+            &#169; <a target="_blank" href="#" class="footer__dev-link">Voltage Vikings.</a> All rigths
+            reserved
+            <p id="date"></p>
+        </span>
+</footer>
+<a href="" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-up-s-line"></i>
+</a>
+<script src="{% static 'js/scrollrevealAnimation.min.js'%}"></script>
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+<script>
+  var getLocationButton = document.getElementById("nearby");
+  getLocationButton.addEventListener("click", function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  });
+  function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/nearbystations/");
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+           window.location.href = "/nearbystations/";
+        } else {
+          console.log("Error:", xhr.status);
+        }
+      }
+    };
+    xhr.send(JSON.stringify({latitude: latitude, longitude: longitude, dest_got: 25}));
+  }
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+</script>
+<script>
+  var getLocationButton1 = document.getElementById("nearbyhome");
+  getLocationButton1.addEventListener("click", function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition1);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  });
+  function showPosition1(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/nearbyhome/");
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          window.location.href = "/nearbyhome/";
+        } else {
+          console.log("Error:", xhr.status);
+        }
+      }
+    };
+    xhr.send(JSON.stringify({latitude: latitude, longitude: longitude, dest_got: 5}));
+  }
+var h3Element = document.querySelector(".home__elec");
+var checkbox = document.getElementById("checkbox");
+checkbox.addEventListener("change", function() {
+  var isChecked = this.checked;
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/avail/", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+  xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+  xhr.onload = function() {
+    console.log(xhr.responseText);
+  };
+  xhr.send("isChecked=" + isChecked);
+  if (isChecked) {
+    h3Element.textContent = "Turn off if you are not available";
+  } else {
+    h3Element.textContent = "Turn on if you are available";
+  }
+});
+</script>
+</html>

@@ -1,0 +1,415 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block toplink %}
+<li class="nav__item">
+    <a href="/home" class="nav__link">Home</a>
+</li>
+<li class="nav__item">
+    <a href="/profile" class="nav__link">Profile</a>
+</li>
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% endblock %}
+{% block style %}
+<style>
+table {
+  border: 1px solid white;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+
+}
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+table tr {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+  color:black;
+}
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color:red;
+}
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  table td::before {
+    content: attr(aria-label);
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+.modal-sheet {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+.modal-sheet__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #B38EC6;
+    color:black;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+.modal-sheet__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color:black;
+}
+.modal-sheet__text {
+    font-size: 16px;
+    margin-bottom: 20px;
+     color:black;
+}
+.modal-sheet__button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+</style>
+{% endblock %}
+{% block content %}
+<main class="main" style="margin-top:10%;">
+    {% if to %}
+    <table>
+        <caption>Charge Requests</caption>
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Date</th>
+            <th scope="col">Charge Time</th>
+            <th scope="col">Charge Amount</th>
+            <th scope="col">Advance Amt Status</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in to %}
+        <tr>
+            <td data-label="Name">{{i.from_user.user.username}}</td>
+            <td data-label="Email">{{i.from_user.user.email}}</td>
+            <td data-label="Phone">{{i.from_user.phone_number}}</td>
+            <td data-label="Date">{{i.timestamp}}</td>
+            <td data-label="Charge Time">{{i.charge_time}}</td>
+            {% if i.charge_amt %}
+            <td data-label="Charge Amount">{{i.charge_amt}}</td>
+            {% else %}
+            <td data-label="Charge Amount">No Data</td>
+            {% endif %}
+            {% if i.adv_pay_status %}
+            <td data-label="Advance Amt Status">Successful</td>
+            {% else %}
+            <td data-label="Advance Amt Status">No Data</td>
+            {% endif %}
+            {% if i.adv_pay_status %}
+            {% if i.fin_pay_status %}
+            <td data-label="Payment Status">Successful</td>
+            {% else %}
+            <td data-label="Payment Status">Pending</td>
+            {% endif %}
+            {% else %}
+            <td data-label="Payment Status">No Data</td>
+            {% endif %}
+            {% if i.accepted %}
+            <td data-label="Status">Accepted</td>
+            {% else %}
+            <td data-label="Period" style="color:blue;"><a style="cursor:pointer"
+                                                           onclick="openModalSheet(this.getAttribute('data-foo'))"
+                                                           data-foo="{{i.id}}">Accept</a> /
+                <a style="cursor:pointer;color:red;" onclick="reject(this.getAttribute('data-foo'))"
+                   data-foo="{{i.id}}">Reject</a></td>
+            {% endif %}
+        </tr>
+        </tbody>
+        {% endfor %}
+        {% else %}
+        <table>
+            <caption>Charge Requests</caption>
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Date</th>
+                <th scope="col">Charge Time</th>
+                <th scope="col">Charge Amount</th>
+                <th scope="col">Advance Amt Status</th>
+                <th scope="col">Payment Status</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td data-label="Name">No Request Yet!!</td>
+                <td data-label="Email">No Request Yet!!</td>
+                <td data-label="Phone">No Request Yet!!</td>
+                <td data-label="Date">No Request Yet!!</td>
+                <td data-label="Charge Time">No Request Yet!!</td>
+                <td data-label="Charge Amount">No Request Yet!!</td>
+                <td data-label="Advance Amt Status">No Request Yet!!</td>
+                <td data-label="Payment Status">No Request Yet!!</td>
+                <td data-label="Status">No Request Yet!!</td>
+            </tr>
+            </tbody>
+            {% endif %}
+        </table>
+    </table>
+    {% if from %}
+    <table>
+        <caption>Sent Requests</caption>
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Charge Time</th>
+            <th scope="col">Charge Amount</th>
+            <th scope="col">Advance Amt Status</th>
+            <th scope="col">Route</th>
+            <th scope="col">Payment Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in from %}
+        <tr>
+            <td data-label="Name">{{i.to_user.user.username}}</td>
+            <td data-label="Email">{{i.to_user.user.email}}</td>
+            <td data-label="Phone">{{i.to_user.phone_number}}</td>
+            <td data-label="Date">{{i.timestamp}}</td>
+            {% if i.accepted %}
+            <td data-label="Status">Accepted</td>
+            {% else %}
+            <td data-label="Status" style="color:blue;">Waiting For Confirmation</td>
+            {% endif %}
+            <td data-label="Charge Time">{{i.charge_time}}</td>
+            {% if i.charge_amt %}
+            <td data-label="Charge Amount">{{i.charge_amt}}</td>
+            {% else %}
+            <td data-label="Charge Amount">No Data</td>
+            {% endif %}
+            {% if i.adv_pay_status %}
+            <td data-label="Advance Amt Status">Successful</td>
+            {% if not i.fin_pay_status %}
+            <td data-label="Route"><a style="cursor:pointer"
+                                      onclick="liveFunction(this.getAttribute('data-foo'),this.getAttribute('data-lo'),this.getAttribute('data-li'),this.getAttribute('data-fo'));"
+                                      data-foo="{{i.to_user.lat}}" data-fo="{{i.id}}" data-lo="{{i.to_user.lon}}"
+                                      data-li="{{i.to_user.id}}">Click Here</a></td>
+            {% endif %}
+            {% else %}
+            {% if i.accepted %}
+            <td data-label="Advance Amt Status"><a style="cursor:pointer"
+                                                   href="/pay/{{i.id}}">Pay Now</a></td>
+            <td data-label="Route">No Data</td>
+            {% endif %}
+            {% endif %}
+            {% if i.adv_pay_status %}
+            {% if i.fin_pay_status %}
+            <td data-label="Payment Status">Successful</td>
+            <td data-label="Route">Transaction Completed</td>
+            {% else %}
+            <td data-label="Payment Status">Pending</td>
+            {% endif %}
+            {% else %}
+            <td data-label="Payment Status">No Data</td>
+            {% endif %}
+        </tr>
+        </tbody>
+        {% endfor %}
+        {% else %}
+        <table>
+            <caption>Sent Requests</caption>
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Charge Time</th>
+                <th scope="col">Charge Amount</th>
+                <th scope="col">Advance Amt Status</th>
+                <th scope="col">Route</th>
+                <th scope="col">Payment Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td data-label="Name">No Request Yet!!</td>
+                <td data-label="Email">No Request Yet!!</td>
+                <td data-label="Phone">No Request Yet!!</td>
+                <td data-label="Date">No Request Yet!!</td>
+                <td data-label="Status">No Request Yet!!</td>
+                <td data-label="Charge Time">No Request Yet!!</td>
+                <td data-label="Charge Amount">No Request Yet!!</td>
+                <td data-label="Advance Amt Status">No Request Yet!!</td>
+                <td data-label="Route">No Request Yet!!</td>
+                <td data-label="Payment Status">No Request Yet!!</td>
+            </tr>
+            </tbody>
+            {% endif %}
+        </table>
+    </table>
+</main>
+<div class="modal-sheet" id="modalSheet">
+    <div class="modal-sheet__content">
+        <h2 class="modal-sheet__title">Please Enter The Charge Amount</h2>
+        <input type="number" class="modal-sheet__input" id="amtInput" placeholder="Enter amount"
+               style="display: block; width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc;
+            border-radius: 4px; min-width: 10; max-width: 350;" min="10" max="350"><br>
+        <button class="modal-sheet__button" id="yesButton">Accept</button>
+        <br>
+        <button class="modal-sheet__button" onclick="closeModalSheet()">Close</button>
+    </div>
+</div>
+<script>
+    function liveFunction(dest_lat, dest_lon, id, txn_id) {
+    if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+                console.log(dest_lat, dest_lon);
+                 window.location.href = "/homeroute/"+latitude+"/"+longitude+"/"+dest_lat+"/"+dest_lon+"/"+id+"/1/"+txn_id+"/";
+        });}
+        }
+
+</script>
+<script>
+function openModalSheet(from_id) {
+    document.getElementById('modalSheet').style.display = 'block';
+    const yesButton = document.getElementById("yesButton");
+    const amtInput = document.getElementById("amtInput");
+    yesButton.addEventListener("click", function() {
+    var amt = amtInput.value;
+    if (amt< 10) {
+         window.alert("Amount Must Be Greater Than  0");
+    } else if (amt > 350) {
+          window.alert("Amount Must Be Less Than  350");
+    }
+        closeModalSheet();
+        accept(from_id, amt);
+    });
+}
+function closeModalSheet() {
+    document.getElementById('modalSheet').style.display = 'none';
+}
+    function accept(from_id, amt){
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/acc_req/");
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            window.location.reload();
+          }else {
+        window.alert("Can't able to process your request");
+}
+        }
+      };
+      xhr.send(JSON.stringify({
+        id: from_id,
+        charge_amt: amt,
+      }));
+}
+      function reject(from_id){
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/rej_req/");
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            window.location.reload();
+          }else {
+        window.alert("Can't able to process your request");
+}
+        }
+      };
+      xhr.send(JSON.stringify({
+        id: from_id,
+      }));
+}
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+</script>
+{% endblock %}
+

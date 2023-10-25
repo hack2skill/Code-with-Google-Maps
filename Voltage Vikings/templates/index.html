@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/favion.png' %}" type="image/x-icon" class="favicon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Voltage Vikings</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo" style="font-size: 0.8cm;margin-top:8px;" >
+                    <i class="ri-steering-fill" style="font-size: 1cm;margin-top:1px;"></i>
+                    Voltage Vikings
+                </a>
+            <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                            <a href="/account/login" class="nav__link">Login</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/account/signup" class="nav__link">Sign Up</a>
+                        </li>
+            </ul>
+            <div class="nav__close" id="nav-close">
+                <i class="ri-close-line"></i>
+            </div>
+        </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="home section" id="home">
+            <div class="shapeX shape__big"></div>
+            <div class="shapeX shape__small"></div>
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__title">
+                        EV CHARGING HOME STATION'S CONNECTING
+                    </h1>
+                    <h2 class="home__subtitle">
+                        EV CHARGING STATION'S CONNECTING
+                    </h2>
+                    <h3 class="home__elec">
+                        <i class="ri-flashlight-fill"></i>
+                        Charge Your Car's With Unknows
+                    </h3>
+                </div>
+                <div class="home__car">
+                    <div class="home__car-data">
+                        <div class="home__car-icon">
+                            <i class="ri-dashboard-2-line"></i>
+                        </div>
+                        <h2 class="home__car-number">XX Kms</h2>
+                        <h3 class="home__car-name">Nearest Stations</h3>
+                    </div>
+                    <div class="home__car-data">
+                        <div class="home__car-icon">
+                            <i class="ri-flashlight-fill"></i>
+                        </div>
+                        <h2 class="home__car-number">XX Rupee/h</h2>
+                        <h3 class="home__car-name">Pay After Charging</h3>
+                    </div>
+                </div>
+                <a href="/account/login" class="home__button">LOGIN</a>
+                <div class="slider__bg">
+                <div class="slider__bg-navBtn active"></div>
+                <div class="slider__bg-navBtn"></div>
+                <div class="slider__bg-navBtn"></div>
+                <div class="slider__bg-navBtn"></div>
+                <div class="slider__bg-navBtn"></div>
+                </div>
+            </div>
+        </section>
+         <section class="gallery section">
+            <div class="gallery__container container grid">
+                <video class="video__slide active" src="{% static 'video/vid.mp4' %}" autoplay muted loop></video>
+                <video class="video__slide" src="{% static 'video/vid_1.mp4' %}" autoplay muted loop></video>
+                <video class="video__slide" src="{% static 'video/vid.mp4' %}" autoplay muted loop></video>
+                <video class="video__slide" src="{% static 'video/vid_1.mp4' %}" autoplay muted loop></video>
+                <video class="video__slide" src="{% static 'video/vid_1.mp4' %}" autoplay muted loop></video>
+            </div>
+        </section>
+        <section class="about section" id="so">
+            <div class="about__container container grid">
+                <div class="about__group">
+                    <img src="{% static 'img/about.png' %}" alt="" class="about__img">
+
+                    <div class="about__card">
+                        <h3 class="about__card-title">13L+</h3>
+                        <p class="about__card-description">EV User In India</p>
+                    </div>
+                </div>
+                <div class="about__data">
+                    <h2 class="section__title about__title">Benefits to using electric vehicles (EVs)<br>Over traditional gasoline-powered cars</h2>
+                    <p class="about__description">Environmentally friendly<br>Cost-effective<br>Quieter<br>Smooth driving experience
+                        <br><br>The success of EVs is dependent on a reliable and accessible charging infrastructure. EVs must be charged regularly to maintain their battery life, and drivers need access to charging stations at home, work, and on the road.</p>
+
+                    <a href="https://en.wikipedia.org/wiki/Electric_car" class="button">Know More</a>
+                </div>
+            </div>
+        </section>
+        <section class="popular section" id="popular">
+            <h2 class="section__title">
+                Importance of charging<br>Infrastructure
+            </h2>
+            <div class="popular__container container swiper" style="text-align:center">
+                <h3 class="popular__subtitle">Convenience: Access to charging stations allows EV drivers to charge their vehicles while they are parked, making it more convenient than having to stop at a gas station.</h3><br>
+                <h3 class="popular__subtitle">Range anxiety: A reliable and extensive charging infrastructure helps alleviate concerns about running out of power while driving.</h3><br>
+                <h3 class="popular__subtitle">Accessibility: A robust charging infrastructure must be accessible to all drivers, regardless of their location or income.</h3><br>
+                <h3 class="popular__subtitle">Sustainability: As more EVs enter the market, it is critical to develop a sustainable and renewable energy source to power the charging infrastructure.</h3><br>
+            </div>
+        </section>
+        <section class="featured section" id="featured">
+            <h2 class="section__title">How this site works</h2>
+            <div class="featured__container container" style="text-align:center">
+                <h3 class="featured__subtitle">User can get all the nearest charging stations information including home ev charging stattions<br><br>
+                    User will be able to see the availablity of the particular stations<br><br>
+                    If home station is selected the particular user will be notified via email<br><br>
+                    Upon confirmation via mail the route along with the information of route will be displayed<br><br>
+                    The user can get a link to real time location tracking between source and destination addresss via email<br><br><br><br>
+                    If normal charging station is selected then user will get the direct route map with neccessary information<br><br>
+                    For Home Stations : Users can add up there address if they have installed the EV charging in their home<br><br>
+                The cost of charging should be set by the user upon there meter reading <br><br>
+                </h3>
+            </div>
+        </section>
+    </main>
+    <footer class="footer section">
+        <div class="shapeX shape__big"></div>
+        <div class="shapeX shape__small"></div>
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <a href="#" class="footer__logo">
+                    <i class="ri-steering-line"></i>
+                    Voltage Vikings
+                </a>
+                <p class="footer__description">
+                    We offer the best service for <br>
+                    your EV charging anytime in <br>
+                    the India.
+                </p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">About </h3>
+                <ul class="footer__links">
+                    <li>
+                        <a href="#home" class="footer__links">Home</a>
+                    </li>
+                    <li>
+                        <a href="#so" class="footer__links">Benefits</a>
+                    </li>
+                    <li>
+                        <a href="#popular" class="footer__links">Importance</a>
+                    </li>
+                    <li>
+                        <a href="#featured" class="footer__links">Working</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__links"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title"> Follow us </h3>
+
+                <ul class="footer__social">
+                    <a href="" target="_blank" class="footer__social-link">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="" target="_blank" class="footer__social-link">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="" target="_blank" class="footer__social-link">
+                        <i class="ri-twitter-line"></i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <span class="footer__copy">
+            &#169; <a target="_blank" href="#" class="footer__dev-link">Voltage Vikings.</a> All rigths
+            reserved
+            <p id="date"></p>
+        </span>
+    </footer>
+    <a href="" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-s-line"></i>
+    </a>
+    <script src="{% static 'js/scrollrevealAnimation.min.js'%}"></script>
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
