@@ -1,4 +1,4 @@
-#SnapTrash
+# SnapTrash
 
 ##### Team Name - Bean Bag Coders
 
