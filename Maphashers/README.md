@@ -18,11 +18,8 @@ Step-by-Step Code Execution Instructions:
   Open a terminal or command prompt.
   Navigate to the directory where you want to store the project.
   Run the following command to clone the GitHub repository:
-  bash
-  Copy code
-  git clone https://github.com/your-username/your-repo-name.git
-  Replace your-username with your GitHub username and your-repo-name with the name of the repository you want 
-  to clone.
+  
+  git clone https://github.com/NearYagami/Green-Space-Managemant.git
 
 2. By clicking on the "my current location" button the page gets loaded with the user's current location
    
