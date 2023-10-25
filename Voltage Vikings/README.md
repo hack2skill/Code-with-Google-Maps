@@ -22,6 +22,8 @@ Prototype Components:
   - Administrator Panel: Oversight of user requests and system functionality.
 - Process Flow
   ![Image Alt Text](flow.png)
+- UML Diagram
+  ![Image Alt Text](Flowcharts.png)
 # Tech Stack
 - Backend
   -  Python, Django Framework
