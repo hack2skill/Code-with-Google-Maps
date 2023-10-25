@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.GoogleMapsAPIs" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="colorAccent">@color/actionable</item>
+    </style>
+
+    <style name="Theme.GoogleMapsAPIs" parent="Base.Theme.GoogleMapsAPIs" />
+
+
+    <style name="Theme.VideoScreen" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!--<item name="colorPrimary">@color/red700</item>
+        <item name="colorPrimaryDark">@color/red900</item>
+        <item name="colorAccent">@color/red700</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>-->
+        <!-- the problem is this item -->
+<!--        <item name="android:background">@color/black</item>-->
+        <!-- the problem is this item -->
+<!--        <item name="android:background">@color/black</item>-->
+    </style>
+
+
+    <style name="fade_animation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+</resources>

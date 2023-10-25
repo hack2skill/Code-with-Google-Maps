@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.solar.SolarApiActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.RouteApiActivity" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/actionBarLayoutCL"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/camera_actionbar_color_with_alpha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--<TextView
+            android:id="@+id/actionBarTitleTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Solar Potential "
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/backActionBTN"
+            android:layout_width="@dimen/icon_size_solar_header_bar"
+            android:layout_height="@dimen/icon_size_solar_header_bar"
+            android:background="@drawable/ic_baseline_arrow_back"
+            android:layout_marginHorizontal="@dimen/standard_margin_half"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/showSolarPanels"
+            android:layout_width="@dimen/icon_size_solar_header_bar"
+            android:layout_height="@dimen/icon_size_solar_header_bar"
+            android:background="@drawable/solarmodul_symbol"
+            android:layout_marginHorizontal="@dimen/standard_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/backActionBTN"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/arielViewVideoBTN"
+            android:layout_width="@dimen/icon_size_solar_header_bar"
+            android:layout_height="@dimen/icon_size_solar_header_bar"
+            android:background="@drawable/ic_three_d"
+            android:backgroundTint="@color/white"
+            android:layout_marginHorizontal="@dimen/standard_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/showSolarPanels"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/wealthMeterBTN"
+            android:layout_width="@dimen/icon_size_solar_header_bar"
+            android:layout_height="@dimen/icon_size_solar_header_bar"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:background="@drawable/ic_meter"
+            android:minWidth="48dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nextFutureBTN"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nextFutureBTN"
+            android:layout_width="@dimen/icon_size_solar_header_bar"
+            android:layout_height="@dimen/icon_size_solar_header_bar"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:background="@drawable/ic_next_plan"
+            android:minWidth="48dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/spotlightView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@drawable/spotlight_overlay_combined"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/solarPanelActionviewLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actionBarLayoutCL">
+
+        <TextView
+            android:id="@+id/panelCounterTV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical|start"
+            android:text="Panel Counter:"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderForPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:stepSize="1"
+            app:labelBehavior="floating" />
+
+        <!-- <LinearLayout
+                android:id="@+id/cloud_styling_basic_demo_mode_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/styling_normal_mode"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="11sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lite_styling_normal_mode" />
+                <Button
+                    android:id="@+id/styling_satellite_mode"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="11sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lite_styling_satellite_mode" />
+                <Button
+                    android:id="@+id/styling_hybrid_mode"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="11sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lite_styling_hybrid_mode" />
+                <Button
+                    android:id="@+id/styling_terrain_mode"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="11sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lite_styling_terrain_mode" />
+            </LinearLayout>-->
+        <!--progress bar implementation-->
+        <RelativeLayout
+            android:id="@+id/progress_layout"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            android:layout_margin="8dp">
+
+            <!--progress bar implementation-->
+            <ProgressBar
+                android:id="@+id/solarPanelsProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circular_shape"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:textAlignment="center" />
+
+            <!--Text implementation in center of the progress bar-->
+            <TextView
+                android:id="@+id/panelCounterNumberTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </RelativeLayout>
+
+
+       <!-- <TextView
+            android:id="@+id/panelCounterNumberTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="end"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />-->
+
+    </LinearLayout>
+        <!--<ImageView
+            android:id="@+id/rgbDataLayerIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>-->
+        <!--<include layout="@layout/activity_solar_details" android:id="@+id/solarDetailView" android:visibility="gone"/>-->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/geoTiffDataLayerLL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/threeDdownBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/rgbLayerIV"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RGB"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="13sp"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fluxLayerIV"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@color/black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DSM"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="13sp"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dsmLayerIV"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mask"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="13sp"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/maskLayerIV"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flux"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="13sp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="48dp"
+        android:id="@+id/threeDupBTN"
+        android:text="@string/tilt_more"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/threeDdownBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="48dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/tilt_less"
+        app:layout_constraintBottom_toTopOf="@+id/threeDupBTN"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--<androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dataLayerImageOnMapIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/map"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

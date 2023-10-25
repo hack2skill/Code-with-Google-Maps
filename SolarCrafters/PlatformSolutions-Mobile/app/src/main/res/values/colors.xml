@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red700">#f55442</color>
+    <color name="red900">#c94232</color>
+
+    <!-- App related colors -->
+    <color name="primaryColor">#4a6176</color>
+    <color name="primaryColorDark">#3b4e5e</color>
+    <color name="actionable">#718394</color>
+    <color name="camera_actionbar_color_with_alpha">#66000000</color>
+
+</resources>

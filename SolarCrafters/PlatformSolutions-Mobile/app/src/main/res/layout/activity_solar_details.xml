@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/solarDetailDataViewCL"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context=".activities.solar.SolarDetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:text="Location Informations:"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:layout_gravity="center_vertical"
+                android:text="Address"
+                android:textSize="@dimen/field_text_size" />
+            <TextView
+                android:id="@+id/addressValueTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:text="Full address of this building(location) will be here."
+                android:textSize="@dimen/field_value_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/latLongOfBuildingLocationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:text="00.0000 and 00.0000"
+                android:textSize="@dimen/field_value_text_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:text="Maximum Solar Potentials:"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:id="@+id/sunshineHrsLL"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_sun" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Sunshine hours/year"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/sunshineHrsPerYrValueTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="00:00 hrs"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_area" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Area meters(sqr)"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/areaInMtrValueTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="00 sqr mtrs"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:id="@+id/maximumPanelsCountLL"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_solarpanel_count" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Maximum panel counts"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/maxPanelCountValueTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:id="@+id/pitchDegreesLL"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_degrees_pitch" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Pitch Degrees"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/pitchDegreesValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:id="@+id/azimuthDegreeLL"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_azimuth_degree_shade" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Segment Facing Direction"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/azimuthDegreesValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_energy_green" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Energy produce by all panels in a Year (DcKwh)"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/energyProdByAllPanelsInYrValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_solarpanel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Panel Lifetime (Yrs)"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/solarPabelLifetimeValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="0 Years"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_ele_generate" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Panel Capacity Watts"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/panelCapicityWattsValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_co_two" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Carbon Offset Factor (KgPerMwh)"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/carbonOffsetFactorKgPerMwhValueTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="0 KgPerMwh"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:tint="@android:color/holo_blue_dark"
+                    android:src="@drawable/ic_height_above_sea_level" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Segment height above sea level (mtr)"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/heightAboveSeaLevelValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:background="@color/black" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="center"
+                    android:text="Sunniness over roof area:"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChartSunniness"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/standard_margin"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:text="Financial and Other Analysis:"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!--COST OF ELE. WITHOUT SOLAR-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_cost" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Cost of Electricity without solar (USD)"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/costEleWithoutSolarValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="-NA-"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--SOLAR PERCENTAGE-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_percent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Solar Percentage"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/solarPercentageValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="-NA-"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--percentageExportedToGrid-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/standard_margin_half"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:src="@drawable/ic_arrow_export" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Exported to Grid (%)"
+                    android:textSize="@dimen/field_text_size" />
+
+                <TextView
+                    android:id="@+id/exportedToGridValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/standard_margin"
+                    android:gravity="end"
+                    android:text="-NA-"
+                    android:textSize="@dimen/field_value_text_size"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

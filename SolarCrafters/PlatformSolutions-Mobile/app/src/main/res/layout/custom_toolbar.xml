@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primaryColor"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    app:navigationContentDescription="Navigation of application"
+    app:navigationIcon="@drawable/ic_baseline_arrow_back">
+    <!-- navigation icon and description for the Toolbar-->
+
+
+    <TextView
+        android:id="@+id/toolbarMainTitleTV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Ghar Ghar Solar"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+
+</androidx.appcompat.widget.Toolbar>

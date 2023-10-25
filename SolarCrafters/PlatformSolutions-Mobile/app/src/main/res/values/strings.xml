@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GharGharSolar</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
+    <!-- Permissions -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the Map and other feature</string>
+    <string name="location_permission_denied">This App requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Ghar Ghar Solar\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+
+    <!--    MAP STYLE-->
+    <string name="lite_styling_normal_mode">Normal</string>
+    <string name="lite_styling_satellite_mode">Satellite</string>
+    <string name="lite_styling_hybrid_mode">Hybrid</string>
+    <string name="lite_styling_terrain_mode">Terrain</string>
+
+    <string name="tilt_less">\u2193</string>
+    <string name="tilt_more">\u2191</string>
+
+</resources>
