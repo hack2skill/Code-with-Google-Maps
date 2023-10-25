@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Green Space Management</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!-- <div id="map"></div> -->
+    <!-- <div id="data-visualization"></div>
+    <div id="user-engagement"></div> -->
+    <div class="head-text">
+        <img src="head-font/text-1698195383030.png">
+    </div>   
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="5000vw" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">                
+            </iframe>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <div class="location">
+            <button id="getCurrentLocation" class="map_but">Use My Current Location</button>
+        </div>
+        <div class="direction">
+            <button id="getDirections" class="map_but">Get Directions</button>
+        </div>
+        <div class="places">
+            <button id="searchPlaces" class="map_but">Search Places</button>
+            <input type="text" id="placeInput" placeholder="Enter a place">
+            <button id="searchButton">Search</button>
+        </div>
+        <div class="elevation">
+            <button id="getElevation" class="map_but">Get Elevation</button>
+        </div>
+        <div class="traffic">
+            <button id="getTraffic" class="map_but">Show Traffic</button>
+        </div>
+    </div>
+    <input type="text" id="search" placeholder="Enter a name">
+    <button onclick="searchCSV()">Search</button>
+    <div id="results"></div>
+
+    <!-- API :( -->
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+
+</body>
+</html>
