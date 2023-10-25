@@ -1,4 +1,3 @@
-![image](https://github.com/ayushii06/LogicalVoids/assets/123254453/eb452990-028d-4791-8a05-910b6cdbdb7e)![image](https://github.com/ayushii06/LogicalVoids/assets/123254453/de8f5169-2dc5-469e-ae17-88126f856ed2)![image](https://github.com/ayushii06/LogicalVoids/assets/123254453/753e769c-ae52-4640-af84-5e202127bc38)# Code-with-Google-Maps-2023 - Hack2skill
 
 #### Team Name - LogicalVoids
 #### Problem Statement -  Analysing sources of Pollution in an area and providing solutions for them.
