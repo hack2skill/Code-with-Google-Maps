@@ -1,32 +1,31 @@
-# Code-with-Google-Maps-2023 - Hack2skill
+![image](https://github.com/ayushii06/LogicalVoids/assets/123254453/eb452990-028d-4791-8a05-910b6cdbdb7e)![image](https://github.com/ayushii06/LogicalVoids/assets/123254453/de8f5169-2dc5-469e-ae17-88126f856ed2)![image](https://github.com/ayushii06/LogicalVoids/assets/123254453/753e769c-ae52-4640-af84-5e202127bc38)# Code-with-Google-Maps-2023 - Hack2skill
 
-Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2skill!
-
-## Getting Started
-
-To get started with the Code-with-Google-Maps-2023 repository, follow these steps:
-
-### Submission Instruction:
-  1. Fork this repository
-  2. Create a folder with your Team Name
-  3. Upload all the code and necessary files in the created folder
-  4. Upload a **README.md** file in your folder with the below mentioned informations.
-  5. Generate a Pull Request with your Team Name. (Example: submission-XYZ_team)
-
-### README.md must consist of the following information:
-
-#### Team Name -
-#### Problem Statement - 
-#### Team Leader Email -
+#### Team Name - LogicalVoids
+#### Problem Statement -  Analysing sources of Pollution in an area and providing solutions for them.
+#### Team Leader Email - ayushipal06@gmail.com
 
 ### A Brief of the Prototype:
-  This section must include UML Diagrams and prototype description
+We planned to design a website for providing the primarily cause of pollution in an area and how we can reduce it efficiently.
+We will be extracting Google map Air Quality Index API to show the heat map of AQI of region. The user can search for a city to get further details about it.
+As we get input from user , we will provide information about the main possible sources of pollution (like industries and their contribution, the traffic data and the stubble burning data) as well as some possible solution .
+Moreover, we will also provide city v/s city comparison and plantation data.
   
 ### Tech Stack: 
-   List Down all technologies used to Build the prototype
+Frontend : HTML5, CSS3, JavaScript
+Backend : Node.js
+Database Management
+PYTHON
+API Integration 
    
 ### Step-by-Step Code Execution Instructions:
-  This Section must contain a set of instructions required to clone and run the prototype so that it can be tested and deeply analyzed
+
+1. Industries and their contribution  -- Count the number of factories in the area within a range of 10 km for a region and range of 50km for the city. We can count the number of factories using the Google Maps API and then store the data in a DataFrame. Then we will apply Machine Learning and categorise factories based on their contribution in pollution. This will be done by comparing AQI levels at the places.We will also show our final data as Tree Map showing contribution by each Factory.
+
+2. Traffic Data -- Using the Roads API, We will get the traffic data. Create a traffic layer map that will show which route has most traffic.Then comparing traffic data with AQI, we finally give a result about reason of pollution and instant traffic control is required there.
+
+3. Stubble Burning -- Collect the AQI level history data throughout the year. We will use IQR Based filtering / Z-score method to detect outliers.
+We will keep those region in separate DataFrame and then will compare the AQI level and smog conditionsBased on the AQI, we will categorise the region as Red Zone and Yellow Zone.
+
   
 ### Future Scope:
-   Write about the scalability and futuristic aspects of the prototype developed
+On an average of 1.66 million deaths are in India due to pollution alone. There is an urgent need of providing an efficient mechanism for pollution management. Our project aims at providing the same.
