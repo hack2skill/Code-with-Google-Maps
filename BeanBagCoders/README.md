@@ -14,7 +14,7 @@
 * **Efficient Transmission:** The reported information is efficiently transmitted through the backend infrastructure of the application.
 * **Streamlined User Experience:** The prototype embodies the core vision of SnapTrash by empowering users to contribute to cleaner urban environments in a straightforward manner.
 
-![UML Diagram](snaptrash-uml.png)
+![UML Diagram](SnapTrash-uml.png)
 
 ### Tech Stack:
 
