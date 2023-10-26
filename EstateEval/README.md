@@ -28,5 +28,4 @@ EstateEval is a web application that harnesses Google Maps APIs to help users as
 ![](Landingpage.png)
 ![](EstateEvalApp.png)
 
-Flowchart:
-![](flowchartofestateeval.png)
+![](flowchartofestateval.png)
