@@ -44,9 +44,9 @@ UML Diagram
 PROTOTYPE SCREENS & DESCRIPTION
 </p>
 
-|HomePage | EV Charger Near Me | EV Charger Selected Route
-|-|-|-|
-| ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Home%20Screen.png)| ![nearme](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Near%20Me%201.png)| [Route](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/near%20me%202%20polyline.png)|
+|HomePage | EV Charger Near Me | EV Charger Selected Route| EV Charger Nav Started| Add EV Charger |
+|-|-|-|-|-|
+| ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Home%20Screen.png)| ![nearme](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Near%20Me%201.png)| ![Route](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/near%20me%202%20polyline.png)|![Nav Started](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/near%20me%20navigation%20starts.png)|![Added EV Charger](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Add%20EV%20Charger.png)|
  
   This section must include UML Diagrams and prototype description
   
