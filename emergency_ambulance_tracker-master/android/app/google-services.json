@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "596899167096",
+    "firebase_url": "https://data-communication-project.firebaseio.com",
+    "project_id": "data-communication-project",
+    "storage_bucket": "data-communication-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596899167096:android:c6860bace44d7bf1cda68d",
+        "android_client_info": {
+          "package_name": "com.akshay.emergencyambulancetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596899167096-qmrkd7tqpq0l4raatapaki0osv9rashc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQvXToMPANUy425R92OSV59den00_aEiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596899167096-qmrkd7tqpq0l4raatapaki0osv9rashc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
