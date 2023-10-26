@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries","places," + [...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+          key: "AIzaSyBt2sNGoU8GFDWF5suxhY2VDPrpY5gr-0o",
+          v: "weekly",
+          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+          // Add other bootstrap parameters as needed, using camel case.
+        });
+      </script>
+      <script src="index.js"></script>
+      <link rel="stylesheet" type="text/css" href="./styles.css" />
+</head>
+<body>
+  <div class="left">
+  <div id="floating-panel">
+    <input id="hide-markers" type="button" value="Hide Markers" />
+    <input id="show-markers" type="button" value="Show Markers" />
+  </div>
+    <form>
+      <div class="form-group">
+        <label for="from"></label>
+        <input type="text" id="from" placeholder="Origin">
+      </div>
+      <div class="form-group">
+        <label for="to"></label>
+        <input type="text" id="to" placeholder="Destination">
+      </div>
+      <div class="form-group">
+      <label for="criteria-select">Select Criteria:</label>
+      <select id="criteria-select" name="criteria">
+        <option value="min_distance">Minimum Distance</option>
+        <option value="min_potholes">Minimum Potholes</option>
+      </select>
+    </div>
+    </form>
+    <button class="input-btn" onclick="calcRoute();">Submit</button>
+  </div>
+  <div class="right">
+    <div id="map"></div>
+    <div id="output"></div>
+  </div>
+</body>
+</html>
