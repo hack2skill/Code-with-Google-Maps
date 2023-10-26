@@ -1,4 +1,4 @@
-
+## Team Sayash
 ## Inspiration
 In the midst of the COVID-19 pandemic, when college campuses were abruptly closed and students were forced to return home, a sense of longing and isolation swept through the student community. The vibrant atmosphere and camaraderie of campus life were sorely missed, and students yearned for a way to stay connected and bridge the gap between their physical separation.
 
