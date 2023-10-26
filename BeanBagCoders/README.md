@@ -20,7 +20,12 @@
 
     Flutter,Firebase,Google Maps Platform
 
-### Step-by-Step Code Execution Instructions:
+## Step-by-Step Code Execution Instructions:
+1. Clone the repository: `git clone https://github.com/Utkarsh-m08/SnapTrash.git`
+2. Navigate to the project folder: `cd SnapTrash`
+3. Install dependencies: `flutter pub get`
+4. Run the app: `flutter run`
+
 
 ##### [Snap-Trash Repository](https://github.com/Utkarsh-m08/Snap-Trash) , All the Code is Updated here
 
