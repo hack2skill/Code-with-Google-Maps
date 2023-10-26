@@ -79,7 +79,20 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
     ```bash
     pip install -r requirements.txt
     ```
-  
+3. **Get API key:**
+    ```bash
+    Get your own Google Maps API key and store it in key.txt.
+    ```
+4. **Prediction:**
+   ```bash 
+    Predict the location of coordinates using the trained model. See python predict.py --help for details
+
+    The label file is used to associate category with location names in the output. For non-binary mode, you can simply use the map file. For binary mode, you can create a file with two lines:
+   
+    0,Others
+    1,{City name}
+
+
 ### Future Scope:
 
 | Task                                | Description                                            |
