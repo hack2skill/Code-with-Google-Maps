@@ -17,7 +17,7 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/api/popular_times")
+@app.route("/api/popular_times", methods=['GET'])
 def weight_gen():
     weights = []
     pop_time = popular_times()
@@ -36,7 +36,7 @@ def weight_gen():
 
         weights.append(weight)
 
-    return weights
+    return jsonify(weights)
 
 
 def popular_times():

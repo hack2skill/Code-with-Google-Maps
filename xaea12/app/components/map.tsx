@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import {
     GoogleMap,
     HeatmapLayer,
@@ -34,57 +34,27 @@ export default function Map() {
         }),
         []
     );
-    var businessData = [
-        {
-            "coordinates": {
-                "lat": 12.9682704,
-                "lng": 74.8065197
-            },
-            "weekly_sum": 5307
-        },
-        {
-            "coordinates": {
-                "lat": 12.9883174,
-                "lng": 74.8005921
-            },
-            "weekly_sum": 3800
-        },
-        {
-            "coordinates": {
-                "lat": 13.0223759,
-                "lng": 74.8079575
-            },
-            "weekly_sum": 5655
-        },
-        {
-            "coordinates": {
-                "lat": 12.9894559,
-                "lng": 74.8015439
-            },
-            "weekly_sum": 3798
-        },
-        {
-            "coordinates": {
-                "lat": 12.9743232,
-                "lng": 74.8036651
-            },
-            "weekly_sum": 4279
-        },
-        {
-            "coordinates": {
-                "lat": 12.9815466,
-                "lng": 74.8227607
-            },
-            "weekly_sum": 4314
-        },
-        {
-            "coordinates": {
-                "lat": 13.0010366,
-                "lng": 74.8260901
-            },
-            "weekly_sum": 5191
+
+    const [businessData, setBusinessData] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+        try {
+            const response = await fetch('/api/popular_times'); // Replace with your actual Flask API endpoint
+            if (response.ok) {
+                const data = await response.json();
+                setBusinessData(data);
+            } else {
+            console.error('Failed to fetch business data');
+            }
+        } catch (error) {
+            console.error('Error:', error);
         }
-    ];
+        }
+
+        fetchData();
+    }, []);
+
     let heatMapData = [];
 
     for (let i = 0; i < businessData.length; i++) {
