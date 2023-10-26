@@ -22,7 +22,7 @@ This project was created for </Code> with Maps Hackathon
 
 ## Team Leader Email 
 
--gouthamchennamakkal@gamil.com
+-gouthamchennamakkal@gmail.com
 
 <p align="center">
   <a href="#problem-helpnow-solves">Problem Statement</a> •
