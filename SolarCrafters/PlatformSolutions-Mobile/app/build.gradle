@@ -78,20 +78,23 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}"
 
 
-    def exoplayer_version = "1.1.1"
+    /*def exoplayer_version = "1.1.1"
     implementation "androidx.media3:media3-exoplayer:${exoplayer_version}"
     implementation "androidx.media3:media3-exoplayer-dash:${exoplayer_version}"
-    implementation "androidx.media3:media3-ui:${exoplayer_version}"
+    implementation "androidx.media3:media3-ui:${exoplayer_version}"*/
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
+
 
     // Auto complete Place by Google.
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'com.google.android.libraries.places:places:3.2.0'
 
     // for smooth and server side image loading
-    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    //implementation 'com.github.bumptech.glide:glide:4.16.0'
 
     //for handling .tiff images
-    implementation 'io.github.beyka:Android-TiffBitmapFactory:0.9.9.1'
+    //implementation 'io.github.beyka:Android-TiffBitmapFactory:0.9.9.1'
 
     //chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'

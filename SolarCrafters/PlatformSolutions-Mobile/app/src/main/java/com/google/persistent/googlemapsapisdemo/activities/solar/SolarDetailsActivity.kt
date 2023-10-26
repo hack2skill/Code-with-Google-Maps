@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.components.Description
@@ -11,6 +12,7 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.google.persistent.googlemapsapisdemo.R
 import com.google.persistent.googlemapsapisdemo.databinding.ActivitySolarDetailsBinding
 import com.google.persistent.googlemapsapisdemo.models.solar.response.building_insight.BuildingInsightResponseModel
 import kotlin.math.roundToInt
@@ -39,7 +41,14 @@ class SolarDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySolarDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        showToolBar()
         getPreviousScreenData()
+    }
+
+    private fun showToolBar() {
+        val toolbar = binding.appToolbarTB.toolbar
+        toolbar.findViewById<TextView>(R.id.toolbarMainTitleTV).text = "Solar Potentials"
+        toolbar.setNavigationOnClickListener { finish() }
     }
 
     private fun getPreviousScreenData() {
@@ -201,11 +210,6 @@ class SolarDetailsActivity : AppCompatActivity() {
         if (segmentIndex == BUILDING_WHOLE_ROOF_TOP)
             return ""
         val degree = buildingInsightData.solarPotential.roofSegmentStats[segmentIndex-1].azimuthDegrees.roundToInt()
-        //0 = North, 90 = East, 180 = South.
-        // 0-90 : North
-        // 90-180 :  East
-        // 180- 270: south
-        // 270 - 360: West
         when (degree) {
             in 0..90 -> return "North"
             in 90 ..180 -> return  "East"

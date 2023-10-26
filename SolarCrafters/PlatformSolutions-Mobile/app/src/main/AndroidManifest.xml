@@ -39,12 +39,7 @@
         <activity
             android:name=".activities.solar.SolarApiActivity"
             android:exported="false" />
-        <activity
-            android:name=".activities.AutoCompletePlaceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.RouteApiActivity"
-            android:exported="false" />
+
         <activity
             android:name=".activities.aerialview.VideoActivity"
             android:exported="false"
@@ -52,6 +47,7 @@
         <activity
             android:name=".activities.aerialview.AerialViewVideoActivity"
             android:exported="false"
+            android:theme="@style/AppTheme"
             android:screenOrientation="landscape" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -68,10 +64,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
 
-        <activity
-            android:name=".activities.MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps" />
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true">

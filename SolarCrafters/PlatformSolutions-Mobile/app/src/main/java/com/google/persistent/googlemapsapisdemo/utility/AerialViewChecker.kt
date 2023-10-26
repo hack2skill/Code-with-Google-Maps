@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import com.google.persistent.googlemapsapisdemo.activities.aerialview.VideoActivity
 import com.google.persistent.googlemapsapisdemo.models.lookup_render.request.LookupOrRenderVideoReqModel
 import com.google.persistent.googlemapsapisdemo.models.lookup_render.response.LookupOrRenderVideoResponseModel
-import com.google.persistent.googlemapsapisdemo.models.lookupvideo_video_id.response.LookupVideoByVideoIdResponseModel
+import com.google.persistent.googlemapsapisdemo.models.lookupvideo_video_id.response.LookupByVideoIdResModel
 import com.google.persistent.googlemapsapisdemo.retrofit.APIStatus
 import com.google.persistent.googlemapsapisdemo.retrofit.Result
 import com.google.persistent.googlemapsapisdemo.viewmodels.MapsViewModel
@@ -26,7 +26,7 @@ class AerialViewChecker constructor(private val viewModelFor3dVideo: MapsViewMod
                 when (result.APIStatus) {
                     APIStatus.SUCCESS   -> { checkIf3dVideoExistInResponse(result) }
                     APIStatus.ERROR     -> { handleApiFailureResponse(result) }
-                    APIStatus.LOADING   -> { DialogUtils.showLoaderDialog("Google Cloud API", "Checking for Aerial view of this location.", context) }
+                    APIStatus.LOADING   -> { DialogUtils.showLoaderDialog("Ghar Ghar Solar", "Checking for Aerial view of this location.", context) }
                 }
             }
         }
@@ -44,20 +44,20 @@ class AerialViewChecker constructor(private val viewModelFor3dVideo: MapsViewMod
     }
 
     private fun nowLookupVideoByVideoId() {
-        if (videoId.isEmpty()) {
+        if (videoId.isEmpty())
             return
-        }
-        viewModelFor3dVideo.lookupVideoByVideoId(videoId).observe(lifeCycleOwner, Observer {
+
+        viewModelFor3dVideo.lookupVideoByVideoId(videoId).observe(lifeCycleOwner) {
             it?.let { result ->
-                when(result.APIStatus) {
+                when (result.APIStatus) {
                     APIStatus.SUCCESS   -> { handleVideoResponse(result) }
                     APIStatus.ERROR     -> { handleVideoApiFailureResponse(result) }
-                    APIStatus.LOADING   -> { DialogUtils.showLoaderDialog("Google Cloud API", "Looking for 3-d Cinematic video", context) }
+                    APIStatus.LOADING   -> { DialogUtils.showLoaderDialog("3-D Video", "Looking for 3-d Cinematic video", context) }
                 }
             }
-        })
+        }
     }
-    private fun handleVideoResponse(result: Result<LookupVideoByVideoIdResponseModel>) {
+    private fun handleVideoResponse(result: Result<LookupByVideoIdResModel>) {
         Log.e("success", result.toString())
         DialogUtils.hideLoaderDialog()
         val intentOfVideo = Intent(context, VideoActivity::class.java)
@@ -65,7 +65,7 @@ class AerialViewChecker constructor(private val viewModelFor3dVideo: MapsViewMod
         intentOfVideo.putExtra(VideoActivity.AREIALVIEW_BANNER_IMG_KEY, result.data?.uris?.IMAGE?.landscapeUri)
         startActivity(context, intentOfVideo, null)
     }
-    private fun handleVideoApiFailureResponse(result: Result<LookupVideoByVideoIdResponseModel>) {
+    private fun handleVideoApiFailureResponse(result: Result<LookupByVideoIdResModel>) {
         DialogUtils.hideLoaderDialog()
         Toast.makeText(context, result.message, Toast.LENGTH_LONG).show()
         Log.e("Error", result.toString())
@@ -81,6 +81,6 @@ class AerialViewChecker constructor(private val viewModelFor3dVideo: MapsViewMod
         if (message == "HTTP 400 ") {
             return "Address is not supported."
         }
-        return  "An error occurred:$message"
+        return  "An error occurred: $message"
     }
 }

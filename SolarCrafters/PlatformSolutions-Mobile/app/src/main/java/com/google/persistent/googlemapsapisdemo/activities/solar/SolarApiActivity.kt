@@ -19,7 +19,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.GroundOverlayOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -28,18 +27,16 @@ import com.google.android.material.slider.Slider
 import com.google.persistent.googlemapsapisdemo.R
 import com.google.persistent.googlemapsapisdemo.activities.future.NextFutureOfSolarActivity
 import com.google.persistent.googlemapsapisdemo.activities.wealth_meter.WealthMeterActivity
-import com.google.persistent.googlemapsapisdemo.callbacks.OnImageConversionOperation
 import com.google.persistent.googlemapsapisdemo.databinding.ActivitySolarApiBinding
 import com.google.persistent.googlemapsapisdemo.dataclasses.LocationDataClass
 import com.google.persistent.googlemapsapisdemo.models.solar.response.building_insight.BuildingInsightResponseModel
-import com.google.persistent.googlemapsapisdemo.models.solar.response.data_layer.DataLayerResponseModel
 import com.google.persistent.googlemapsapisdemo.retrofit.APIStatus
 import com.google.persistent.googlemapsapisdemo.retrofit.ApiHelper
 import com.google.persistent.googlemapsapisdemo.retrofit.Result
 import com.google.persistent.googlemapsapisdemo.retrofit.RetrofitClient
 import com.google.persistent.googlemapsapisdemo.utility.AerialViewChecker
 import com.google.persistent.googlemapsapisdemo.utility.DialogUtils
-import com.google.persistent.googlemapsapisdemo.utility.FileUtils
+import com.google.persistent.googlemapsapisdemo.utility.MapUtils
 import com.google.persistent.googlemapsapisdemo.viewmodel_generator.ViewModelFactory
 import com.google.persistent.googlemapsapisdemo.viewmodels.MapsViewModel
 import com.google.persistent.googlemapsapisdemo.viewmodels.SolarViewModel
@@ -204,13 +201,8 @@ class SolarApiActivity : AppCompatActivity(),
         val panelWidth = buildingInsightData.solarPotential.panelWidthMeters
         /** Adding image on Ground level */
         solarPanels.forEachIndexed { index, solarPanel ->
-            val solarPanelIcon = FileUtils.getDrawableSolarPanel(solarPanel.orientation)
-            val groundOverlayLocation = LatLng(solarPanel.center.latitude, solarPanel.center.longitude)
-            val groundOverlays = GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(solarPanelIcon))
-                .position(groundOverlayLocation, panelWidth.toFloat(), panelHeight.toFloat())
-                .clickable(true)
-            gMap.addGroundOverlay(groundOverlays)
+            val solarPanelIcon = MapUtils.getDrawableSolarPanel(solarPanel.orientation)
+            gMap.addGroundOverlay(MapUtils.getGroundOverlay(LatLng(solarPanel.center.latitude, solarPanel.center.longitude), solarPanelIcon, panelWidth.toFloat(), panelHeight.toFloat()))
         }
         binding.panelCounterNumberTV.text = solarPanels.size.toString()
         binding.sliderForPanel.value = solarPanels.size.toFloat()
@@ -218,22 +210,14 @@ class SolarApiActivity : AppCompatActivity(),
 
     /** Added Panel by Panel on Building Roof-top by Slider change as per user action */
     private fun addSolarPanelsBySliderAction(indexOfPanel:Int) {
-        binding.solarPanelsProgressBar.progress = indexOfPanel
         Log.e("position", indexOfPanel.toString())
         val listOfAllSolarPanels = buildingInsightData.solarPotential.solarPanels
         val panelHeight = buildingInsightData.solarPotential.panelHeightMeters
         val panelWidth = buildingInsightData.solarPotential.panelWidthMeters
         /** Adding image on Ground level */
-        val solarPanelIcon = FileUtils.getDrawableSolarPanel(listOfAllSolarPanels[indexOfPanel].orientation)
-        val groundOverlayLocation = LatLng(listOfAllSolarPanels[indexOfPanel].center.latitude,
-            listOfAllSolarPanels[indexOfPanel].center.longitude)
-        val groundOverlays = GroundOverlayOptions()
-            .image(BitmapDescriptorFactory.fromResource(solarPanelIcon))
-            .position(groundOverlayLocation,
-                panelWidth.toFloat(),
-                panelHeight.toFloat())
-            .clickable(true)
-        gMap.addGroundOverlay(groundOverlays)
+        val solarPanelIcon = MapUtils.getDrawableSolarPanel(listOfAllSolarPanels[indexOfPanel].orientation)
+        gMap.addGroundOverlay(MapUtils.getGroundOverlay(LatLng(listOfAllSolarPanels[indexOfPanel].center.latitude,
+            listOfAllSolarPanels[indexOfPanel].center.longitude), solarPanelIcon, panelWidth.toFloat(), panelHeight.toFloat()))
     }
 
     /** Show and Handle UI for Solar Panel plotting and designing */
@@ -243,8 +227,6 @@ class SolarApiActivity : AppCompatActivity(),
         binding.sliderForPanel.valueTo = buildingInsightData.solarPotential.maxArrayPanelsCount.toFloat()
         binding.sliderForPanel.addOnChangeListener(this)
         binding.sliderForPanel.value = 1.0f
-        binding.solarPanelsProgressBar.max = buildingInsightData.solarPotential.maxArrayPanelsCount
-        binding.solarPanelsProgressBar.progress = 1
     }
 
     /** Draw the building roof-top boundary when Insight API call is done */
@@ -345,7 +327,7 @@ class SolarApiActivity : AppCompatActivity(),
             return
         }
         binding.solarPanelActionviewLL.visibility = View.GONE
-        binding.spotlightView.visibility = View.GONE
+        //binding.spotlightView.visibility = View.GONE
         evaluateBuilding(objOfMarker)
         objOfMarker.hideInfoWindow()
     }

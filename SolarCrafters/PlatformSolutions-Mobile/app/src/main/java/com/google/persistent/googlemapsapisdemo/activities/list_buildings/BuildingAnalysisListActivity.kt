@@ -1,6 +1,7 @@
 package com.google.persistent.googlemapsapisdemo.activities.list_buildings
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -27,6 +28,7 @@ class BuildingAnalysisListActivity : AppCompatActivity() {
         val title = toolbar.findViewById<TextView>(R.id.toolbarMainTitleTV)
         title.text = "Welcome to Ghar Ghar Solar"
         toolbar.navigationIcon = getDrawable(R.drawable.ic_logout)
+        toolbar.navigationIcon?.setTint(Color.WHITE)
         toolbar.setNavigationOnClickListener { finish() }
         //setSupportActionBar(toolbar) // Setting/replace toolbar as the ActionBar4
     }

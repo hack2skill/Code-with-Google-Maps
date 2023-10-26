@@ -98,7 +98,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
+    <!--<View
         android:id="@+id/spotlightView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -107,7 +107,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
     <LinearLayout
         android:id="@+id/solarPanelActionviewLL"
@@ -183,7 +183,7 @@
             android:layout_margin="8dp">
 
             <!--progress bar implementation-->
-            <ProgressBar
+            <!--<ProgressBar
                 android:id="@+id/solarPanelsProgressBar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
@@ -191,7 +191,7 @@
                 android:background="@drawable/circular_shape"
                 android:indeterminate="false"
                 android:progressDrawable="@drawable/circular_progress_bar"
-                android:textAlignment="center" />
+                android:textAlignment="center" />-->
 
             <!--Text implementation in center of the progress bar-->
             <TextView

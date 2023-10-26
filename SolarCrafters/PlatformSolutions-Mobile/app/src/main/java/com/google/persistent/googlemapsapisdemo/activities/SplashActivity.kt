@@ -10,15 +10,10 @@ import com.google.persistent.googlemapsapisdemo.databinding.ActivitySplashBindin
 
 
 private const val SPLASH_SCREEN_DURATION: Long = 2000
+
 @SuppressLint("CustomSplashScreen")
-class SplashActivity : AppCompatActivity(),
-    OnRequestPermissionsResultCallback {
+class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
-    /**
-     * Flag indicating whether a requested permission has been denied after returning in
-     * [.onRequestPermissionsResult].
-     */
-    private var permissionDenied = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
@@ -26,7 +21,7 @@ class SplashActivity : AppCompatActivity(),
         navigateToNextScreen()
     }
     /**
-     * do Navigation after SPLASH_SCREEN_DURATION seconds to App Intro Activity
+     * do Navigation after SPLASH_SCREEN_DURATION seconds to Next Activity
      */
     private fun navigateToNextScreen() {
         try {

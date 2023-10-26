@@ -1,10 +1,10 @@
 package com.google.persistent.googlemapsapisdemo.retrofit
 
-import com.google.persistent.googlemapsapisdemo.models.distance_matrix.DistanceMatrixResponseModel
 import com.google.persistent.googlemapsapisdemo.models.lookup_render.request.LookupOrRenderVideoReqModel
 import com.google.persistent.googlemapsapisdemo.models.lookup_render.response.LookupOrRenderVideoResponseModel
-import com.google.persistent.googlemapsapisdemo.models.lookupvideo_address.response.LookupVideoByAddressResponseModel
-import com.google.persistent.googlemapsapisdemo.models.lookupvideo_video_id.response.LookupVideoByVideoIdResponseModel
+import com.google.persistent.googlemapsapisdemo.models.lookupvideo_address.response.LookupByAddressResModel
+import com.google.persistent.googlemapsapisdemo.models.lookupvideo_video_id.response.LookupByVideoIdResModel
+
 import com.google.persistent.googlemapsapisdemo.models.solar.response.building_insight.BuildingInsightResponseModel
 import com.google.persistent.googlemapsapisdemo.models.solar.response.data_layer.DataLayerResponseModel
 import okhttp3.ResponseBody
@@ -24,17 +24,10 @@ interface APIServices {
     suspend fun lookupOrRenderVideoByAddress(@Body lookupOrRenderVideoReqModel: LookupOrRenderVideoReqModel): LookupOrRenderVideoResponseModel
 
     @GET("v1/videos:lookupVideo?key=" + RetrofitClient.GOOGLE_CLOUD_APIKEY)
-    suspend fun lookupVideoByVideoId(@Query("videoId") videoId: String): LookupVideoByVideoIdResponseModel
+    suspend fun lookupVideoByVideoId(@Query("videoId") videoId: String): LookupByVideoIdResModel
 
     @GET("v1/videos:lookupVideo?key=" + RetrofitClient.GOOGLE_CLOUD_APIKEY)
-    suspend fun lookupVideoByAddress(@Query("address") address: String): LookupVideoByAddressResponseModel
-
-    // endpoint: https://maps.googleapis.com/maps/api/
-    // units=imperial
-    @GET("distancematrix/json?key="+RetrofitClient.GOOGLE_CLOUD_APIKEY)
-    suspend fun getDistanceMatrixFromLocation(@Query("destinations") destinations:String,
-                                              @Query("origins") origins:String
-                                              /*@Query("units") units: String*/): DistanceMatrixResponseModel
+    suspend fun lookupVideoByAddress(@Query("address") address: String): LookupByAddressResModel
 
     /** SOLAR APIs */
     /**

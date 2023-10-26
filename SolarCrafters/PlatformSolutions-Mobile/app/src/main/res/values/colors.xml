@@ -9,6 +9,6 @@
     <color name="primaryColor">#4a6176</color>
     <color name="primaryColorDark">#3b4e5e</color>
     <color name="actionable">#718394</color>
-    <color name="camera_actionbar_color_with_alpha">#66000000</color>
+    <color name="camera_actionbar_color_with_alpha">#75000000</color>
 
 </resources>

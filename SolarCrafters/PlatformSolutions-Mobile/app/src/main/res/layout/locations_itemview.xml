@@ -14,7 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="120dp">
 
             <!--<TextView
                 android:id="@+id/itemNumberTV"
@@ -48,20 +48,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Address:"
-                android:layout_marginTop="@dimen/standard_margin_one_point_five"
+                android:layout_marginTop="@dimen/standard_margin"
                 android:textSize="@dimen/field_text_size"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!--<TextView
+            <TextView
                 android:id="@+id/latLongValTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginVertical="8dp"
                 android:text="12.2232434342, 35.8778343423"
-                android:textSize="@dimen/field_text_size" />-->
+                android:textSize="@dimen/field_text_size"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintStart_toStartOf="@+id/locationTitle"
+                app:layout_constraintTop_toBottomOf="@+id/locationTitle" />
 
             <TextView
                 android:id="@+id/locationTitle"
@@ -70,7 +73,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginVertical="@dimen/standard_margin_half"
                 android:ellipsize="marquee"
-                android:maxLines="4"
+                android:maxLines="3"
                 android:paddingEnd="@dimen/standard_margin"
                 android:text="Building address will be here"
                 android:textSize="@dimen/field_text_size"

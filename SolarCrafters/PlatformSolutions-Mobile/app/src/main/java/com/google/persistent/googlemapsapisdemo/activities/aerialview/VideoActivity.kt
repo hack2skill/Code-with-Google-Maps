@@ -16,7 +16,7 @@ import com.google.persistent.googlemapsapisdemo.databinding.ActivityVideoBinding
 
 class VideoActivity : AppCompatActivity() {
     companion object {
-        const val URL = "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        const val testUrl = "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         const val AREIALVIEW_VIDEO_KEY = "AREIALVIEW_VIDEO_KEY"
         const val AREIALVIEW_BANNER_IMG_KEY = "AREIALVIEW_BANNER_IMG_KEY"
     }
@@ -44,16 +44,22 @@ class VideoActivity : AppCompatActivity() {
     }
 
     private fun initVideo() {
-        videoView = binding.videoView
-        videoView.setMediaController(MediaController(this))
-        videoView.setVideoURI(Uri.parse(uriOfAerialViewVideo))
-        videoView.requestFocus()
-        videoView.setOnPreparedListener { mp ->
-            mp.isLooping = true
-            videoView.start()
+        runOnUiThread {
+            Toast.makeText(this, "Please wait while loading the 3-D video of building surrounding.", Toast.LENGTH_LONG).show()
+            videoView = binding.videoView
+            videoView.setMediaController(MediaController(this))
+            videoView.setVideoURI(Uri.parse(uriOfAerialViewVideo))
+            videoView.requestFocus()
+            videoView.setOnPreparedListener { mp ->
+                mp.isLooping = true
+                videoView.start()
+            }
+            videoView.setOnCompletionListener {
+                Toast.makeText(this, "Video is ended, preparing for re-playing", Toast.LENGTH_LONG).show()
+            }
+            val thumb: Bitmap? = ThumbnailUtils.createVideoThumbnail(uriOfBannerImg, MediaStore.Images.Thumbnails.MINI_KIND)
+            val bitmapDrawable = BitmapDrawable(thumb)
+            videoView.setBackgroundDrawable(bitmapDrawable)
         }
-        val thumb: Bitmap? = ThumbnailUtils.createVideoThumbnail(uriOfBannerImg, MediaStore.Images.Thumbnails.MINI_KIND)
-        val bitmapDrawable = BitmapDrawable(thumb)
-        videoView.setBackgroundDrawable(bitmapDrawable)
     }
 }
