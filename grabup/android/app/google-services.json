@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "416379104106",
+    "project_id": "grabup-84362",
+    "storage_bucket": "grabup-84362.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416379104106:android:d0069063f402327cc65313",
+        "android_client_info": {
+          "package_name": "com.example.grabup"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw_SsREt-mFyDiiupWsvlhK-Cipn_fFbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
