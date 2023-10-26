@@ -14,7 +14,7 @@ When people are on the move, the problem of charging electronic devices becomes 
 ![WhatsApp Image 2023-10-26 at 22 45 07_c1c753b7](https://github.com/siddesh3101/Code-with-Google-Maps/assets/84890369/86143eec-be7f-42c9-a2b0-c3f043e00301)
   
 ### Tech Stack: 
-Frontend:  Flutter, HTML <br>
+*Frontend:*  Flutter, HTML <br>
 Backend: Firebase <br>
 Google Maps API: Places API, Geolocation API, DIrection Matrix API, Directions API, Routes API, and Polylines API <br>
 Database: Realtime Database(Firebase) <br>
