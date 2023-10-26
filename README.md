@@ -13,8 +13,9 @@
    Google Maps JavaScript API , Html , CSS3 , JavaScript , React and Express JS
    
 ### Step-by-Step Code Execution Instructions:
-  1) Clone this repo 
-  2) Start a live server in vs code
+  1) Clone this repo
+  2) Replace MAP_ID and API_KEY in script.js and index.html files with your respective google maps api key and map id
+  3) Start a live server in vs code
   
 ### Future Scope:
    Using google maps platform we can access data's about carbon footprint of nearby area's / more specific locations which in a way will help in determining the environmental standards and the way's we can reduce and improve it as such. Another use will be water resource usage which is basically the measure of water usage in area's and the quick assessement of excess and unused water. Same way we can include more resource related data's and thus can be useful not just for the public but also for the corporates for their carbon green ambitions and commitment for the green future.
