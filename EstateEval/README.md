@@ -13,7 +13,7 @@ EstateEval is a web application that harnesses Google Maps APIs to help users as
 
 ## Step-by-Step Code Execution Instructions:
 1) Download the folder and open it using a Code Editor such as VSCode.
-2) Edit script.js:line 10 and estateeval.html:line 33 and replace YOUR_API_KEY_HERE with your google maps API key.
+2) Edit script.js:line 263 and estateeval.html:line 35 and replace YOUR_API_KEY_HERE with your google maps API key.
 3) Open the landing page file using Live Server to see the Landing Page and click on Get Started to use the Estate Evaluator Application.
 4) Alternatively, you can directly open the EstateEval file using Live Server.
 5) To use the application, Enter the address of the property you would like to evaluate in the box.
