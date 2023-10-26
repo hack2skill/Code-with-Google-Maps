@@ -6,6 +6,11 @@
 
 [Problem Statement Link Detail🔗](https://docs.google.com/document/d/160oyQ6BLR8i1LgxbjCiQ5VWcwBIbKOXJz5jXo1jolFI/edit?usp=sharing)
 
+## Go Through Video
+
+[A go through video🔗](https://drive.google.com/file/d/1frt_BzlOEGMjhoKhb15OyGIewCR-_tLH/view?usp=drivesdk)
+
+
 ## Product Diagram
 
 <img width="2869" alt="Untitled" src="https://github.com/soumikbaksi18/ResQAlert/assets/52580094/0d83619a-0165-4669-878c-82945303e507">
