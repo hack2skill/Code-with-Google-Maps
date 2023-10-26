@@ -115,5 +115,12 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
 **PPT LINK:**
 [https://docs.google.com/presentation/d/1ZTrXjLjmY17FRtEVmNSRmhjeo-oie3P3qBXKFXLdedU/edit?usp=sharing](https://docs.google.com/presentation/d/1ZTrXjLjmY17FRtEVmNSRmhjeo-oie3P3qBXKFXLdedU/edit?usp=sharing)
 
-**Screenshots**
-
+**Screenshots:**
+<br>
+<div>
+  <img src="/demo/ss1.png" width="150">
+  <img src="/demo/ss2.png" width="150">
+  <img src="/demo/ss3.png" width="150">
+  <img src="/demo/ss4.png" width="150">
+  <img src="/demo/ss5.png" width="150">
+</div>
