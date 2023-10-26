@@ -21,8 +21,8 @@
 ### Future Scope:
    Write about the scalability and futuristic aspects of the prototype developed
 
-- []Maps ID create a custom beautiful map
-- []Auto Locator to find Nearest EV Chargers
+- [] Maps ID create a custom beautiful map
+- [x] Auto Locator to find Nearest EV Chargers
 - []Geocoding API
 - []Places API
 - []Directions API
