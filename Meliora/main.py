@@ -13,6 +13,10 @@ app.app_context().push()
 
 # =======================================================================
 
+@app.route('/distress', methods=['GET','POST'])
+def distress():
+    return render_template('sos.html')
+
 @app.route('/', methods=['GET','POST'])
 def index():
     msg01 = request.args.get('msg01')
