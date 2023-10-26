@@ -6,6 +6,8 @@
 
 ### A Brief of the Prototype:
   Our application plots the location of resources available throughout the world and specifies their locations briefly. This prototype is only an implementation of the google maps api with the plotting done with demo data and the final product will be done with accurate data from several industry standard apis plotting resources like carbon footprint , gold locations , water logging , etc accurately and display a brief output to understand this data at a glance
+  ![hack2skill-uml](https://github.com/ZuxRoy/squadron101/assets/133500567/d8326bf8-2605-4581-ba18-4c4e8283c7a7)
+
   
 ### Tech Stack: 
    Google Maps JavaScript API , Html , CSS3 , JavaScript , React and Express JS
