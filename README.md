@@ -28,8 +28,8 @@ Key Features:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/spotter-app.git
-   cd spotter-app
+   git clone https://github.com/suvarnak10/Code-with-Google-Maps.git
+   cd Code-with-Google-Maps
    ```
 
 2. Install the required dependencies for the frontend:
