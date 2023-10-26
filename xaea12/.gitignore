@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.venv
+/api/venv
 /api/__pycache__
 /.pnp
 .pnp.js
