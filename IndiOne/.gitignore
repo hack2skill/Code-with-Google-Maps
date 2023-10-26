@@ -1,0 +1,7 @@
+#Ignore rules for backend:
+Backend/BackendVenv
+Backend/keys.json
+
+#Ignore rules for frontend:
+Frontend/node_modules
+Frontend/.env
