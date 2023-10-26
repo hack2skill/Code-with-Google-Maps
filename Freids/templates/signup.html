@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>Mobile Website</title>
+</head>
+<body>
+        
+        <nav class="navbar navbar-dark" style="background-color: #fff2df">
+                <div class="container-fluid">
+                  <a href="{%  url 'landing'  %}">
+                  <img
+                  src="{% static 'img/logo.jpeg' %}"
+                    alt="LocalVista"
+                    class="header-logo"
+                  />
+          
+                </a>
+                  <!-- Use ms-auto to move the button to the right -->
+                  <button
+                    class="navbar-toggler ms-auto"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <!-- <i class="fas fa-user"></i> -->
+                    <span
+                      class="navbar-toggler-icon"
+                      style="background-color: rgb(230, 221, 221)"
+                    ></span>
+                  </button>
+                </div>
+              </nav>
+              
+              <div class="collapse" id="navbarToggleExternalContent">
+                    {% if user_is_authenticated %}
+                    <div class="bg-white p-4">
+                           <a href="{% url 'profile'  %}"> <h2 class="text-black h4">Profile</h2></a>
+                            <!-- <span class="text-muted">Toggleable via the navbar brand.</span> -->
+                            <!-- <h2 class="text-black h4">Logout</h2> -->
+                            <a href="{% url 'profile'  %}"> <h2 class="text-black h4">Logout</h2></a>
+                            <a href="{% url 'feed'  %}"> <h2 class="text-black h4">Feed</h2></a>
+                          </div>            
+              
+              {% else %}
+              <div class="bg-white p-4">
+                    <!-- <h2 class="text-black h4">Login</h2> -->
+                    <a href="{% url 'login'  %}"> <h2 class="text-black h4">Login</h2></a>
+                    <a href="{% url 'signup'  %}"> <h2 class="text-black h4">Signup</h2></a>
+                    
+                    <!-- <span class="text-muted">Toggleable via the navbar brand.</span> -->
+                    <!-- <h2 class="text-black h4">Signup</h2> -->
+                  </div>
+      
+                {% endif %}
+              </div>
+              <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"
+        ></script>
+        
+
+    <main class="main-content">
+        
+        <div class="success"></div>
+
+        <h3 id="main-h2">Signup</h3>
+        <form id="login-form">
+            <!-- Name input -->
+            
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="username" id="form2Example1" class="form-control" placeholder="Your Email"/>
+              <!-- <label class="form-label" for="form2Example1">Email address</label> -->
+            </div>
+          
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example2" class="form-control" placeholder="Password" />
+              <!-- <label class="form-label" for="form2Example2">Password</label> -->
+            </div>
+              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+              </div>
+          </form>
+    </main>
+
+    <footer class="footer">
+        &copy; 2023 LocalVista
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'js/base.js' %}"></script>
+<script>
+
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission
+        
+            // Get the username and password values from the form
+            const username = document.getElementById('form2Example1').value;
+            const password = document.getElementById('form2Example2').value;
+        
+            // Call the login function with the provided credentials
+            signup(username, password, function (error, data) {
+                if (error) {
+                    // Handle login error here, e.g., display an error message
+                    console.error('Login failed: ' + error);
+                } else {
+                    // Handle successful login, e.g., set the success message
+                    const successDiv = document.querySelector('.success');
+                    successDiv.textContent = 'Sign sucesful successful';
+                    document.getElementById('main-h2').style.display = 'none';
+                    document.getElementById('login-form').style.display = 'none';
+                    console.log('User data:', data);
+                    window.href="/profile/"
+                }
+            });
+        });
+        
+
+</script>
+</html>

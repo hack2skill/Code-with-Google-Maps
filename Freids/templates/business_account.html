@@ -1,0 +1,386 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feed Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css'%}" />
+    <!-- <link rel="stylesheet" type="text/css" href="/css/feed.css" /> -->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/feed.css'%}" />
+    <!-- <link rel="stylesheet" type="text/css" href="/css/styles.css" /> -->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/businessprofile.css'%}" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    
+      
+        <nav class="navbar navbar-dark" style="background-color: #fff2df">
+                <div class="container-fluid">
+                  <img
+                  src="{% static 'img/logo-transparent-png.png' %}"
+                    alt="LocalVista"
+                    class="header-logo"
+                  />
+          
+                  <!-- Use ms-auto to move the button to the right -->
+                  <button
+                    class="navbar-toggler ms-auto"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <!-- <i class="fas fa-user"></i> -->
+                    <span
+                      class="navbar-toggler-icon"
+                      style="background-color: rgb(230, 221, 221)"
+                    ></span>
+                  </button>
+                </div>
+              </nav>
+              
+              <div class="collapse" id="navbarToggleExternalContent">
+                    {% if user_is_authenticated %}
+                    <div class="bg-white p-4">
+                           <a href="{% url 'profile'  %}"> <h2 class="text-black h4">Profile</h2></a>
+                            <!-- <span class="text-muted">Toggleable via the navbar brand.</span> -->
+                            <!-- <h2 class="text-black h4">Logout</h2> -->
+                            <a href="{% url 'profile'  %}"> <h2 class="text-black h4">Logout</h2></a>
+                            <a href="{% url 'feed'  %}"> <h2 class="text-black h4">Feed</h2></a>
+                          </div>            
+              
+              {% else %}
+              <div class="bg-white p-4">
+                    <h2 class="text-black h4">Login</h2>
+                    <a href="{% url 'profile'  %}"> <h2 class="text-black h4">Login</h2></a>
+                    <!-- <span class="text-muted">Toggleable via the navbar brand.</span> -->
+                    <h2 class="text-black h4">Signup</h2>
+                  </div>
+      
+                {% endif %}
+              </div>
+              <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"
+        ></script>
+
+
+    <div class="collapse" id="navbarToggleExternalContent1">
+      <div class="bg-white p-4">
+        <a href="#">Profile</a>
+        <br />
+        <a href="#">Logout</a>
+      </div>
+    </div>
+    <div class="row py-5 px-4">
+      <div class="col-md-5 mx-auto">
+        <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden">
+          <div class="px-4 pt-0 pb-4 cover">
+            <div class="media align-items-end profile-head">
+              <div class="profile mr-3">
+                <img
+                  src=""
+                  alt="..."
+                  width="130"
+                  class="rounded mb-2 img-thumbnail primage"
+                />
+              </div>
+              <div class="media-body mb-5 text-white">
+                <h4 class="mt-0 mb-0 name_shop"></h4>
+                <p class="small mb-4">
+                  <i class="fas fa-map-marker-alt mr-2 location_shop"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="py-4 px-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h5 class="mb-0" style="padding-top: 75px">Recent photos</h5>
+        
+            </div>
+            <div class="row  multi_image">
+              
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Section -->
+    <div class="container">
+      <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
+        <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">
+          Not Yet Convinced?
+        </h4>
+        <h1
+          class="font-cond-b fg-text-d lts-md fs-300 fs-300-xs no-mg"
+          contenteditable="false"
+        >
+          Read Customer Reviews
+        </h1>
+      </div>
+    </div>
+    <div class="container">
+      <ul class="hash-list cols-3 cols-1-xs pad-30-all align-center text-sm review_inner">
+        
+      
+      </ul>
+    </div>
+
+    <div style="padding: 50px" class="text-center">
+      <a type="button" href="{% url 'business_account' business_account.id %}" class="btn btn-outline-secondary">
+        Enter Your Experience
+      </a>
+    </div>
+
+    <!-- Bootstrap Modal for Filters -->
+    <div
+      class="modal fade"
+      id="filterModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="filterModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="filterModalLabel">Set Preferences</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Form for setting preferences -->
+            <form action="#">
+              <div class="form-group">
+                <label for="distance">Distance (miles):</label>
+                <input
+                  type="range"
+                  class="form-control-range"
+                  id="distance"
+                  name="distance"
+                  min="0"
+                  max="10"
+                />
+                <p id="distanceLabel">0 miles</p>
+              </div>
+              <div class="form-group">
+                <label>Food Preference:</label>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="vegOption"
+                    name="food-preference"
+                    value="Veg"
+                  />
+                  <label class="form-check-label" for="vegOption">Veg</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="nonVegOption"
+                    name="food-preference"
+                    value="Non-Veg"
+                  />
+                  <label class="form-check-label" for="nonVegOption"
+                    >Non-Veg</label
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cuisine-preference">Cuisine Preference:</label>
+                <select
+                  class="form-control"
+                  id="cuisine-preference"
+                  name="cuisine-preference"
+                >
+                  <option value="South Indian">South Indian</option>
+                  <option value="Gujarati">Gujarati</option>
+                  <option value="Italian">Italian</option>
+                  <!-- Add more cuisine options here -->
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      &copy; 2023 LocalVista
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+
+  <!-- <script src="{% static 'js/base.js' %}"></script> -->
+<script>
+
+        
+        function fetchBusinessAccountDetails(id) {
+          console.log(id,"DDDDDDDDDDDDDDD")  
+          fetch(`/account/business/${id}/`)  // Replace with the actual URL of your API endpoint
+                .then(response => response.json())
+                .then(data => {
+
+                  image_data=""
+                  data.images.forEach(image=>{
+                      image_data +=`
+                      <div class="col-lg-6 mb-2 pr-lg-1">
+                              <img
+                                src="${image.image}"
+                                alt=""
+                                class="img-fluid rounded shadow-sm"
+                              />
+                            </div>
+                      
+                      `
+                  });
+                  data.menu.forEach(image=>{
+                      image_data +=`
+                      <div class="col-lg-6 mb-2 pr-lg-1">
+                              <img
+                                src="${image.image}"
+                                alt=""
+                                class="img-fluid rounded shadow-sm"
+                              />
+                            </div>
+                      
+                      `
+                  });
+                  document.querySelector(".multi_image").innerHTML = image_data
+                  document.querySelector(".primage").src = data.primage || "/static/img/thella.jpg"
+                  document.querySelector(".name_shop").innerText = data.business_name
+                  document.querySelector(".location_shop").innerText = data.locality
+
+
+                });
+        }
+        function getReviewsByBusinessId(businessId) {
+            // Replace 'your-api-url' with the actual URL of your API endpoint
+            fetch(`/business/${businessId}/reviews/`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle the data (in this case, assuming it's JSON)
+                    //console.log(data);
+
+
+                    review_data=""
+                    
+                    data.forEach(ev=>{
+
+
+                        review_data +=`
+                        <li>
+                                <img
+                                  src="${(ev.images.length > 0 && ev.images[0].image )|| "https://bootdey.com/img/Content/avatar/avatar1.png"}"
+                                  class="wpx-100 img-round mgb-20"
+                                  title=""
+                                  alt=""
+                                  data-edit="false"
+                                  data-editor="field"
+                                  data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]"
+                                />
+                                <p class="fs-110 font-cond-l" contenteditable="false">
+                                  " ${ev.comment}"
+                                </p>
+                                <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">
+                                    Verified User
+                                </h5>
+                                <small
+                                  class="font-cond case-u lts-sm fs-80 fg-text-l"
+                                  contenteditable="false"
+                                  >Rating - ${ev.rating} stars</small
+                                >
+                              </li>
+                        `
+                    })
+
+                    //console.log(review_data)
+                    document.querySelector(".review_inner").innerHTML = review_data
+                    // You can update the UI with the data here
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    // Handle the error as needed
+                });
+        }
+
+        function extractIdFromUrl() {
+            const url = window.location.href;
+            const match = url.match(/\/business\/(\d+)/);
+            if (match) {
+                const id = match[1];
+                return parseInt(id, 10);
+            }
+            return null; // Return null if the URL doesn't match the pattern
+        }
+
+        // Call the function to extract the ID from the URL and then fetch the business account details on DOM load
+        document.addEventListener('DOMContentLoaded', function () {
+          const businessId = extractIdFromUrl();
+          console.log("hello")
+          if (businessId !== null) {
+            fetchBusinessAccountDetails(businessId);
+            getReviewsByBusinessId(businessId);
+          }
+      });
+
+</script>
+</html>
+
+

@@ -1,0 +1,36 @@
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore the virtual environment
+venv/
+.venv/
+# If you're using Poetry for dependency management
+.poetry/
+
+# Ignore the local settings file (if you have one)
+local_settings.py
+
+# Ignore database files
+db.sqlite3
+
+# Ignore logs and temp files
+logs/
+*.log
+*.log.*
+*.tmp
+
+# Ignore user-uploaded media (if you're using Django's media storage)
+# media/
+
+# Ignore IDE-specific files and directories
+.vscode/
+.idea/
+
+# Ignore sensitive files and keys (add more as needed)
+.env
+*.key
+*.pem
+
+# Ignore database migrations (you might need to customize this)
+/migrations/

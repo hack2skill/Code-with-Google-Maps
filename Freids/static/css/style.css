@@ -1,0 +1,136 @@
+@import url("http://fonts.googleapis.com/css?family=Courgette");
+.text {
+  font-family: Courgette, sans-serif !important;
+  color: beige;
+  font-size: 30px;
+  padding-left: 2%;
+  padding-top: 50%;
+}
+.text1 {
+  font-family: Mukta, sans-serif !important;
+  color: black;
+  font-size: 20px;
+  padding-left: 2%;
+  font-weight: 50%;
+}
+.text2 {
+  font-family: Mukta, sans-serif !important;
+  color: black;
+  font-size: 20px;
+  padding-left: 2%;
+  padding-top: 5%;
+  font-weight: 50%;
+}
+.text3 {
+  font-family: Mukta, sans-serif !important;
+  color: black;
+  font-size: 15px;
+  padding-left: 2%;
+  padding-right: 2%;
+  font-weight: 50%;
+}
+.text4 {
+  font-family: Mukta, sans-serif !important;
+  color: black;
+  font-size: 15px;
+  margin: 0px;
+  font-weight: 50%;
+}
+
+.container1 {
+  justify-content: center; /* Center horizontally */
+  align-items: center; /*Center vertically*/
+  display: flex;
+}
+.custom-opacity {
+  opacity: 0.5; /* Adjust the value (between 0 and 1) to control the opacity level */
+}
+
+.container {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /*Center vertically*/
+  /* height: 100vh; Set container height to the viewport height for vertical centering */
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.closebtn {
+  padding-left: 10px;
+  color: #888;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: #000;
+}
+
+.header {
+  background-color: #fff2df;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff2df;
+  font-size: 24px;
+}
+
+.header-logo {
+  width: 120px;
+  height: auto;
+}
+
+.signup-login {
+  display: flex;
+  align-items: center;
+}
+
+.signup-login a {
+  margin-left: 10px;
+}
+
+.main-content {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.social-icons {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
