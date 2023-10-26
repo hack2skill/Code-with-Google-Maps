@@ -1,0 +1,26 @@
+.separator {
+  rotate: 90;
+}
+
+.card2 {
+  background-color: aqua;
+  border-radius: 10px;
+  /* display: flex; */
+  /* align-items: center; */
+  z-index: 3;
+  position: absolute;
+  margin-left: 260%;
+  margin-top: -80%;
+  box-shadow: 0px 12px 34px rgba(62, 72, 89, 0.15);
+}
+
+.elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
