@@ -14,6 +14,10 @@ Many individuals and businesses are interested in transitioning to solar energy 
 ### UML Diagrams
 ![UML Diagram](https://i.ibb.co/jMjdBd2/Untitled-Diagram-drawio.png)
 
+### Prototype Frontend
+![image](https://github.com/semi-infiknight/Code-with-Google-Maps/assets/97100765/151c1e4c-e7cc-47a7-aafe-650ff4b52859)
+
+
 ### Prototype Description
 Our solar energy ecosystem solutions application offers a comprehensive set of features to assist users in seamlessly integrating solar energy into their homes and businesses. Here's an overview of the key components:
 
