@@ -1,20 +1,5 @@
 # Code-with-Google-Maps-2023 - Hack2skill
 
-Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2skill!
-
-## Getting Started
-
-To get started with the Code-with-Google-Maps-2023 repository, follow these steps:
-
-### Submission Instruction:
-  1. Fork this repository
-  2. Create a folder with your Team Name
-  3. Upload all the code and necessary files in the created folder
-  4. Upload a **README.md** file in your folder with the below mentioned informations.
-  5. Generate a Pull Request with your Team Name. (Example: submission-XYZ_team)
-
-### README.md must consist of the following information:
-
   #### Team Name: QUANTUM QODERS
 #### Problem Statement: TRAFFIC CONGESTION
 #### Team Leader Email: 22cs3050@rgipt.ac.in

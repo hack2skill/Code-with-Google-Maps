@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ADMINISTRATION PANEL -->
+
+    <title>ADMIN PANEL</title>
+    <style>
+        body {
+            background-image: url('bg.jpeg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        #content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 100px auto;
+            max-width: 300px;
+        }
+
+        #droneLabel {
+            font-size: 24px;
+        }
+
+        #locationLabel {
+            font-size: 20px;
+        }
+
+        #middleImage {
+            max-width: 100%;
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="code.js"></script>
+    <div id="content">
+        <h1 id="droneLabel">DRONE-01</h1>
+        <p id="locationLabel">Image Received</p>
+
+        <!-- THIS IMAGE IS TAKEN BY THE DRONE OF THE TRAFFIC CONDITIONS -->
+        <img id="middleImage" src="traffic.jpg" alt="Image">
+
+        <!-- THESE COORDINATES WILL BE RECIEVED BY THE DRONE. DUE TO TIME CONSTRATINTS, FIXED COORDINATES HAVE BEEN TAKEN -->
+
+        <p id="coordinates">LATITUDE & LONGITUDE RECEIVED: 12.996536254882812, 77.66828155517578</p>
+
+        <!-- GEOCODING API IS USED TO GIVE THE REQUIRED ADDRESS -->
+        <button onclick="getLocation()">Get Location</button><br>
+        <div id="location" style="background-color: black; color: white; padding: 10px; margin-top: 10px;"></div>
+    </div>
+</body>
+</html>
