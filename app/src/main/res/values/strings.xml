@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MediSync</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="integerated_ambulance_services_to_save_human_lives_by_providing_an_network_of_equipped_ambulances">Integerated ambulance services to save human lives by providing an network of equipped Ambulances</string>
+    <dimen name="fragment2_min_height">100dp</dimen>
+    <dimen name="fragment2_max_height">500dp</dimen>
+</resources>
