@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "996861858800",
+    "project_id": "taxiflex",
+    "storage_bucket": "taxiflex.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996861858800:android:1d248f49a891dc03c34335",
+        "android_client_info": {
+          "package_name": "com.example.taxiflex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996861858800-00f7ervjdr4kpj3oo2n42ejqfgtto7i9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPFF4o-StWypT8P9-OGNf-0gUDzgZUsdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996861858800-00f7ervjdr4kpj3oo2n42ejqfgtto7i9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
