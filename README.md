@@ -5,7 +5,8 @@
 #### Team Leader Email - padmakumarr21cb@psnacet.edu.in
 
 ### A Brief of the Prototype:
-  ![Process Flow](https://drive.google.com/file/d/1m6SkTlKF_ylgoyGTv-KEaj2s832r8VrF/view?usp=sharing)
+![Data Collection](https://github.com/rppadmakumar3/BreezeMasters/assets/116913142/94fb8d17-c25d-4af8-8f00-26328057df36)
+
   
 ### Tech Stack: 
 - Flutter
