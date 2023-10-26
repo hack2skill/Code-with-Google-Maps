@@ -1,7 +1,7 @@
 # BIJLI, Chak De Chargers- Submission
 ## A crowd-sourced EV Charger Finder and Trip Planner app, akin to Tesla's tech. It lets users discover and add third-party EV chargers while planning electric journeys with ease
 
-### Team Name - Bijli, Chak De Chargers
+#### Team Name - Bijli, Chak De Chargers
 #### Problem Statement -  The lack of an accessible, comprehensive, and user-driven platform for locating third-party EV chargers and effectively planning electric vehicle journeys hinders the adoption and convenience of electric mobility.
 #### Team Leader Email -
 
@@ -20,3 +20,20 @@
   
 ### Future Scope:
    Write about the scalability and futuristic aspects of the prototype developed
+
+- []Maps ID create a custom beautiful map
+- []Auto Locator to find Nearest EV Chargers
+- []Geocoding API
+- []Places API
+- []Directions API
+- []Distance Matrix
+- []Roads API
+- []Routes API - (Eco Friendly Routes)
+- []Which Direction will the sun be
+- []Figma Designs layout etc etc
+- []CV to on ground scan to car detection on e-charger pumps
+- []Location from Click Lat/Long
+- []Addition of Waypoints in-between routes
+- []Address Validation for Input
+- []PolyLine color depending on the time to reach
+
