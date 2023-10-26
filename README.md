@@ -1,23 +1,11 @@
 # Code-with-Google-Maps-2023 - Hack2skill
 
-Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2skill!
-
-## Getting Started
-
-To get started with the Code-with-Google-Maps-2023 repository, follow these steps:
-
-### Submission Instruction:
-  1. Fork this repository
-  2. Create a folder with your Team Name
-  3. Upload all the code and necessary files in the created folder
-  4. Upload a **README.md** file in your folder with the below mentioned informations.
-  5. Generate a Pull Request with your Team Name. (Example: submission-XYZ_team)
-
+# A crowd-sourced EV Charger Finder and Trip Planner app, akin to Tesla's tech. It lets users discover and add third-party EV chargers while planning electric journeys with ease
 ### README.md must consist of the following information:
 
-#### Team Name -
-#### Problem Statement - 
-#### Team Leader Email -
+### Team Name - BIJLI, Chak de Chargers
+### Problem Statement - The lack of an accessible, comprehensive, and user-driven platform for locating third-party EV chargers and effectively planning electric vehicle journeys hinders the adoption and convenience of electric mobility.
+### Team Leader Email - xshaburu@gmail.com
 
 ### A Brief of the Prototype:
   This section must include UML Diagrams and prototype description
