@@ -32,7 +32,7 @@ This project was created for </Code> with Maps Hackathon
 
 </p>
 <div align="center">
-  <img src="flutter_01.png" alt="Screenshot" width="33%" />
+  <img src="1.png" alt="Screenshot" width="33%" />
 </div>
 
 
@@ -71,9 +71,9 @@ Furthermore, for hosting our project, we chose Railway. Railway is a cloud platf
    <br>
     <h3>images of our app</h3>
    <div style="display:flex; gap:"5px";" align="center">
-    <img src="flutter_02.png" alt="Screenshot" width="33%">
-    <img src="flutter_03.png" alt="Screenshot" width="33%">
-    <img src="flutter_04.jpg" alt="Screenshot" width="33%">
+    <img src="2.png" alt="Screenshot" width="33%">
+    <img src="3.png" alt="Screenshot" width="33%">
+    <img src="4.jpg" alt="Screenshot" width="33%">
    </div>
 # TECH STACKS USED
 
