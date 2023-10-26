@@ -1,7 +1,6 @@
-# Code-with-Google-Maps-2023 - Hack2skill
+# BIJLI, Chake de Chargers
 
-# A crowd-sourced EV Charger Finder and Trip Planner app, akin to Tesla's tech. It lets users discover and add third-party EV chargers while planning electric journeys with ease
-### README.md must consist of the following information:
+## A crowd-sourced EV Charger Finder and Trip Planner app, akin to Tesla's tech. It lets users discover and add third-party EV chargers while planning electric journeys with ease
 
 ### Team Name - BIJLI, Chak de Chargers
 ### Problem Statement - The lack of an accessible, comprehensive, and user-driven platform for locating third-party EV chargers and effectively planning electric vehicle journeys hinders the adoption and convenience of electric mobility.
