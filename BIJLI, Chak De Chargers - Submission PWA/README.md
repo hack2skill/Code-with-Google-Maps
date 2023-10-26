@@ -3,9 +3,12 @@
 
 #### Team Name - Bijli, Chak De Chargers
 #### Problem Statement -  The lack of an accessible, comprehensive, and user-driven platform for locating third-party EV chargers and effectively planning electric vehicle journeys hinders the adoption and convenience of electric mobility.
-#### Team Leader Email -
+#### Team Leader Email - xshaburu@gmail.com
 
 ## A Brief of the Prototype:
+### UML Diagram
+![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/main%20Work%20space.png)
+
 |HomePage | Description | 
 |-|-|
 | ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Home%20Screen.png)| All the relevant functionalities|
