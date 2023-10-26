@@ -4,7 +4,7 @@
 - Team Neverstopdreaming
 
 ## Problem Statement
-- Many individuals and businesses are interested in transitioning to solar energy but face challenges in determining the best solar panel installations, placements, and energy systems for their unique needs. Our application addresses this issue by leveraging data from solar APIs and employing machine learning to recommend optimal solar solutions.
+Many individuals and businesses are interested in transitioning to solar energy but face challenges in determining the best solar panel installations, placements, and energy systems for their unique needs. Our application addresses this issue by leveraging data from solar APIs and employing machine learning to recommend optimal solar solutions.
 
 ## Team Leader Email
 - Contact: mathurshubhang2002@gmail.com
@@ -12,7 +12,7 @@
 ## A Brief of the Prototype
 
 ### UML Diagrams
-https://i.ibb.co/jMjdBd2/Untitled-Diagram-drawio.png
+![UML Diagram](https://i.ibb.co/jMjdBd2/Untitled-Diagram-drawio.png)
 
 ### Prototype Description
 Our solar energy ecosystem solutions application offers a comprehensive set of features to assist users in seamlessly integrating solar energy into their homes and businesses. Here's an overview of the key components:
@@ -57,18 +57,17 @@ Our solar energy ecosystem solutions application offers a comprehensive set of f
 ## Step-by-Step Code Execution Instructions
 To test the prototype and understand its functionalities, follow these steps:
 
-Run the ``app.html`` file to view the webapp.
-To access the Open Solar Modeller Enter Username and Password
-Replace your Solar API key in &key=YOUR_API_KEY
-
-
+1. Run the `app.html` file to view the webapp.
+2. To access the Open Solar Modeller, enter your username and password.
+3. Replace your Solar API key in the appropriate location with `&key=YOUR_API_KEY`.
 
 ## Future Scope
-- Our application has significant future scalability and potential for expansion. Some potential enhancements include:
-  - Mobile application development for accessibility on various devices.
-  - Integration with additional renewable energy sources like wind power.
-  - Enhanced real-time energy consumption monitoring and forecasting.
-  - Further optimization for utility companies and solar farm operators with advanced solar asset management features.
-  - Collaboration with energy providers to facilitate the seamless transition to solar energy for users.
+Our application has significant future scalability and potential for expansion. Some potential enhancements include:
+
+- Mobile application development for accessibility on various devices.
+- Integration with additional renewable energy sources like wind power.
+- Enhanced real-time energy consumption monitoring and forecasting.
+- Further optimization for utility companies and solar farm operators with advanced solar asset management features.
+- Collaboration with energy providers to facilitate the seamless transition to solar energy for users.
 
 We aim to continually improve and scale our application to meet the evolving needs of users and the renewable energy industry.
