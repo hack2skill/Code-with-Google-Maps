@@ -1,26 +1,11 @@
-# Code-with-Google-Maps-2023 - Hack2skill
-
-Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2skill!
-
-## Getting Started
-
-To get started with the Code-with-Google-Maps-2023 repository, follow these steps:
-
-### Submission Instruction:
-  1. Fork this repository
-  2. Create a folder with your Team Name
-  3. Upload all the code and necessary files in the created folder
-  4. Upload a **README.md** file in your folder with the below mentioned informations.
-  5. Generate a Pull Request with your Team Name. (Example: submission-XYZ_team)
-
-### README.md must consist of the following information:
-
-#### Team Name -
-#### Problem Statement - 
-#### Team Leader Email -
+#### Team Name - Geogundam
+#### Problem Statement - Using Google Maps API for real-time pothole detection and safer navigation
+#### Team Leader Email - rriya1_be20@thapar.edu
 
 ### A Brief of the Prototype:
-  This section must include UML Diagrams and prototype description
+  Imagine driving without the jolt of unexpected potholes. With the power of AI, we've developed a system that not only spots these road nuisances but also displays them on a user-friendly map powered by the trusted Google Maps API. And it doesn't stop there — we guide drivers with alternative routes for a smoother journey. As we move forward, we truly value and incorporate community insights to continuously enhance our system. Together, we're redefining the standards of comfortable and safe driving.
+
+  ![Alt Text](https://github.com/D4em0nn/Code-with-Google-Maps/blob/main/images/WhatsApp%20Image%202023-10-26%20at%2010.10.03%20PM.jpeg?raw=true)
   
 ### Tech Stack: 
    List Down all technologies used to Build the prototype
