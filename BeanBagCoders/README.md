@@ -53,38 +53,21 @@ These future prospects align with SnapTrash's mission to not only address curren
 
 ## November 2023 Development Timeline:
 
-**November 1-7: Refinement Phase**
-
-* UI Enhancement: Begin refining the user interface for a more intuitive and visually appealing experience, and start finding companies which will we interested to join us for community vouchers and startups for e-waste collection.
-
-**November 8-14: Feature Expansion**
-
-* Auto-Location Overlays: Implement the feature allowing users to report street garbage with enhanced precision.
-
-**November 15-21: Notification System Implementation**
-
-* Real-time Notifications: Develop and integrate the real-time notification system for users approaching reported garbage locations.
-
-**November 22-25: Community Voucher System**
-
-* Community Voucher System: Introduce the leaderboard and community voucher system for user recognition and incentivization.
-
-**November 26-28: Platform Compatibility**
-
-* Extended Platform Support: Explore and implement compatibility with additional platforms, such as web browsers and other mobile operating systems.
-
-**November 29-30: Optimization and Bug Fixes**
-
-* Optimization: Conduct thorough optimization of the app's performance, addressing any bugs or glitches for a smooth user experience.
-
-**December 1: Google and Apple Authentication**
-
-* Authentication Options: Implement Google and Apple authentication options to provide users with additional login choices.
-
-**December 2-6: Final Testing and Quality Assurance**
-
-* Comprehensive Testing: Conduct final testing at university level, go thorugh quality assurance to ensure all features work seamlessly together.
-
-**December 7: Launch Day**
-
-* Official Launch: Release SnapTrash to the public, with the support of Bennett University's startup incubation center(Hatchery) backed by The Times Of India Media Group.
+1. **November 1-7: Refinement Phase**
+   - UI Enhancement: Refining the user interface for a more intuitive experience.
+2. **November 8-14: Feature Expansion**
+   - Auto-Location Overlays: Implementing precise reporting features.
+3. **November 15-21: Notification System Implementation**
+   - Real-time Notifications: Developing notification features.
+4. **November 22-25: Community Voucher System**
+   - Community Voucher System: Introducing leaderboard and community vouchers.
+5. **November 26-28: Platform Compatibility**
+   - Extended Platform Support: Exploring compatibility with additional platforms.
+6. **November 29-30: Optimization and Bug Fixes**
+   - Optimization: Conducting thorough optimization and bug fixes.
+7. **December 1: Google and Apple Authentication**
+   - Authentication Options: Implementing additional login choices.
+8. **December 2-6: Final Testing and Quality Assurance**
+   - Comprehensive Testing: Ensuring seamless functionality.
+9. **December 8: Launch Day**
+    - Official Launch: Releasing SnapTrash to the public with the support of Bennett University and the Times Group.
