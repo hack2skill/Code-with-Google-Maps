@@ -17,7 +17,7 @@ To get started with the Code-with-Google-Maps-2023 repository, follow these step
 
 #### Team Name         - Meliora
 #### Problem Statement - Development of an application for enhanced routing and road
-                         safety of the users based on multiple factors
+safety of the users based on multiple factors
 #### Team Leader Email - san.ravinutala@gmail.com
 
 ### A Brief of the Prototype:
