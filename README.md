@@ -14,6 +14,14 @@
 
 This project was created for </Code> with Maps Hackathon
 
+## Video Presentation:
+
+- [Youtube](https://youtu.be/lt8JlCf0XDs)
+
+## Apk Download:
+
+- [Tripn](https://drive.google.com/file/d/1HwsJDHB45no_icQoOCBjdI-Kq6y2Fsdp/view?usp=drive_link)  
+
 ## Team Members:
 
 - [Goutham C Arun](https://github.com/GouthamCArun)
@@ -83,13 +91,6 @@ Furthermore, for hosting our project, we chose Railway. Railway is a cloud platf
     <img src="4.png" alt="Screenshot" width="33%">
    </div>
      
-## Video Presentation:
-
-- [Youtube](https://youtu.be/lt8JlCf0XDs)
-
-## Apk Download:
-
-- [Tripn](https://drive.google.com/file/d/1HwsJDHB45no_icQoOCBjdI-Kq6y2Fsdp/view?usp=drive_link)  
 
      
 ### TECH STACKS USED
