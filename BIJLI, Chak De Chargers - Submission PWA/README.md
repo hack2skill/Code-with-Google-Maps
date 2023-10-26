@@ -50,11 +50,19 @@ PROTOTYPE SCREENS & DESCRIPTION
 |Homepage displaying all the EV Chargers by Default | After selecting "near me" | Selecting the shortest and quickestroute | Navigation Begins (not yet native)  | List all the details of the EV Chargers |
   
 ### Tech Stack: 
-   List Down all technologies used to Build the prototype
-   
-### Step-by-Step Code Execution Instructions:
-  This Section must contain a set of instructions required to clone and run the prototype so that it can be tested and deeply analyzed
-  
-### Future Scope:
-   Write about the scalability and futuristic aspects of the prototype developed
+Built a Progressive WebApp with :heartpulse: using
 
+Front End
+React + TS + Vite + html + css
+Back End
+c# (go for older apis) + Python + Flask + NodeMCU or Ardunio (for Live Tracking of Charging Station's Availability Status)
+
+Docker to dockerize
+
+    
+### Future Scope:
+  Future Scope would be this app evolving into a decentralized platform where anyone can contribute, whether it's about EVs, petrol, diesel, skateparks, or any other niche. Users can share their opinions and rank these offerings through user ratings.
+
+Our initial focus is on the EV niche, <b>but our vision extends far beyond that.</b> We plan to expand into the vast world of vehicle-related media, encompassing videos, blogs, newsletters, and more. This creates a continuous cycle: we build an audience through engaging media, then invite them to our web app for enhanced user experiences, and vice versa. We listen closely to our users, understanding their needs, and keep adapting our platform accordingly.
+
+Our goal is to make every interaction as smooth as possible, minimizing clicks required to fulfill users' needs. With these improvements, we aim to become the decentralized go-to app for user-recommended guidance on a variety of niche subjects, providing a seamless, satisfying experience for our growing community.
