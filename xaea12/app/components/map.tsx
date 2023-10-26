@@ -12,6 +12,14 @@ type DirectionsResult = google.maps.DirectionsResult;
 type MapOptions = google.maps.MapOptions;
 type heatMapOptions = google.maps.visualization.HeatmapLayerOptions
 
+interface BusinessDataItem {
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+    weekly_sum: number;
+  }
+
 export default function Map() {
     const mapRef = useRef<GoogleMap>();
     const center = useMemo<LatLngLiteral>(
@@ -35,14 +43,14 @@ export default function Map() {
         []
     );
 
-    const [businessData, setBusinessData] = useState([]);
+    const [businessData, setBusinessData] = useState<BusinessDataItem[]>([]);
 
     useEffect(() => {
         async function fetchData() {
         try {
-            const response = await fetch('/api/popular_times'); // Replace with your actual Flask API endpoint
+            const response = await fetch('/api/popular_times');
             if (response.ok) {
-                const data = await response.json();
+                const data = await response.json() as BusinessDataItem[];
                 setBusinessData(data);
             } else {
             console.error('Failed to fetch business data');
