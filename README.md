@@ -64,4 +64,4 @@ The code allows users to vote for the suitability of a road for different types 
 
   
 ### Future Scope:
-   Write about the scalability and futuristic aspects of the prototype developed
+   The future scope of the project includes user ratings, real-time data integration, advanced routing, customization, predictive algorithms, community features, dedicated mobile apps, multi-modal support, global expansion, and monetization opportunities. It has the potential for continuous improvement based on user feedback and evolving technology trends in mapping and navigation.
