@@ -1,0 +1,223 @@
+#map {
+    height: auto;
+    width: 100%;
+}
+
+ul {
+    background-color: #241c24;
+    padding: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 12px;
+    color: orange !important;
+    cursor: pointer;
+    margin-bottom: 0px !important;
+}
+
+
+
+h6 {
+    display: block;
+    font-size: 0.67em;
+    margin-block-start: 1.33em;
+    margin-block-end: -1.67em;
+    margin-inline-start: 5px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.A {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 56px;
+}
+
+.B {
+    margin-left: 205px;
+}
+
+#csv {
+    padding: 9px;
+    width: 149px;
+    color: white;
+    background-color: #5c5cff;
+    border: none;
+    font-weight: 600;
+    border-radius: 25px;
+    position: absolute;
+    top: 149px;
+    right: 411px;
+    font-size: 16px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Mulish";
+    font-size: 22px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+input {
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-bottom: -50px;
+}
+
+.table {
+    background-color: white;
+}
+
+.bn {
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 1px 0px 0 rgba(0, 0, 0, 0.19);
+    width: 25rem;
+    padding: 9px 12px;
+    width: 100px;
+    color: white;
+    background-color: #5c5cff;
+    border: none;
+    font-weight: 600;
+    border-radius: 25px;
+    font-size: 17px;
+}
+
+.bn:hover {
+    background-color: #4f4fd4;
+}
+
+#mySidebar {
+    background: white;
+    text-decoration: none;
+}
+
+.keyword-btn {
+    position: absolute;
+    top: 78px;
+    left: 480px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 110px;
+    height: 33px;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.keyword-btn1 {
+    position: absolute;
+    top: 122px;
+    left: 480px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 110px;
+    height: 33px;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-right: -7px;
+}
+
+.keyword-btn:hover {
+    background-color: #e6e6e3;
+}
+
+.keywords {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-box {
+    position: absolute;
+    top: 23px;
+    left: 280px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #ffffff;
+    padding: 0px 10px 0px;
+}
+
+#search-input {
+    flex: 1;
+    color: #333;
+}
+
+.search-btn {
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    padding-right: 15px;
+}
+
+button:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.search-list ul {
+    border-top: 1px solid #999;
+    padding: 5px 5px;
+    font-size: small;
+}
+
+.search-list li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.search-list ul li:hover {
+    background-color: #e9f3ff;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#mySidebar {
+    width: 251px;
+    background-color: #241c24;
+    right: 0;
+}
+
+.carousel {
+    width: 465px;
+    height: 200px;
+    overflow: hidden;
+    position: absolute;
+    top: 4px;
+    left: 550px;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 80%;
+    left: 200px;
+    transform: translateY(-50%);
+    background-color: lightgray;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
