@@ -7,7 +7,7 @@
 #### Team Leader Email - itsomsarraf@gmail.com
 
 ### A Brief of the Prototype:
-Video Demo : https://www.loom.com/share/e57a9721bf044ce09156b49e4c5102fc?sid=a355f1f0-4e9a-4746-a9d0-f006032351f1
+Video Demo : [YouTube Demo](https://youtu.be/sTKdz-MUnoY)
 * **Authentication:** Users can securely log in using their email and password, with authentication handled through Firebase.
 * **Photo Reporting:** The prototype enables users to effortlessly click photo of street garbage, streamlining the reporting process.
 * **Geolocation Integration:** Advanced geolocation technology is implemented to obtain exact coordinates of reported garbage, ensuring precision.
