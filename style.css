@@ -1,0 +1,54 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#heading {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(37, 248, 255, 0.6);
+}
+
+h1 {
+  font-family: 'Sometype Mono', monospace;
+  text-align: center;
+  font-size: 2rem;
+  padding: 0 3rem;
+}
+
+#search {
+  height: 30px;
+  width: 40%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#search-result {
+  margin-top: 2px;
+  color: white;
+}
+
+#map {
+  height: 80vh;
+}
+
+.gm-style-iw-d {
+  color: #000000;
+}
