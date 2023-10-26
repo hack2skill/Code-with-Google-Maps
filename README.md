@@ -22,7 +22,7 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
 2. **Navigate to the Project Directory:**
 
    ```bash
-   cd Code-with-Google-Maps/client
+   cd Code-with-Google-Maps/KARMA/client
    ```
 
 3. **Install Dependencies:**
@@ -72,7 +72,7 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
 
 1. **Navigate to the project:**
    ```bash
-   cd Code-with-Google-Maps/model
+   cd Code-with-Google-Maps/KARMA/model
    ```
 2. **Install Requirement:**
    
