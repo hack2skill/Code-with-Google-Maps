@@ -45,6 +45,11 @@ Additionally, we leverage the Aerial View API to provide a 3D view of the buildi
     - Connect your android device or open Android Virtual Device from Device Manager
     - Select "app" and Select your connected device or Virtual device
     - Run the project/app
+    
+    Web Application:
+    - Clone the repo "PlatformSolutions-Web", where you can find all the prototype implemented source code.
+    - Import project in Visual Studio Code.
+    - Open the Terminal and run the command "npm install --legacy-peer-deps" and "npm start"
   
 ### Future Scope:
 Enhanced Wealth Meter: The Wealth Meter's features are adaptable to calculate a user's wealth based on the number of energy-consuming devices and their consumption rates. This customization provides a more detailed and precise analysis of potential profits under various configuration scenarios.
