@@ -147,7 +147,7 @@ class SolarApiActivity : AppCompatActivity(),
     private fun addMapsUiComponentsClickEvent() {
         gMap.setOnInfoWindowClickListener(this)
         gMap.setOnMapClickListener(this)
-        gMap.setOnMapLongClickListener(this)
+        //gMap.setOnMapLongClickListener(this)
     }
 
     /** Do the Building Insight operation by this SOLAR API call */
