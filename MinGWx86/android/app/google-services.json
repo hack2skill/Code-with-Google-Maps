@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "692196507973",
+    "firebase_url": "https://chargeontheway-c0008-default-rtdb.firebaseio.com",
+    "project_id": "chargeontheway-c0008",
+    "storage_bucket": "chargeontheway-c0008.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692196507973:android:3634e65588a7ca1830fe2c",
+        "android_client_info": {
+          "package_name": "com.example.charge_on_the_way"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXroG9jxpBEu-GRmsVqmvQykQMnakoyVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
