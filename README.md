@@ -47,6 +47,9 @@ To get started with the Code-with-Google-Maps-2023 repository, follow these step
 
 <img width="284" alt="image" src="https://github.com/chirag63744/MediSync/assets/99059872/fc391bef-4cc2-41bd-ba24-09e911351099">
 
+### Step-by-Step Code Execution Instructions:
+apk file has been uploaded, install it in any android device
+
    
   
 ### Future Scope:
