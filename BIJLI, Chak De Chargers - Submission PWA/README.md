@@ -6,7 +6,7 @@
 #### Team Leader Email - xshaburu@gmail.com
 
 ## A Brief of the Prototype:
-### UML Diagram
+<p align="center"> UML Diagram </p>
 ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/main%20Work%20space.png)
 
 |HomePage | Description | 
