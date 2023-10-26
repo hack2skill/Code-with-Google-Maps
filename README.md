@@ -22,7 +22,7 @@
   3. Write the following command - python -m http.server 8050
   4. Double click the index.html file to view it
 
-  Note: We have implemented a functionality to get real time pothole data using our own phone and laptop, for the scope of this project, we have also made a final_coordinates.js file with dummy coordinate data for the route between Delhi and Patiala. Hence this model will work only for this particular route unless more data is collected. You can add extra data for checking in the final_coordinates.js file.
+  Note: We have implemented a functionality to get real time pothole data using our own phone and laptop, for that we need Android adb, roboflow library and the OpenCamera app for taking continuous images. For the scope of this project, we have also made a final_coordinates.js file with dummy coordinate data for the route between Delhi and Patiala. Hence this model will work only for this particular route unless the python scripts are run and data is collected outside. You can add extra data for checking in the final_coordinates.js file.
 
 ### Future Scope:
    1. By getting more pothole data, we can accurately display routes which avoid potholes.
