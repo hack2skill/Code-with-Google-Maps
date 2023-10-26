@@ -1,4 +1,4 @@
-# BIJLI, Chak De Chargers- Submission
+# BIJLI, Chak De Chargers - Submission
 <h2 align="center">
 A crowd-sourced EV Charger Finder and Trip Planner app, akin to Tesla's "Go Anywhere" It lets users discover and add third-party EV chargers while planning electric journeys with ease
 </h2> 
@@ -40,10 +40,13 @@ UML Diagram
 
 ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/main%20Work%20space.png)
 
-|ALL THE SCREENS & DESCRIPTION|
-|HomePage | Description | 
-|-|-|
-| ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Home%20Screen.png)| All the relevant functionalities|
+<p align="center"> 
+PROTOTYPE SCREENS & DESCRIPTION
+</p>
+
+|HomePage | EV Charger Near Me | EV Charger Selected Route
+|-|-|-|
+| ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Home%20Screen.png)| ![nearme](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Near%20Me%201.png)| [Route](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/near%20me%202%20polyline.png)|
  
   This section must include UML Diagrams and prototype description
   
@@ -55,21 +58,4 @@ UML Diagram
   
 ### Future Scope:
    Write about the scalability and futuristic aspects of the prototype developed
-
-- [x] Maps ID create a custom beautiful map
-- [x] Auto Locator to find Nearest EV Chargers
-- [x] Create DB with all EV Chargers
-- [x] Places API
-- [x] Polyline
-- [x] Distance Matrix
-- [ ] Roads API
-- [ ] Routes API - (Eco Friendly Routes)
-- [ ] Which Direction will the sun be
-- [x] Mockups layout etc etc
-- [ ] CV to on ground scan to car detection on e-charger pumps
-- [ ] Location from Click Lat/Long
-- [x] Draggable Location
-- [x] Addition of Waypoints in-between routes
-- [ ] Address Validation for Input
-- [ ] PolyLine color depending on the time to reach
 
