@@ -21,19 +21,20 @@
 ### Future Scope:
    Write about the scalability and futuristic aspects of the prototype developed
 
-- [] Maps ID create a custom beautiful map
+- [x] Maps ID create a custom beautiful map
 - [x] Auto Locator to find Nearest EV Chargers
-- []Geocoding API
-- []Places API
-- []Directions API
-- []Distance Matrix
-- []Roads API
-- []Routes API - (Eco Friendly Routes)
-- []Which Direction will the sun be
-- []Figma Designs layout etc etc
-- []CV to on ground scan to car detection on e-charger pumps
-- []Location from Click Lat/Long
-- []Addition of Waypoints in-between routes
-- []Address Validation for Input
-- []PolyLine color depending on the time to reach
+- [x] Create DB with all EV Chargers
+- [x] Places API
+- [x] Polyline
+- [x] Distance Matrix
+- [ ] Roads API
+- [ ] Routes API - (Eco Friendly Routes)
+- [ ] Which Direction will the sun be
+- [x] Mockups layout etc etc
+- [ ] CV to on ground scan to car detection on e-charger pumps
+- [ ] Location from Click Lat/Long
+- [x] Draggable Location
+- [x] Addition of Waypoints in-between routes
+- [ ] Address Validation for Input
+- [ ] PolyLine color depending on the time to reach
 
