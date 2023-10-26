@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <title>Final</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://unpkg.com/deck.gl@8.9.15/dist.min.js"></script>
+    <script src="https://unpkg.com/three/build/three.min.js"></script>
+    <script src="https://unpkg.com/@googlemaps/three/dist/index.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/20.0.0/tween.umd.js"></script>
+    <script src="https://unpkg.com/@luma.gl/shadertools@8.5.20/dist/dist.min.js"></script> <!-- for Lighting effects -->
+      
+
+   
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="Final.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="creditsElement"></div>
+    <div class="tslider">
+      <input type="range" id="timeslider" min="0" max="1440"
+      value="671">
+      <div id="tslidevalue" class="tslide-value"></div>
+    </div>
+    <input id ="autocomplete">
+
+    <div class="slider">
+      <input type="range" id="height-slider" min="1" max="150" value="50">
+  <div>
+    <input type="checkbox" id="disable3DBuildings"> Enable 3D Buildings
+  </div>
+  
+
+      <p class="current-height"><span id="slidervalue"></span></p>
+      </div>
+    <div id="time-display"></div>
+  <div class="container">
+    <div class="card">
+      <h2>Net Energy Production (DC) per year in kWh</h2>
+      <p id="netEnergyProductionDC"></p>
+  </div>
+  <div class="card">
+      <h2>Net Energy Production(AC) per year in kwh</h2>
+      <p id="yearlyACProduction"></p>
+  </div>
+  <div class="card">
+    <h2>Total AC production over</h2>
+    <p id="totalACProduction"></p>
+  </div>
+  <div class="card">
+    <h2>Average Payback Years:</h2>
+    <p id="roundedAverage"></p>
+  </div>
+  <div class="card">
+     <h2>Approx Electricity Bill Savings Per Year(USD) :</h2>
+     <p id="savings1yr"></p>
+  </div>
+ <div class="card">
+  <h2>Approx Electricity Bill Savings in 20 Years(USD) :</h2>
+  <p id="savings20yrs"></p>
+ </div>
+  <div class="card">
+    <h2>Max Panels for Roof is:</h2>
+    <p id="maxArrayPanelsCount"></p>
+  </div>
+  <div class="card">
+    <h2>Max sunshine hours per year:</h2>
+    <p id="maxSunshinehoursPerYear"></p>
+  </div>
+  <div class="card">
+    <h2> Max roof space in metre square:</h2>
+    <p id="MaxRoofSpace"></p>
+  </div>
+</div>
+
+    
+
+
+    <script 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhP_Ju3_A6sy2C7BBlh8wuS-WwirfOaY&callback=initMap&v=beta&libraries=places,drawing"
+      defer
+    ></script>
+  </body>
+</html>
