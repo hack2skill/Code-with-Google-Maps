@@ -32,7 +32,7 @@ Additionally, we leverage the Aerial View API to provide a 3D view of the buildi
   
 ### Tech Stack: 
    - Native Android with KOTLIN
-   - HTML with React.js
+   - React js
 
    - Solar APIs
    - 3-D Cinematic Video APIs
