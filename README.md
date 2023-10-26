@@ -68,7 +68,17 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
 
   - Explore the prototype, test various functionalities, and analyze the user experience.
 
+### Step-by-Step Code Execution Instructions (ML Model):
 
+1. **Navigate to the project:**
+   ```bash
+   cd Code-with-Google-Maps/model
+   ```
+2. **Install Requirement:**
+   
+    ```bash
+    pip install -r requirements.txt
+    ```
   
 ### Future Scope:
 
