@@ -24,3 +24,6 @@ EstateEval is a web application that harnesses Google Maps APIs to help users as
 2) User Profiles and Saved Evaluations: Implementing user accounts to allow users to save their property evaluations, track their property search history, and receive personalized recommendations based on their preferences.
 3) Mobile Application: Developing a mobile application version of EstateEval for users to assess properties on the go. Mobile apps can also leverage features like geolocation for a seamless user experience.
 4) Machine Learning and Predictive Analysis: Integrating machine learning models to predict property appreciation rates, rental income potential, and other real estate trends based on historical data.
+
+![](Landingpage.png)
+![](EstateEvalApp.png)
