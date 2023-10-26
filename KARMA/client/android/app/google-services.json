@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "841521991818",
+    "project_id": "secret45-54607",
+    "storage_bucket": "secret45-54607.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841521991818:android:61757f12bf01ab8cbe9d73",
+        "android_client_info": {
+          "package_name": "com.example.sih_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqhppvN996RYOtPb_72GGdP6NfSWac2Hg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
