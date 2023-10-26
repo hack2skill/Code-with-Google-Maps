@@ -1,8 +1,8 @@
-**Team name :** Tech Vigilants
+**Team name :**  Tech Vigilants 
 
-**Problem Statement :** Empowering women's safety through a mobile app for instant incident reporting and immediate assistance, fostering collaboration with law enforcement.
+**Problem Statement :**  Empowering women's safety through a mobile app for instant incident reporting and immediate assistance, fostering collaboration with law enforcement. 
 
-**Team Leader Email :** nainvisingh2010@gmail.com
+**Team Leader Email :**  nainvisingh2010@gmail.com
 
 
 **A brief of the prototype :**
