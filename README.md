@@ -82,4 +82,9 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
 | Local Hospital Database Expansion    | Include more hospitals and healthcare facilities        |
 | Error Handling and User Feedback     | Implement alerts for common errors and gather user feedback |
 
+### Contributors
+
+<a href="https://github.com/CodeDeployingSquad/docs/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=CodeDeployingSquad/docs" />
+</a>
 
