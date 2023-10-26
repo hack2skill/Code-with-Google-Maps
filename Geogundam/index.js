@@ -7,7 +7,6 @@ async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");  
   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
   
-  //console.log("hello")
   map = new Map(document.getElementById("map"), {
     center: { lat: 30.356483, lng: 76.367790 },
     zoom: 12,
@@ -48,7 +47,6 @@ async function initMap() {
 
 
   function loadData(){
-    //console.log("hello");
     // Find the first script element in the head tag
     const firstScript = document.querySelector("head script");
   
@@ -112,8 +110,6 @@ function calcRoute() {
         }
       }
       
-      // Assume this script is run after the DOM has fully loaded
-      // Assume this script is run after the DOM has fully loaded
       const criteriaSelect = document.getElementById('criteria-select');
       const selectedValue = criteriaSelect.value;
 
@@ -123,11 +119,7 @@ function calcRoute() {
       } 
 
       document.getElementById('output').textContent = "";
-      //console.log(result);
-
-      //let arr = ["red", "green", "blue"];
-      //for(var i = 0, len = result.routes.length; i < len; i++)
-      //{
+      
           var directionsRenderer = new google.maps.DirectionsRenderer({
           map: map,
           directions: result,
@@ -135,7 +127,7 @@ function calcRoute() {
           polylineOptions: {strokeColor: "red"}
         });
         directionsRenderers.push(directionsRenderer);
-      //}
+      
     }
     else{
       document.getElementById('output').textContent = "Error!, route not found";
@@ -146,21 +138,14 @@ function calcRoute() {
 
 let markers = [];
 const geojson_callback = function (results) {
-  //let collisionBehavior = google.maps.CollisionBehavior.OPTIONAL_AND_HIDES_LOWER_PRIORITY;
-  //console.log("yoo");
-  //let collisionBehavior = google.maps.CollisionBehavior.OPTIONAL_AND_HIDES_LOWER_PRIORITY;
-  //console.log(results.features.length);
   for (let i = count; i < results.features.length; i++) {
     const coords = results.features[i].geometry.coordinates;
-    //console.log(coords)
 
     var temp = [];
-    //console.log(markers);
     runSnapToRoad(coords).then(data => {
       temp[0] = data.latitude;
       temp[1] = data.longitude;
       console.log(coords + " ===== " + temp);
-      //console.log(temp[0]);
 
       const latLng = new google.maps.LatLng(temp[0], temp[1]);
       count = results.features.length;
@@ -173,7 +158,6 @@ const geojson_callback = function (results) {
       });
       marker_overlay.push(advancedMarker);
       markers.push([temp[0], temp[1]]);
-      //console.log(markers.size);
     }); 
   }
 };
@@ -184,7 +168,6 @@ function runSnapToRoad(path) {
     .then(response => response.json())  // Parse the JSON from the response
     .then(data => {
       data = data.snappedPoints[0].location;
-      //console.log("this is" + temp.longitude);
       return data;  // Return the data
     })
     .catch(error => {
@@ -194,24 +177,15 @@ function runSnapToRoad(path) {
 
 
 window.initMap = initMap;
-//window.geojson_callback = geojson_callback;
 window.initMap();
 
-////////////////////////////////////////////////////////////////////////////
+
 function findPotholes(result){
-  //console.log(result)
-  //console.log(result.legs[index].steps[0]);
-  //console.log(result);
-  //console.log("markers" + markers);
   let countedPotholes = new Set();
   let dummyCoordinates = [];
-  //console.log(result.routes[0].overview_path.length);
   for(let steps of result.legs[0].steps) {
     for(let point of steps.lat_lngs)
     {
-        //let routePoint = [
-        //result.overview_path[i].lat(),
-        //result.overview_path[i].lng()
         dummyCoordinates.push([
         point.lat(),
         point.lng()
@@ -229,24 +203,6 @@ function findPotholes(result){
     }
   }
   return countedPotholes.size;
-  //console.log("size" + dummyCoordinates.length);
-  // for (let i = 0; i < dummyCoordinates.length; i++) {
-  //     let routePoint = [
-  //         //result.overview_path[i].lat(),
-  //         //result.overview_path[i].lng()
-  //         dummyCoordinates[i][0],
-  //         dummyCoordinates[i][1]
-  //     ];
-
-  //     for (let pothole of markers) {
-  //         if (isWithin200m(routePoint, pothole)) {
-  //             countedPotholes.add(pothole);
-  //         }
-  //     }
-  // }
-
-  // //console.log(countedPotholes.size);
-  // return countedPotholes.size;
 }
 
 function isWithin200m(point1, point2) {

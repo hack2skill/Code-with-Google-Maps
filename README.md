@@ -8,10 +8,24 @@
   ![Alt Text](https://github.com/D4em0nn/Code-with-Google-Maps/blob/main/images/WhatsApp%20Image%202023-10-26%20at%2010.10.03%20PM.jpeg?raw=true)
   
 ### Tech Stack: 
-   List Down all technologies used to Build the prototype
+   Hyper-text markup language(HTML)
+
+  Cascading Style Sheets(CSS)
+
+  JavaScript
+
+  Google Maps API
    
 ### Step-by-Step Code Execution Instructions:
-  This Section must contain a set of instructions required to clone and run the prototype so that it can be tested and deeply analyzed
-  
+  1. Clone the github repository
+  2. Open the Geogundam folder in a terminal
+  3. Write the following command - python -m http.server 8050
+  4. Double click the index.html file to view it
+
+  Note: We have implemented a functionality to get real time pothole data using our own phone and laptop, for the scope of this project, we have also made a final_coordinates.js file with dummy coordinate data for the route between Delhi and Patiala. Hence this model will work only for this particular route unless more data is collected. You can add extra data for checking in the final_coordinates.js file.
+
 ### Future Scope:
-   Write about the scalability and futuristic aspects of the prototype developed
+   1. By getting more pothole data, we can accurately display routes which avoid potholes.
+   2. We can allow for vehicle type selection for tailored navigation.
+   3. Custom pop-ups to notify users when they're approaching areas with high density of potholes
+   4. Balanced route with less distance and potholes, both taken into account.
