@@ -75,3 +75,6 @@ Our application has significant future scalability and potential for expansion. 
 - Collaboration with energy providers to facilitate the seamless transition to solar energy for users.
 
 We aim to continually improve and scale our application to meet the evolving needs of users and the renewable energy industry.
+
+### [Prototype Demo video](https://drive.google.com/file/d/1C3JtA9xA4prW55Kv_YUhWwacnEWT-lqu/view?usp=sharing)
+
