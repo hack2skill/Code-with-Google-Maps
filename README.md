@@ -19,4 +19,13 @@ Welcome to the official repository for the Code-with-Google-Maps-2023 organized 
    Flutter
    Firebase
    
+# About MediTrack
+
+• Meditrack, a user-friendly mobile app for finding nearby hospitals based on
+userlocation.\
+• Maps and location services to facilitate easy navigation to selected
+hospitals.\
+• Enhanced search functionality for filtering hospitals by specialty (e.g.,
+oncologist).\
+• Included userreviews forinformed decision-making.
 
