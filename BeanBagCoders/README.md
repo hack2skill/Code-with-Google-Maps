@@ -71,3 +71,7 @@ These future prospects align with SnapTrash's mission to not only address curren
    - Comprehensive Testing: Ensuring seamless functionality.
 9. **December 8: Launch Day**
     - Official Launch: Releasing SnapTrash to the public with the support of Bennett University and the Times Group.
+  
+## Team : 
+![image](https://github.com/itsOmSarraf/Code-with-Google-Maps/assets/83817663/27385ca7-4442-44be-86cd-3359bb6ef1c6)
+
