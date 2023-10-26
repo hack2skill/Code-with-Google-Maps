@@ -11,13 +11,37 @@ Cell phones have become indispensable tools for staying connected. They've evolv
 
 When people are on the move, the problem of charging electronic devices becomes even more pronounced. Most cell phone users have likely experienced the frustration of their phone running out of battery when they're far from a charging point. That's where our system comes in, making life easier for people in need of a reliable and convenient charging solution.
 
-![alt text]([http://url/to/img.png](https://firebasestorage.googleapis.com/v0/b/chargeontheway-c0008.appspot.com/o/WhatsApp%20Image%202023-10-26%20at%2022.45.07_c1c753b7.jpg?alt=media&token=d86ad4af-0368-4d6c-8395-ac2802cb0295&_gl=1*yca5x7*_ga*NDY3NDU1MzE0LjE2NjgxNzExNTQ.*_ga_CW55HF8NVT*MTY5ODMzNTU3OC4yMS4xLjE2OTgzNDE1OTEuOC4wLjA.))
+![WhatsApp Image 2023-10-26 at 22 45 07_c1c753b7](https://github.com/siddesh3101/Code-with-Google-Maps/assets/84890369/86143eec-be7f-42c9-a2b0-c3f043e00301)
   
 ### Tech Stack: 
-   List Down all technologies used to Build the prototype
+Frontend:  Flutter, HTML
+Backend: Firebase
+Google Maps API: Places API, Geolocation API, DIrection Matrix API, Directions API, Routes API, and Polylines API
+Database: Realtime Database(Firebase)
+Design: Figma
+IoT and  3D Modelling: Tinkercad
    
 ### Step-by-Step Code Execution Instructions:
-  This Section must contain a set of instructions required to clone and run the prototype so that it can be tested and deeply analyzed
+Before cloning this repo make sure to setup flutter in your device correctly.
+After this clone the repo and write the command flutter pub get.
+To correctly run the google maps embedded inside this application replace the apiKey in android/app/src/main/AndroidMnaifest.xml.
+After this write the command flutter run.
+Make sure to check the debug console to understand the errors if any.
   
 ### Future Scope:
-   Write about the scalability and futuristic aspects of the prototype developed
+Mobile App Enhancements: Continuously improving your mobile application for tracking and locating charging stations can make it more user-friendly and provide additional features such as reserving a station in advance, checking charging status, and making payments through the app.
+
+Subscription Models: Introduce subscription-based models for frequent users, allowing them to access charging stations at a reduced cost or with added benefits, encouraging user loyalty.
+
+Partnerships: Collaborate with businesses, public transportation authorities, and municipalities to install charging stations at various locations, providing users with an extensive network of stations.
+
+Sustainability: Incorporating renewable energy sources like solar panels can make charging stations more sustainable and environmentally friendly. This aligns with the growing interest in green technologies.
+
+Enhanced Security: Implement advanced security features such as facial recognition, fingerprint scanning, or two-factor authentication for users to retrieve their devices, ensuring high levels of security.
+
+Emergency Services Integration: Enable users to call for help or emergency services through your application if they encounter any issues or feel unsafe when using the charging stations.
+
+Data Monetization: Collect data on charging station usage, foot traffic, and user demographics. This data can be valuable for targeted advertising, city planning, and business intelligence, potentially creating new revenue streams.
+
+
+
