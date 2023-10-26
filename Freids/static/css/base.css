@@ -1,0 +1,62 @@
+
+    .header {
+        background-color: biege; 
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        color: #fff; 
+        font-size: 24px;
+    }
+    
+    .header-logo {
+        width: 120px; 
+        height: auto;
+    }
+    
+    .signup-login {
+        display: flex;
+        align-items: center;
+    }
+    
+    .signup-login a {
+        margin-left: 10px; 
+    }
+    
+    .main-content {
+        margin: 20px; 
+        padding: 20px;
+        background-color: beige; 
+    }
+    
+    #main-h2 {
+      text-align: center;
+    }
+    
+    .footer {
+        background-color: #333; 
+        color: #fff; 
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+    }
+    
+    .footer a {
+        color: #fff; 
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .social-icons {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    
+    .social-icons a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
