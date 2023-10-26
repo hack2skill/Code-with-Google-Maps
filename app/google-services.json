@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "229149445273",
+    "project_id": "medisync-1695206869761",
+    "storage_bucket": "medisync-1695206869761.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229149445273:android:cef6b30259fe7b6cdd7c08",
+        "android_client_info": {
+          "package_name": "com.example.medisync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQtGcaPHkyBp8HH_sOJ7aLnuNeXlMVa2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
