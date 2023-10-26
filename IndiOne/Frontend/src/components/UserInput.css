@@ -1,0 +1,498 @@
+.user_input_container {
+  background-color: rgb(244, 242, 241);
+  height: 100%;
+}
+
+.user_input_intro_container {
+  background-color: rgb(91, 156, 230);
+  height: 20%;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 15px 20px 0 20px;
+  text-align: center;
+}
+
+.user_input_intro_container h1 {
+  color: white;
+}
+
+.user_input_form_container {
+  height: 100%;
+  width: 90%;
+  top: 10%;
+  margin-left: 5%;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+
+}
+
+.userInputQuery {
+  padding: 2% 5% 2% 5%;
+}
+
+.fromWhere-searchbar {
+  background-color: #ffffff;
+  border: solid 1px rgb(44, 140, 229);
+  border-radius: 20px;
+  height:35px;
+  display:flex;
+}
+
+#wheretotext   {
+  border: none;
+  background-color: #ffffffdb;
+  border-radius: 20px;
+  color: black;
+  margin-left: 10px;
+}
+
+
+#wheretonextMag {
+  background-color: #ffffffdb;
+  border-radius: 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-left: 20px;
+}
+
+/* Distance slider*/
+#userDistance {
+  padding: 0 10% 0 10%
+}
+
+.MuiSlider-thumb {
+  color: blue
+}
+
+.MuiSlider-rail{
+  color:rgb(4, 4, 92)
+}
+
+.MuiSlider-track{
+  color: blue
+}
+
+/* Budget */
+.css-kglq79-MuiRating-root {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#userBudget {
+  padding: 0 1% 0 1%
+}
+
+.MuiRating-icon {
+  width: 100%;
+}
+
+.btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2%;
+}
+/* Transport */
+.transport-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+}
+
+/* Template */
+.template-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+
+}
+
+/* Navigate btn */
+#navigate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+ .sampleMapContainer {
+    height: 100%;
+    width: 100%;
+ }
+ 
+ 
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(244, 242, 241);
+  }
+  
+  #description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  
+  #infowindow-content .title {
+    font-weight: bold;
+  }
+  
+  #infowindow-content {
+    display: none;
+  }
+  
+  /* Media Query required */
+  #map {
+    border: 1px solid #000;
+    background: white;
+    width: 100%;
+    height: 500px;
+  }
+
+  
+  #map #infowindow-content {
+    display: inline;
+  }
+  
+  .pac-card {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    font-family: Roboto;
+    padding: 0;
+  }
+  
+  .pac-container {
+    z-index: 2000;
+  }
+  #pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+  }
+  
+  .pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+  }
+  
+  .pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+  }
+  
+  #pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
+  
+  #pac-input:focus {
+    border-color: #4d90fe;
+  }
+  
+  #title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+  }
+
+  /*
+  Start & End Time
+  */
+
+  .dateContainer {
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    width:100%;
+    padding: 0px 10%;
+}
+
+#eachButton {
+    width:120px;
+}
+
+
+/* TRANSPORTATION */ 
+
+.transportation {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+ }
+ .transportation .text-wrapper {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  height: 31px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: 150px;
+ }
+ .transportation .div {
+  align-items: center;
+  background-color: #ffffff;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 10px 30px;
+  position: relative;
+  width: 394px;
+ }
+ 
+ .transportation .transport-icon {
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px #00000040;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  height: 117px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8px 10px;
+  position: relative;
+  width: 112px;
+ }
+ .transportation .car-taxi {
+  height: 72.5px;
+  margin-top: -8px;
+  position: relative;
+  width: 73px;
+ }
+
+ .transportation .text-wrapper-2 {
+  align-self: stretch;
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 11px;
+  font-weight: 700;
+  height: 19px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: -8px;
+  position: relative;
+  text-align: center;
+ }
+ .transportation .space-line {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  position: relative;
+ }
+ .transportation .rectangle {
+  height: 86px;
+  position: relative;
+  width: 19px;
+ }
+
+ .transportation .line {
+  height: 78px;
+  left: 9px;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  width: 1px;
+ }
+ .transportation .transport-icon-2 {
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px #00000040;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  height: 117px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8px 10px;
+  position: relative;
+  width: 113px;
+ }
+ .transportation .img {
+  height: 73px;
+  margin-top: -8px;
+  position: relative;
+  width: 74px;
+ }
+
+ .transportation .transport-icon-3 {
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px #00000040;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  height: 117px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8px 10px;
+  position: relative;
+  width: 111px;
+ }
+
+ .space-line {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  position: relative;
+ }
+ .space-line .rectangle {
+  height: 86px;
+  position: relative;
+  width: 19px;
+ }
+ .space-line .line {
+  height: 78px;
+  left: 9px;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  width: 1px;
+ }
+
+ @media only screen and (max-width: 1280px) {
+  .user_input_form_container {
+    height: 950px;
+  }
+}
+
+ @media only screen and (max-width: 1120px) {
+  .user_input_form_container {
+    height: 900px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .user_input_form_container {
+    height: 880px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .user_input_form_container {
+    height: 860px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .user_input_form_container {
+    height: 840px;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  .user_input_form_container {
+    height: 820px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .user_input_form_container {
+    height: 810px;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .user_input_form_container {
+    height: 790px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .user_input_form_container {
+    height: 790px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .user_input_form_container {
+    height: 780px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .user_input_form_container {
+    height: 770px;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .user_input_form_container {
+    height: 760px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .user_input_form_container {
+    height: 740px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .user_input_form_container {
+    height: 720px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .user_input_form_container {
+    height: 710px;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .user_input_form_container {
+    height: 680px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .user_input_form_container {
+    height: 675px;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .user_input_form_container {
+    height: 665px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .user_input_form_container {
+    height: 655px;
+  }
+  .user_input_intro_container h1{
+    font-size: 20px;
+  }
+}
