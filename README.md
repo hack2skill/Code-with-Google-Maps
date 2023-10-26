@@ -1,32 +1,21 @@
 # Code-with-Google-Maps-2023 - Hack2skill
 
-Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2skill!
-
-## Getting Started
-
-To get started with the Code-with-Google-Maps-2023 repository, follow these steps:
-
-### Submission Instruction:
-  1. Fork this repository
-  2. Create a folder with your Team Name
-  3. Upload all the code and necessary files in the created folder
-  4. Upload a **README.md** file in your folder with the below mentioned informations.
-  5. Generate a Pull Request with your Team Name. (Example: submission-XYZ_team)
 
 ### README.md must consist of the following information:
 
-#### Team Name -
-#### Problem Statement - 
-#### Team Leader Email -
-
+#### Team Name - Jay Aur Veeru
+#### Team Leader Email - 06yuvraj2001singh@gmail.com
+#### Github Repo Link -: https://github.com/chirag63744/Bus_Yatra
 ### A Brief of the Prototype:
-  This section must include UML Diagrams and prototype description
+BUS YATRA is a mobile application designed to revolutionize intra-city government bus transport. This innovative platform offers real-time vehicle tracking, empowering passengers with the ability to locate buses effortlessly. It further enhances passenger safety by introducing a Driver Performance Score, evaluating drivers based on factors like braking, speeding, acceleration, turning, and adherence to routes. Environmental consciousness is promoted by disclosing vehicle emissions and energy-saving measures, such as electric buses. The app also provides insights into bus stops and driver profiles, fostering transparency and reliability. Utilizing AI, BUS YATRA calculates Estimated Time of Arrival (ETA) based on live traffic conditions, streamlining travel planning and minimizing delays. Ultimately, BUS YATRA aims to transform government bus travel into an organized, comfortable, and sustainable mode of transportation, catering to millions of passengers while breaking new ground in the domain.
+
   
 ### Tech Stack: 
-   List Down all technologies used to Build the prototype
+- Google Direction API
+- Google Firebase
    
 ### Step-by-Step Code Execution Instructions:
-  This Section must contain a set of instructions required to clone and run the prototype so that it can be tested and deeply analyzed
+- Opent the apk inside "https://github.com/chirag63744/Bus_Yatra"  repository
+- Create account and Get Started
+- To know more about about app you can watch youtube Video -: https://www.youtube.com/watch?v=9e6r1kWdOmg
   
-### Future Scope:
-   Write about the scalability and futuristic aspects of the prototype developed
