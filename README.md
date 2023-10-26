@@ -12,7 +12,7 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
    <img src="https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white" />
    <img src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white" />
    
-### Step-by-Step Code Execution Instructions:
+### Step-by-Step Code Execution Instructions (Mobile Client):
 
 1. **Clone the Repository:**
 
@@ -22,7 +22,7 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
 2. **Navigate to the Project Directory:**
 
    ```bash
-   cd Code-with-Google-Maps
+   cd Code-with-Google-Maps/client
    ```
 
 3. **Install Dependencies:**
@@ -77,7 +77,6 @@ Turboroute is an emergency healthcare navigation app, utilizing Google Maps API 
 | Improved UI/UX                      | Enhance user interface for a more intuitive experience  |
 | Refine Emergency Routing Algorithm   | Fine-tune routing logic for even quicker response times |
 | Basic Language Translation           | Add support for one additional language initially       |
-| Implement User Authentication        | Create a secure login system for personalized features  |
 | Basic Analytics Dashboard            | Add a simple dashboard for tracking app usage           |
 | Local Hospital Database Expansion    | Include more hospitals and healthcare facilities        |
 | Error Handling and User Feedback     | Implement alerts for common errors and gather user feedback |
