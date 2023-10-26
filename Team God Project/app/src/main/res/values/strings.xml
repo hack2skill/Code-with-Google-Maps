@@ -1,0 +1,9 @@
+<resources>
+    <string name="splash_appDescription">Navigating Environmental Challenges: Protecting Our
+Trees and Land”</string>
+    <string name="splash_subTitle">"Revive, Cultivate, Thrive!"</string>
+    <string name="splash_appTitle">FarmPlotz</string>
+    <string name="btn_get_started">Get Started</string>
+    <string name="home">Home</string>
+    <string name="vison">I</string>
+</resources>
