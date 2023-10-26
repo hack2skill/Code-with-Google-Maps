@@ -7,12 +7,14 @@
 #### Team Leader Email - itsomsarraf@gmail.com
 
 ### A Brief of the Prototype:
-
+Video Demo : https://www.loom.com/share/e57a9721bf044ce09156b49e4c5102fc?sid=a355f1f0-4e9a-4746-a9d0-f006032351f1
 * **Authentication:** Users can securely log in using their email and password, with authentication handled through Firebase.
 * **Photo Reporting:** The prototype enables users to effortlessly click photo of street garbage, streamlining the reporting process.
 * **Geolocation Integration:** Advanced geolocation technology is implemented to obtain exact coordinates of reported garbage, ensuring precision.
 * **Efficient Transmission:** The reported information is efficiently transmitted through the backend infrastructure of the application.
 * **Streamlined User Experience:** The prototype embodies the core vision of SnapTrash by empowering users to contribute to cleaner urban environments in a straightforward manner.
+
+### [Snap-Trash Repository](https://github.com/Utkarsh-m08/Snap-Trash) , All the Code is Updated here
 
 ![UML Diagram](SnapTrash-uml.png)
 ![WhatsApp Image 2023-10-25 at 20 00 37_0f160569](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/c555e10c-ad07-4eb9-ba4a-4ecfe948cfcd)
@@ -25,6 +27,7 @@
 ![SnapTrash](https://github.com/Utkarsh-m08/Snap-Trash/assets/83817663/a5ebf989-db35-49ca-8edd-0d516a95a545)
 
 
+
 ### Tech Stack:
 
     Flutter,Firebase,Google Maps Platform
@@ -34,9 +37,6 @@
 2. Navigate to the project folder: `cd SnapTrash`
 3. Install dependencies: `flutter pub get`
 4. Run the app: `flutter run`
-
-
-##### [Snap-Trash Repository](https://github.com/Utkarsh-m08/Snap-Trash) , All the Code is Updated here
 
 # Future Scope:
 
