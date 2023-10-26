@@ -78,3 +78,7 @@ To run this project, you will need to add the following environment variables to
 - [Soumik Baksi](https://www.github.com/karar189)
 - [Sweta Karar](https://www.github.com/karar189)
 - [Jyotirmoy Roy](https://github.com/ItsRoy69)
+
+## Future Scope 
+
+To further advance our safety system, we aim to extend blockchain integration for secure data storage, ensuring data integrity and fostering trust across all safety-related data, going beyond chemical inventory. Additionally, we are actively working on implementing machine learning for early hazard detection, allowing us to identify sensor data anomalies and mitigate potential risks before they escalate. Furthermore, we are enhancing our simulation capabilities, enabling "what-if" analysis for complex scenarios, resulting in more effective preparation and response strategies. We are also committed to expanding our IoT sensor variety and coverage to create a more comprehensive safety network in industrial settings. Strengthening our collaboration with emergency services is a priority, equipping them with real-time data and advanced tools for improved decision-making during critical situations. Lastly, our ongoing efforts include expanding our AI bot's language capabilities to ensure effective communication with a diverse workforce in the oil and gas industry, promoting safety and understanding across different languages and cultures.
