@@ -1,5 +1,5 @@
 # BIJLI, Chak De Chargers- Submission
-## A crowd-sourced EV Charger Finder and Trip Planner app, akin to Tesla's tech. It lets users discover and add third-party EV chargers while planning electric journeys with ease
+<h2>A crowd-sourced EV Charger Finder and Trip Planner app, akin to Tesla's tech. It lets users discover and add third-party EV chargers while planning electric journeys with ease </h2> 
 
 #### Team Name - Bijli, Chak De Chargers
 #### Problem Statement -  The lack of an accessible, comprehensive, and user-driven platform for locating third-party EV chargers and effectively planning electric vehicle journeys hinders the adoption and convenience of electric mobility.
