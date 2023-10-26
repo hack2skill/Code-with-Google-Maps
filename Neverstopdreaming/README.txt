@@ -12,7 +12,7 @@
 ## A Brief of the Prototype
 
 ### UML Diagrams
-
+https://i.ibb.co/jMjdBd2/Untitled-Diagram-drawio.png
 
 ### Prototype Description
 Our solar energy ecosystem solutions application offers a comprehensive set of features to assist users in seamlessly integrating solar energy into their homes and businesses. Here's an overview of the key components:
