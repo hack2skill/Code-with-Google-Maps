@@ -62,11 +62,3 @@ To get started with SnapTrash, follow these steps:
 2. Navigate to the project folder: `cd SnapTrash`
 3. Install dependencies: `flutter pub get`
 4. Run the app: `flutter run`
-
-## Contributing
-
-Contributions are welcome! If you have any ideas, bug fixes, or improvements, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
