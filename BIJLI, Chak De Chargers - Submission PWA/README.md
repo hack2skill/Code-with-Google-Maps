@@ -1,4 +1,4 @@
-# Code-with-Google-Maps-2023 - Hack2skill
+# BIJLI, Chak De Chargers- Submission
 
 Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2skill!
 
@@ -20,6 +20,10 @@ To get started with the Code-with-Google-Maps-2023 repository, follow these step
 #### Team Leader Email -
 
 ### A Brief of the Prototype:
+|HomePage | Description | 
+|-|-|
+| ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Home%20Screen.png)| All the relevant functionalities|
+ 
   This section must include UML Diagrams and prototype description
   
 ### Tech Stack: 
