@@ -9,14 +9,15 @@ A crowd-sourced EV Charger Finder and Trip Planner app, akin to Tesla's "Go Anyw
 
 ## A Brief of the Prototype:
 
-<p align="center"> 
-UML Diagram 
-</p>
+An innovative EV Charger Discovery and Route Planning App, akin to Tesla's renowned technology "Go Anywhere". Unlike Tesla's proprietary network, this app is a collaborative platform where users can contribute and locate third-party EV chargers across the map.
+
+Whether you're an EV owner or enthusiast, it empowers you to effortlessly discover and add EV chargers while planning your electric journeys with precision and ease.
 
 Things done so far 
 
 - [x] Maps ID create a custom beautiful map
 - [x] Auto Locator to find Nearest EV Chargers
+- [x] AutoComplete locations
 - [x] Create DB with all EV Chargers
 - [x] Create animated markers with DB Coordinates
 - [x] Get and Display Places API data
@@ -33,8 +34,13 @@ Things done so far
 - [x] Get Polyline data for 2 points
 - [ ] Display PolyLine color depending on the time to reach
 
+<p align="center"> 
+UML Diagram 
+</p>
+
 ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/main%20Work%20space.png)
 
+|ALL THE SCREENS & DESCRIPTION|
 |HomePage | Description | 
 |-|-|
 | ![homepage](https://github.com/Shaburu/Code-with-Google-Maps/blob/main/BIJLI%2C%20Chak%20De%20Chargers%20-%20Submission%20PWA/Home%20Screen.png)| All the relevant functionalities|
