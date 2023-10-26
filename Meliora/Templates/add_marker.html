@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meliora</title>
+    <style>
+        .news-ticker {
+            overflow: hidden;
+        }
+
+        .news-ticker p {
+            white-space: nowrap;
+            animation: marquee 30s linear infinite; /* Adjust the duration as needed */
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        form {
+            margin: 10px auto;
+            padding: 20px;
+            background-color: #000;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.738);
+            border-radius: 5px;
+            max-width: 500px;
+        }
+        input[type="submit"] {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            align-items: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0069d9;
+        }
+        label {
+            display: block;
+            color: white;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 95%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input[type="radio"] {
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: inline-block;
+            background-color: gold;
+            color: black;
+            text-align: center;
+            padding: 5px 15px;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: none;
+            cursor: pointer;
+            
+        }
+        button:hover {
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ExtlZYOpDovDwj3xPRQ0Wkp82WyFa2U"></script>
+</head>
+<body style="background-color: black;">
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    <div class="news-ticker">
+        <p style="color: red;">Note: Please select a location from the map to get the coordinates automatically.</p>
+    </div>
+    <script>
+        var darkMapStyle = [
+            {
+                "featureType": "all",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": -100
+                    },
+                    {
+                        "gamma": 0.5
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#e5e5e5"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "color": "none"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "color": "#888888"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#adadad"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#545454"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "color": "#666666"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#333333"
+                    }
+                ]
+            }
+        ];
+
+        function initMap() {
+            var mapOptions = {
+                center: { lat: 22.636743, lng: 75.836758 },
+                zoom: 16, // Adjust the zoom level as needed
+                styles: darkMapStyle, // Apply the custom map style
+            };
+
+            // Create a new map object
+            var darkmap = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+            var marker1 = new google.maps.Marker({
+                position: { lat: 22.639571, lng: 75.833579 }, // Replace with the specific coordinates
+                map: darkmap, // Use 'darkmap' instead of 'map'
+                title: "Road A",
+            });
+
+            var marker2 = new google.maps.Marker({
+                position: {lat: 22.634277, lng: 75.834728 }, // Replace with the specific coordinates
+                map: darkmap, // Use 'darkmap' instead of 'map'
+                title: "AB Road",
+            });
+
+            var marker3 = new google.maps.Marker({
+                position: {lat: 22.637124, lng: 75.838849}, // Replace with the specific coordinates
+                map: darkmap, // Use 'darkmap' instead of 'map'
+                title: "Road B",
+            });
+            darkmap.addListener("click", function(event) {
+                // When the map is clicked, you can access the clicked coordinates (lat and lng)
+                var clickedLatLng = event.latLng;
+                document.getElementById('long').value = clickedLatLng.lng();
+                document.getElementById('lat').value = clickedLatLng.lat();
+                alert("Clicked coordinates: " + clickedLatLng.lat() + ", " + clickedLatLng.lng());
+            })
+        }        
+    </script>
+
+    <!-- Call the initMap function after the Google Maps API has loaded -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ExtlZYOpDovDwj3xPRQ0Wkp82WyFa2U&callback=initMap">
+    </script>
+    <h1 style="text-align: center; color: gold; margin: 20px auto; font-family: 'Lucida Console', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> Add a Marker</h1>
+    <div style="display: flex; flex-direction: column; text-align: center;">
+        <form id="marker-form" action="/add_marker" method="post">
+            
+            <label for="title" style="text-align: left;">Road Name/Title</label>
+            <input type="text" id="title" name="title" required><br>
+            
+            <label style="text-align: left;">Please enter the coordinates of the marker</label>
+            
+            <label for="long" style="text-align: left;">Longitude</label>
+            <input type="number" id="long" name="long" step="0.000000000000001" value="" required><br>
+            
+            <label for="lat" style="text-align: left;">Latitude</label>
+            <input type="number" id="lat" name="lat" step="0.000000000000001" value="" required><br>
+
+            <label style="text-align: left;">Is the region prone to accident?</label>
+            <div style="text-align: center;">
+                <label style="text-align: center; display: inline-block; color: white;">Yes</label>
+                <input type="radio" name="ind" value="yes">
+                
+                <label style="text-align: center; display: inline-block; color: white;">No/idk</label>
+                <input type="radio" name="ind" value="no">
+            </div>
+                                            
+            <input id = "submit" type="submit" value="Add">
+
+            <script>
+                document.getElementById('submit').addEventListener('click', function(e) {
+                    if (document.querySelector('input[name="ind"]:checked') === null) {
+                        var confirmed = confirm('Please select if the road is prone to accidents or not.');
+                        if (!confirmed) {
+                            e.preventDefault();
+                        }
+                        if (confirmed){
+                            e.preventDefault();
+                        }
+                    }
+                });
+            </script>
+        </form>
+    </div>
+</body>
+</html>

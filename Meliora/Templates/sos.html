@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emergency SOS</title>
+</head>
+<body>
+    <h1>Emergency SOS</h1>
+    <button id="helpButton">Help</button>
+    <button id="addContactsButton">Add Contacts</button>
+
+    <div id="contactList">
+        <!-- Display the top 5 contacts here -->
+    </div>
+
+    <i id="msgsent">
+        <!-- Display the top 5 contacts here -->
+    </i>
+
+    <script>
+        let emergencyContacts = [];
+        let map;
+        let userLocationMarker;
+
+        // Initialize the Google Map
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 0, lng: 0 }, // Default center
+                zoom: 8 // Default zoom level
+            });
+        }
+
+        // Function to display the user's top 5 emergency contacts
+        function displayContacts() {
+            const contactList = document.getElementById("contactList");
+            contactList.innerHTML = "";
+
+            if (emergencyContacts.length === 0) {
+                contactList.innerHTML = "No emergency contacts added.";
+                return;
+            }
+
+            // const top5Contacts = emergencyContacts.slice(0, 5);
+            // top5Contacts.forEach(contact => {
+            //     const contactInfo = document.createElement("p");
+            //     contactInfo.textContent = Name: ${contact.name}, Phone: ${contact.phoneNumber};
+            //     contactList.appendChild(contactInfo);
+            // });
+        }
+
+        // Function to add contacts
+        function addContacts() {
+            if (emergencyContacts.length >= 5) {
+                alert("You have already added your top 5 emergency contacts.");
+                return;
+            }
+
+            const name = prompt("Enter the contact's name:");
+            const phoneNumber = prompt("Enter the contact's phone number:");
+
+            if (name && phoneNumber) {
+                emergencyContacts.push({ name, phoneNumber });
+                alert("Contact added successfully.");
+                displayContacts();
+                document.getElementById("contactList").textContent = name + ': ' + phoneNumber;
+            } else {
+                alert("Please enter both name and phone number.");
+            }
+        }
+
+        // Function to update and send user's location
+        function sendSOSMessage() {
+            if (emergencyContacts.length === 0) {
+                alert("Please add emergency contacts before sending an SOS.");
+                return;
+            }
+
+            // Get the user's current location using the Google Maps API
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                // Update the map with the user's location
+                // map.setCenter(userLocation);
+                // if (userLocationMarker) {
+                //     userLocationMarker.setPosition(userLocation);
+                // } else {
+                //     userLocationMarker = new google.maps.Marker({
+                //         position: userLocation,
+                //         map: map,
+                //         title: 'Your Location'
+                //     });
+                // }
+
+                // Compose the SOS message with the user's location
+                const sosMessage = `Emergency! I'm in distress at ${userLocation.lat}, ${userLocation.lng}. Please help!`;
+
+                // Send the SOS message to each contact (simulated here with console.log)
+                emergencyContacts.forEach(contact => {
+                    // const message = To: ${contact.name}\nMessage: ${sosMessage}\nPhone: ${contact.phoneNumber};
+                    console.log(sosMessage);
+
+                    // In a real application, you would send SMS or emails using the appropriate APIs.
+                    // For sending SMS, you might use a service like Twilio.
+                    // For sending emails, you would use an email service or your server's email capabilities.
+                });
+
+                alert("SOS messages sent to your contacts.");
+                document.getElementById("msgsent").textContent = 'For simulation the message is printed in the console log';
+            });
+        }
+
+        // Add click event listeners to the buttons
+        document.getElementById("helpButton").addEventListener("click", sendSOSMessage);
+        document.getElementById("addContactsButton").addEventListener("click", addContacts);
+
+        // Display the saved contacts when the page loads
+        displayContacts();
+    </script>
+
+    <!-- Include the Google Maps API with your API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ExtlZYOpDovDwj3xPRQ0Wkp82WyFa2U&callback=initMap" async defer></script>
+</body>
+</html>

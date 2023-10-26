@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meliora</title>
+    <style>
+        .news-ticker {
+            overflow: hidden;
+        }
+
+        .news-ticker p {
+            white-space: nowrap;
+            animation: marquee 30s linear infinite; /* Adjust the duration as needed */
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        button {
+            display: inline-block;
+            background-color: gold;
+            color: black;
+            text-align: center;
+            padding: 5px 15px;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: none;
+            cursor: pointer;
+            
+        }
+        button:hover {
+            background-color: goldenrod;
+        }
+        a {
+            display: inline-block;
+            background-color: gold;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            padding: 5px 15px;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        a:hover {
+            background-color: goldenrod;
+        }
+
+    </style>
+</head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ExtlZYOpDovDwj3xPRQ0Wkp82WyFa2U"></script>
+</head>
+<body style="background-color: black;">
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    <div class="news-ticker">
+        <p style="color: red;">Note: Please select a road marker on the map to vote or to view route suitability.</p>
+    </div>
+    {% if msg02 %}
+            <h3 style="color: greenyellow; text-align: center;">Marker added successfully. Please find it in the map.</h3>
+    {% endif %}
+    <script>
+        var darkMapStyle = [
+            {
+                "featureType": "all",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": -100
+                    },
+                    {
+                        "gamma": 0.5
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#e5e5e5"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "color": "none"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "color": "#888888"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#adadad"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#545454"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "color": "#666666"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#333333"
+                    }
+                ]
+            }
+        ];
+
+        function initMap() {
+            var mapOptions = {
+                center: { lat: 22.636743, lng: 75.836758 },
+                zoom: 16, // Adjust the zoom level as needed
+                styles: darkMapStyle, // Apply the custom map style
+            };
+
+            // Create a new map object
+            var darkmap = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+            var marker1 = new google.maps.Marker({
+                position: { lat: 22.639571, lng: 75.833579 }, // Replace with the specific coordinates
+                map: darkmap, // Use 'darkmap' instead of 'map'
+                title: "Road A",
+            });
+
+            var marker2 = new google.maps.Marker({
+                position: {lat: 22.634277, lng: 75.834728 }, // Replace with the specific coordinates
+                map: darkmap, // Use 'darkmap' instead of 'map'
+                title: "AB Road",
+            });
+
+            var marker3 = new google.maps.Marker({
+                position: {lat: 22.637124, lng: 75.838849}, // Replace with the specific coordinates
+                map: darkmap, // Use 'darkmap' instead of 'map'
+                title: "Road B",
+            });
+
+            var l = [marker1, marker2, marker3];
+
+            (async function () {
+                const res = await fetch(`/api/markers`);
+                if (res.ok) {
+                    const roads = await res.json();
+                    for (const road of roads) {
+                        var marker = new google.maps.Marker({
+                            position: { lat: road.Lat, lng: road.Long },
+                            map: darkmap, // Use 'darkmap' instead of 'map'
+                            title: road.Title,
+                        });
+                        l.push(marker);
+                    }
+                } else {
+                    console.log('An error occurred');
+                }
+            })().then(function () {
+                // This code will run after the first async function is finished.
+                for (marker of l) {
+                    (async function (marker) {
+                        marker.addListener("click", async function () {
+                            // Get the title of the route
+                            var routeTitle = marker.getTitle();
+                            document.getElementById("selected-route").value = routeTitle;
+                            document.getElementById("route-title").textContent = routeTitle;
+                            const res = await fetch(`/api/road_details/${routeTitle}`);
+                            if (res.ok) {
+                                const data = await res.json();
+                                document.getElementById("suite").textContent = data[0];
+                                document.getElementById("flag").textContent = data[1];
+                            } else {
+                                console.log('An error occurred');
+                            }
+                        });
+                    })(marker);
+                }
+            });
+        }        
+    </script>
+
+    <!-- Call the initMap function after the Google Maps API has loaded -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ExtlZYOpDovDwj3xPRQ0Wkp82WyFa2U&callback=initMap">
+    </script>
+    <h1 style="text-align: center; color: gold; margin: 20px auto; font-family: 'Lucida Console', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"> Welcome to Meliora Maps</h1>
+    <div style="display: flex; flex-direction: column; text-align: center;">
+        <div style="display: inline-flex; align-self: center;">
+            <h3 style="color: aliceblue; text-align: center">Road Suitability Voting for: <h3 id="route-title" style="color: red; text-align: center"></h3></h3>
+        </div>
+        {% if msg01 %}
+            <h3 style="color: greenyellow; text-align: center;">Vote counted successfully</h3>
+        {% endif %}
+        <form id="voting-form" action="/vote" method="post">
+            
+            <label for="small-vehicle" style="color: aliceblue;">Small Vehicle:</label>
+            <input type="radio" name="vote" id="small-vehicle" value="small-vehicle">
+
+            <label for="car" style="color: aliceblue;">Car:</label>
+            <input type="radio" name="vote" id="car" value="car">
+            
+            <label for="big-vehicle" style="color: aliceblue;">Big Vehicle:</label>
+            <input type="radio" name="vote" id="big-vehicle" value="big-vehicle">
+
+            <input type="hidden" id="selected-route" name="selected-route" value="">
+            
+            <button type="submit" id = "submit"><b>Vote</b></button>
+
+            <script>
+                document.getElementById('submit').addEventListener('click', function(e) {
+                    if (document.getElementById("route-title").textContent === "") {
+                        var confirmed = confirm('Please select a road from the given markers on the map.');
+                        if (!confirmed) {
+                            e.preventDefault();
+                        }
+                        if (confirmed){
+                            e.preventDefault();
+                        }
+                    } else if (document.querySelector('input[name="vote"]:checked') === null) {
+                        var confirmed = confirm('Please select the dimension of the type of vehicle that can traverse through that road.');
+                        if (!confirmed) {
+                            e.preventDefault();
+                        }
+                        if (confirmed){
+                            e.preventDefault();
+                        }
+                    }
+                });
+            </script>
+        </form>
+        <p id = "suite" style="color: blue;"></p>
+        <p id = "flag" style="color: red; padding: 0%; margin-bottom: 10px;"></p>
+    </div>
+    <div style="align-items: center; align-self: center; align-content: center; text-align: center;">
+        <p style="color: aliceblue; display: inline-block;">Add a Marker</p> 
+        <a href="/add_marker" ><b>Add</b></a>
+    </div>
+    <div style="align-items: right; align-self: right; align-content: right; text-align: right;">
+        <a href="/distress"  style="background-color: red;"><b>Distress</b></a>
+    </div>
+</body>
+</html>
