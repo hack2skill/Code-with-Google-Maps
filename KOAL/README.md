@@ -13,6 +13,10 @@ Welcome to the repository for KOAL Dashboard, created by Team KOAL for the "A Di
 
 The KOAL Dashboard is a comprehensive platform for coal transportation. It features a calendar for scheduling, real-time vehicle tracking with Google MAPs API, transaction management, and data analytics. This provides multi-modal visibility, enhances efficiency.
 
+Dashboard:
+![image](https://github.com/lucas150/HACKATHON-KOAL/assets/97867297/542fd2d1-45a4-4199-8b9e-7dab97194024)
+
+
 ## Tech Stack
 - ReactJs
 - TailwindCSS
