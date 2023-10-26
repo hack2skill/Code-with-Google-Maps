@@ -7,8 +7,6 @@ let mallMarker;
 let trainStationMarker;
 let markersArray = [];
 
-const apiKey = "YOUR_API_KEY_HERE"; 
-
 
 function initMap() {
     const bounds = new google.maps.LatLngBounds();
@@ -262,6 +260,7 @@ function calculateTransitAndRetailProximity(userLocation) {
 }
 
 function fetchAirQuality(location) {
+    const apiKey = "YOUR_API_KEY_HERE "; 
     const apiUrl = "https://airquality.googleapis.com/v1/currentConditions:lookup?key=" + apiKey;
     const data = {
         location: {
