@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Mulish"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Nearby Search</title>
+
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      .carousel {
+        width: 465px;
+        height: 200px;
+        overflow: hidden;
+        position: absolute;
+        top: 4px;
+        left: 550px;
+      }
+
+      .carousel-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .carousel-item {
+        flex: 0 0 100%;
+        width: 100%;
+      }
+
+      .carousel-button {
+        position: absolute;
+        top: 80%;
+        left: 200px;
+        transform: translateY(-50%);
+        background-color: lightgray;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      img {
+        vertical-align: middle;
+        width: 189px;
+        height: 44px;
+        margin-top: 7px;
+      }
+
+      @media only screen and (max-width: 1200px) {
+        .carousel {
+          width: 370px;
+        }
+
+        #next {
+          left: 920px !important;
+        }
+      }
+
+      @media only screen and (min-width: 480px) {
+        #map {
+          height: 85vh !important;
+        }
+      }
+
+      .open-button {
+        background-color: #fd5f07;
+        position: relative;
+        bottom: 34%;
+        right: 1.5%;
+        width: auto;
+        text-size-adjust: 20px;
+        font-size: 15px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .form-popup {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        right: 15px;
+        z-index: 9;
+        border: none;
+      }
+
+      .form-container {
+        max-width: 261px;
+        max-height: 354px;
+        padding: 10px;
+        background-color: #241c24;
+        font-size: 12px;
+      }
+
+      .form-container input[type="text"],
+      .form-container input[type="password"] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+      }
+
+      /* When the inputs get focus, do something */
+      .form-container input[type="text"]:focus,
+      .form-container input[type="password"]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      /* Set a style for the submit/login button */
+
+      .form-container .btn {
+        background-color: #04aa6d;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 12px;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+      }
+
+      /* Add a red background color to the cancel button */
+      .form-container .cancel {
+        background-color: red;
+      }
+
+      /* Add some hover effects to buttons */
+      .form-container .btn:hover,
+      .open-button:hover {
+        opacity: 1;
+      }
+    </style>
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="form-popup" id="myForm">
+      <form class="form-container">
+        <h1
+          style="
+            font-size: 18px;
+            font-weight: 600;
+            color: #ddd;
+            text-align: center;
+            cursor: move;
+          "
+          id="header1"
+        >
+          Search Place By Keyword
+        </h1>
+
+        <input
+          id="Custom"
+          type="text"
+          placeholder="Enter Keyword"
+          name="place_keyword"
+          required
+        />
+
+        <button type="submit" class="btn">Search</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">
+          Close
+        </button>
+      </form>
+    </div>
+    <div class="d-flex flex-row">
+      <table class="table" style="width: 100%; margin-bottom: 0%">
+        <div>
+          <tr>
+            <td
+              style="
+                color: white;
+                text-align: right;
+                background-color: #241c24;
+                font-weight: 500;
+                font-size: 22px;
+                height: 10px;
+              "
+            >
+              <div style="width: 50px; height: 35px">
+                <img src="./img/persistent-systems-header-logo.png" />
+              </div>
+              <button class="open-button" onclick="openForm()">
+                Not In List?
+              </button>
+              <button
+                class="w3-button"
+                onclick="w3_open()"
+                style="margin-top: -44px"
+              >
+                ☰
+              </button>
+            </td>
+          </tr>
+        </div>
+      </table>
+
+      <div
+        class="w3-sidebar w3-bar-block w3-card"
+        style="display: none"
+        id="mySidebar"
+      >
+        <button onclick="w3_close()">&times;</button>
+      </div>
+
+      <div class="search-box">
+        <div class="row">
+          <input
+            onchange="cleardata()"
+            style="width: 262px; margin-left: -53px; border-radius: 0px"
+            id="searchTextField"
+            type="search"
+            class="searchTerm"
+            size="50"
+          />
+          <button class="search-btn">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="search-list" id="search-box"></div>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel-container">
+          <div class="carousel-item">
+            <button
+              class="keyword-btn"
+              type="submit"
+              id="Restaurant"
+              value="Restaurant"
+              onclick="resto()"
+              style="
+                left: 1462px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-utensils"></i>&nbsp;&nbsp;Restaurant
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn"
+              type="submit"
+              id="Pharmacy"
+              value="Pharmacy"
+              onclick="Pharmacy()"
+              style="
+                left: 1053px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-notes-medical"></i>&nbsp;&nbsp;Pharmacy
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn"
+              type="submit"
+              id="Supermarket"
+              value="Supermarket"
+              onclick="superMarket()"
+              style="
+                left: 240px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;Supermarket
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn"
+              type="submit"
+              id="fuel"
+              value="Fuel Pump"
+              onclick="fuelPump()"
+              style="
+                left: 352px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-gas-pump"></i>&nbsp;&nbsp;Fuel Pump
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn"
+              type="submit"
+              id="Hardware"
+              value="Hardware"
+              onclick="hardware()"
+              style="
+                left: 474px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-hammer"></i>&nbsp;&nbsp;Hardware
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn1"
+              type="submit"
+              id="Grocery"
+              value="Grocery"
+              onclick="Grocery()"
+              style="
+                left: 588px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Grocery
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn1"
+              type="submit"
+              id="School"
+              value="School"
+              onclick="School()"
+              style="
+                left: 703px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-sharp fa-solid fa-graduation-cap"></i
+              >&nbsp;&nbsp;School
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn1"
+              type="submit"
+              id="Cafe"
+              value="Cafe"
+              onclick="Cafe()"
+              style="
+                left: 818px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-mug-saucer"></i>&nbsp;&nbsp;Cafe
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn1"
+              type="submit"
+              id="Cement_Depo"
+              value="Cement Depo"
+              onclick="CementDepo()"
+              style="
+                left: 940px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-mound"></i>&nbsp;&nbsp;Cement Depo
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn1"
+              type="submit"
+              id="ATM"
+              value="ATM"
+              onclick="ATM()"
+              style="
+                left: 122px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-money-bill"></i>&nbsp;&nbsp;ATM
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn1"
+              type="submit"
+              id="Warehouse"
+              value="Warehouse"
+              onclick="Warehouse()"
+              style="
+                left: 1168px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-warehouse"></i>&nbsp;&nbsp;Warehouse
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn1"
+              type="submit"
+              id="Chemical"
+              value="Chemical Industry"
+              onclick="Chemical()"
+              style="
+                left: 1282px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-flask"></i>&nbsp;&nbsp;Chemical Industry
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button
+              class="keyword-btn1"
+              type="submit"
+              id="Bank"
+              value="Bank"
+              onclick="Bank()"
+              style="
+                left: 14px;
+                top: 20px;
+                font-weight: bold;
+                background-color: #241c24;
+                border: none;
+                color: white;
+              "
+            >
+              <i class="fa-solid fa-building-columns"></i>&nbsp;&nbsp;Bank
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="carousel-button next"
+      id="next"
+      style="
+        background-color: #241c24;
+        left: 1018px;
+        top: 41px;
+        position: absolute;
+        border-radius: 23px;
+      "
+    >
+      <i class="fa fa-angle-double-right"></i>
+    </button>
+    <button
+      class="carousel-button prev"
+      style="
+        background-color: #241c24;
+        left: 524px;
+        position: absolute;
+        top: 41px;
+        border-radius: 19px;
+      "
+    >
+      <i class="fa fa-angle-double-left"></i>
+    </button>
+    <div class="d-flex flex-row">
+      <div id="map" style="width: 100%; height: 86vh"></div>
+    </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA17o5wOPrAn4717QBU6b5neTGv4_Z9UWc&libraries=geometry,places&callback=initMap"
+      async
+      defer
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

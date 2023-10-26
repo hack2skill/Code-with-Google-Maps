@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        color: #f8f8f8;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        text-align: center;
+        background-image: url("./img/background.jpg");
+        overflow: hidden;
+        background-size: cover;
+      }
+
+      .question1 {
+        margin: 20px;
+        cursor: pointer;
+        background-color: #f8f8f8;
+
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .question2 {
+        margin: 20px;
+        cursor: pointer;
+        background-color: #f8f8f8;
+
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .question:hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      img {
+        width: 20%;
+        left: 70%;
+        height: 20%;
+      }
+
+      .button {
+        background-color: #fd5f07;
+        border: none;
+        height: 30px;
+        width: 75%;
+        margin-left: 10%;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1
+      style="
+        font-weight: bold;
+        font-size: 60px;
+        color: white;
+        margin-bottom: 5%;
+      "
+    >
+      Welcome to our SiteStrategist
+    </h1>
+    <p style="color: white">
+      Our goal is to provide businesses with data-driven insights on
+      competition, <br />
+      <br />resources and optimization to help them choose the best
+      location/area to start their business and make decisions with confidence.
+    </p>
+
+    <div style="display: flex; flex-direction: row; margin-top: 3%">
+      <div class="question1" onclick="goToPage('no-referrer')">
+        <div style="font-weight: 800; display: flex; flex-direction: row">
+          <img src="./img/existing-business-icon.png" />
+          <p style="margin-left: 12%; bottom: 5%; font-size: larger">
+            Existing Business
+          </p>
+        </div>
+        <button class="button">
+          <a
+            href=" registeryourplace.html"
+            style="text-decoration: none; color: black"
+            >Do you have any existing business?</a
+          >
+        </button>
+      </div>
+
+      <div class="question2" onclick="goToPage('none')">
+        <div style="font-weight: 800; display: flex; flex-direction: row">
+          <img src="./img/new-business-icon.png" />
+          <p style="font-weight: 800; font-size: larger; margin-left: 15%">
+            New Business
+          </p>
+        </div>
+        <button class="button">
+          <a href="api hit.html" style="text-decoration: none; color: black"
+            >Do you want to set up a new business?</a
+          >
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function goToPage(type) {
+        if (type === "existing") {
+          window.location.href =
+            "file:///D:/MAP%20Projects/google%20map%20event/SiteStrategist/Demo/Place%20registeration%20page/registeryourplace.html";
+        } else if (type === "new") {
+          window.location.href =
+            "file:///D:/MAP%20Projects/google%20map%20event/SiteStrategist/Demo/functional%20page/api%20hit.html";
+        }
+      }
+    </script>
+  </body>
+</html>
