@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.MainActivity" />
+
+    <include layout="@layout/layout_auto_complete_search" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_red"
+        android:text="@string/street_view_snackbar_text"
+        android:padding="@dimen/padding"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:layout_below="@id/card_autocomplete"
+        android:layout_toStartOf="@id/img_btn_change_map_view"
+        android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+    <ImageButton
+        android:id="@+id/img_btn_change_map_view"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/card_autocomplete"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/red_outlined_circle_bg"
+        android:paddingVertical="@dimen/_10sdp"
+        android:contentDescription="@string/change_map_view"
+        android:src="@drawable/ic_control_map_30" />
+
+    <ImageButton
+        android:id="@+id/img_btn_start_navigation"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_above="@id/rv_route_details"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/outlined_circle_bg"
+        android:paddingVertical="@dimen/_10sdp"
+        android:contentDescription="@string/navigation"
+        android:src="@drawable/ic_navigation_30" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_route_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rv_features"
+        android:layout_marginStart="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_route_details" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_features"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/padding"
+        android:layout_marginBottom="@dimen/padding"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_feature" />
+
+    <include
+        android:id="@+id/layout_progressbar"
+        layout="@layout/layout_progressbar" />
+
+</RelativeLayout>
