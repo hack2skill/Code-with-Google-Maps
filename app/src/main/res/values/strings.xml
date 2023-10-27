@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MOM</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="change_map_view">Change Map View</string>
+    <string name="navigation">Navigation</string>
+    <string name="street_view_snackbar_text">Tap Anywhere on the Map for Roadside Perspective</string>
+    <string name="mom_maternity_oriented_map">MOM - Maternity Oriented Map</string>
+    <string name="tick">select route</string>
+    <string name="google_maps_install_instruction"><![CDATA[Please Download & Install Google Maps!]]></string>
+    <string name="feature_image">Feature Image</string>
+    <string name="empty_destination_navigation_msg">Please select destination first…</string>
+    <string name="no_route_found">No Route found!</string>
+    <string name="search_view_hint">Search Destination here..</string>
+    <string name="txt_default_route">Default Route</string>
+</resources>

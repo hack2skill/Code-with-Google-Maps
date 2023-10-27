@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="half_padding">@dimen/_4sdp</dimen>
+    <dimen name="padding">@dimen/_8sdp</dimen>
+    <dimen name="feature_card_radius">@dimen/_10sdp</dimen>
+</resources>
