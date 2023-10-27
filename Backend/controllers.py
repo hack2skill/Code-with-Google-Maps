@@ -172,7 +172,7 @@ def match():
                     distance_text = "N/A"
             else:
                 distance_text = "N/A"
-            print(distance_text)
+            # print(distance_text)
             if (
                 distance_text < 50000
                 and destination == searching_users[current_userid]["dest"]
@@ -185,7 +185,7 @@ def match():
                 }
                 destinations.append(response_data)
 
-    print(len(destinations), destinations)
+    # print(len(destinations), destinations)
     if len(destinations) == 0:
         return jsonify("No user near you!"), 400
 
@@ -211,6 +211,8 @@ def match():
 
     if user2["user_id"] not in matched_users:
         matched_users[user2["user_id"]] = user2
+
+    # print(matched_users)
 
     return matched_users
 
@@ -285,6 +287,23 @@ def id():
     else:
         return {"message": "User not found"}
     # return str(current_userid)
+
+
+@app.get("/id/<int:matchedId>")
+# @jwt_required()
+def get_user_by_id(matchedId):
+    user_detail = User.query.filter_by(id=matchedId).first()
+    if user_detail:
+        user_data = {
+            "id": user_detail.id,
+            "username": user_detail.username,
+            "age": user_detail.age,
+            "gender": user_detail.gender,
+        }
+        print(user_data)
+        return user_data, 200
+    else:
+        return {"message": "User not found"}, 404
 
 
 @app.route("/")
