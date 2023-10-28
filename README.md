@@ -21,13 +21,13 @@ response times due to traffic congestion.
 #### Team Leader Email -virenkalra966@gmail.com
 
 ### A Brief of the Prototype:
-  Our idea is to develop a prototype that optimizes ambulance routes using real-time data
+  Our idea optimizes ambulance routes using real-time data
 and Google Maps API. This system will notify vehicles on the road to clear the way for the
 approaching ambulance, thereby expediting emergency response.
 
   
 ### Tech Stack: 
-  HTML: Used for creating the structure of your web page.
+  HTML: Used for creating the structure of web page.
 JavaScript: Used for client-side scripting and interactivity.
 Google Maps JavaScript API: Used for embedding maps and location-related features.
 Three.js: A 3D library for creating 3D graphics in the browser.
