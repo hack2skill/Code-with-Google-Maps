@@ -1,0 +1,47 @@
+.white-box {
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(105, 105, 105, 0.1);
+}
+
+.input-box {
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(105, 105, 105, 0.1);
+  width: 210px;
+}
+
+.grey-box {
+  border-radius: 16px;
+  background: #f5f5f7;
+  box-shadow: 0px 4px 4px 0px rgba(105, 105, 105, 0.1);
+}
+
+.darkgrey-box {
+  border-radius: 12px;
+  background: #e5e5e5;
+}
+
+.blue-box {
+  border-radius: 12px;
+  background: #001a75;
+}
+
+.red-box {
+  border-radius: 12px;
+  background: var(
+    --Danger-Gradient,
+    linear-gradient(180deg, #a93a3a 0%, #6c2525 100%)
+  );
+}
+.yellow-box {
+  border-radius: 12px;
+  background: var(
+    --Danger-Gradient,
+    linear-gradient(180deg, #a9793a 0%, #6c4725 100%)
+  );
+}
+
+.Mapbox {
+  border-radius: 16px;
+}
