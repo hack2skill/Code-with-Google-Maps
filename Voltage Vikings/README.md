@@ -33,6 +33,7 @@ Prototype Components:
   - Javascript
 - API's
   -  Google Maps(Routes,Directions,Maps Javascript), Razor Pay, Google OAuth Consent Screen
+- Database - Mentioning the specific database system we are using SQLite. For production PostgreSQL can be used.
 # Libraries and Dependencies
 - Pychram/VS Code
 - Google Map API Key
