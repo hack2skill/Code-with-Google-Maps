@@ -20,7 +20,7 @@ class UserProfile(models.Model):
     available = models.BooleanField(default=False)
     got_loc = models.BooleanField(default=False)
     completed_profile = models.BooleanField(default=False)
-    wallet = models.FloatField(max_length=120, blank=True, null=True)
+    wallet = models.FloatField(max_length=120, blank=True, default=0.0)
 
 
 class Requests(models.Model):
