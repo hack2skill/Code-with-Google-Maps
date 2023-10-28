@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.list_buildings.BuildingAnalysisListActivity">
+
+    <include layout="@layout/custom_toolbar" android:id="@+id/appToolbarTB"/>
+
+    <!--<Button
+        android:id="@+id/closeDialogBTN"
+        android:layout_width="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="36dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:drawable/ic_menu_close_clear_cancel"/>-->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appToolbarTB">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:text="Buildings to Analyze for Solar Power potentials"
+            android:textSize="@dimen/field_text_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/locationsRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/standard_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/locations_itemview" />
+
+        <!--<androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_marginHorizontal="16dp"
+                android:src="@drawable/ic_maps_home_work" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunshine hours/year"
+                android:textSize="@dimen/field_text_size"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="00:00 hrs"
+                android:id="@+id/sunshineHrsPerYrValueTV"
+                android:layout_marginHorizontal="16dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="end"
+                android:textStyle="bold"
+                android:textSize="@dimen/field_value_text_size"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

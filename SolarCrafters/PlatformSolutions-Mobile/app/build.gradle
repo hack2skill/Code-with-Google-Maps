@@ -1,0 +1,108 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    //id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.0'
+}
+
+android {
+    namespace 'com.google.persistent.googlemapsapisdemo'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.google.persistent.googlemapsapisdemo"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+// This tells gradle where to look to find additional libraries - in this case, the
+// google_navigation.aar file.
+/*repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    //google()
+}*/
+dependencies {
+    //api fileTree(include: ['*.jar'], dir: 'libs')
+    //implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //Retrofit2
+    def retrofit_version = "2.9.0"
+    def logging_version = "4.3.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$logging_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_version"
+
+    //coroutine
+    def coroutine_version = "1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutine_version}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutine_version}"
+
+    //Live data & Life cycle & View Model
+    def lifecycle_version = "2.6.1"
+    implementation "androidx.lifecycle:lifecycle-common:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-runtime:${lifecycle_version}"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}"
+
+
+    /*def exoplayer_version = "1.1.1"
+    implementation "androidx.media3:media3-exoplayer:${exoplayer_version}"
+    implementation "androidx.media3:media3-exoplayer-dash:${exoplayer_version}"
+    implementation "androidx.media3:media3-ui:${exoplayer_version}"*/
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
+
+
+    // Auto complete Place by Google.
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.android.libraries.places:places:3.2.0'
+
+    // for smooth and server side image loading
+    //implementation 'com.github.bumptech.glide:glide:4.16.0'
+
+    //for handling .tiff images
+    //implementation 'io.github.beyka:Android-TiffBitmapFactory:0.9.9.1'
+
+    //chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // card view layout
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // For floating label edittext
+    implementation 'com.google.android.material:material:1.10.0'
+
+}

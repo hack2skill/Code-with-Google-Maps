@@ -1,0 +1,80 @@
+.slider {
+  background: white;
+  width: fit-content;
+  padding: 8px 24px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  margin-left: 5%;
+  margin-top: 30%;
+  box-shadow: 0px 12px 34px rgba(32, 52, 89, 0.15);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.map {
+  z-index: 0;
+  position: relative;
+}
+
+.card {
+  background: white;
+  width: fit-content;
+  /* padding: 8px 24px; */
+  border-radius: 10px;
+  /* display: flex; */
+  /* align-items: center; */
+  z-index: 1;
+  position: absolute;
+  margin-left: 5%;
+  margin-top: 10%;
+  box-shadow: 0px 12px 34px rgba(62, 72, 89, 0.15);
+}
+
+.detailsCard {
+  background: white;
+  /* padding: 8px 24px; */
+  border-radius: 5px;
+  /* display: flex; */
+  /* align-items: center; */
+  z-index: 1;
+  position: absolute;
+  margin-left: 65%;
+  margin-top: 3%;
+  margin-right: 5%;
+  box-shadow: 0px 12px 34px rgba(62, 72, 89, 0.15);
+}
+
+.financeCard {
+  background: white;
+  /* padding: 8px 24px; */
+  border-radius: 5px;
+  /* display: flex; */
+  /* align-items: center; */
+  z-index: 1;
+  position: absolute;
+  margin-left: 70%;
+  margin-right: 1%;
+  margin-top: 5%;
+  box-shadow: 0px 12px 34px rgba(62, 72, 89, 0.15);
+}
+
+.wealthMeterCard {
+  background: white;
+  /* padding: 8px 24px; */
+  border-radius: 5px;
+  /* display: flex; */
+  /* align-items: center; */
+  z-index: 1;
+  position: absolute;
+  margin-left: 68%;
+  margin-right: 4%;
+  margin-top: 5%;
+  box-shadow: 0px 12px 34px rgba(62, 72, 89, 0.15);
+}
