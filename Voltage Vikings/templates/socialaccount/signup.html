@@ -1,0 +1,35 @@
+{% extends "socialaccount/base.html" %}
+{% load i18n %}
+{% block links %}
+{% if user.is_authenticated %}
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% else %}
+<li class="nav__item">
+    <a href="/account/login" class="nav__link">Login</a>
+</li>
+<li class="nav__item">
+    <a href="/account/signup" class="nav__link">Sign In</a>
+</li>
+{% endif %}
+{% endblock %}
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; padding: 0;">
+    <div style="max-width: 400px; padding: 20px; background-color: #ffffff; text-align: center; border: 1px solid #e0e0e0; border-radius: 5px;color:black;">
+        <h1 style="font-size: 24px; margin-top: 0;color:black;">{% trans "Sign Up" %}</h1>
+    {% url 'account_login' as login_url %}
+        <br>
+<p style="font-size: 14px;">{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
+{{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
+<form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button class="button-73" type="submit" style="width: 100%; padding: 0.5rem; margin-top: 1rem; background-color: purple; color: #fff; font-size: 18px; border: none; cursor: pointer;">{% trans "Sign Up" %} &raquo;</button>
+</form>
+    </div>
+</div>
+{% endblock %}

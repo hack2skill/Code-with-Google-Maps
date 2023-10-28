@@ -1,0 +1,10 @@
+{% extends "account/email/base_message.html" %}
+{% load account %}
+{% load i18n %}
+{% block content %}
+{% autoescape off %}
+{% user_display user as user_display %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+<h3 style="font-size: 24px; margin-top: 0;color:black;">You're receiving this e-mail because user {{ user_display }} has given your e-mail address to register an account on {{ site_domain }}.<br>
+To confirm this is correct,</h3>
+<a class="button" href="{{ activate_url }}" style="background-color: purple; color: #fff; font-size: 1rem; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Click Here!</a>{% endblocktrans %}{% endautoescape %}{% endblock %}

@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% block toplink %}
+<li class="nav__item">
+    <a href="/home" class="nav__link">Home</a>
+</li>
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% endblock %}
+{% block style %}
+<style>
+.container1 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid purple;
+    border-radius: 10px;
+    margin-top:10%;
+}
+h1 {
+    text-align: center;
+    margin-top: 0;
+    color: purple;
+}
+form {
+    margin-top: 20px;
+}
+label, input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    color:black;
+}
+input {
+    padding:10px;
+    border: 1px solid purple;
+    }
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+#validation-msg {
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+    .container1 {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+        margin-top:20%;
+    }
+}
+</style>
+{% endblock %}
+{% block content %}
+    <div class="container1">
+        {% if err %}
+        <h1>{{err}}</h1>
+        {% else %}
+        <h1>Profile And Settings</h1>
+        <form method="post" action="/profile/">
+        {% csrf_token %}
+        <h1 style="color: purple;">Your profile</h1>
+        <label for="ph">User Name:</label>
+        <input type="text" id="ph" name="uname" value="{{user.username}}" required disabled>
+        <label for="email">User Email:</label>
+        <input type="text" id="email" name="email" value="{{user.email}}" required disabled>
+        <label for="password">User Password:</label>
+        <input type="text" id="password" name="pass" value="*************" required disabled>
+        <label style="color:red;text-align:right;cursor:pointer;"><a href="/account/password/change/">Change Password</a></label>
+        {% if data.completed_profile %}
+        <label for="email">Wallet Balance:</label>
+        <input type="text" id="wallet" name="email" value="{{data.wallet}}" required disabled>
+         <label style="color:red;text-align:right;cursor:pointer;"><a href="#">Withdraw</a></label>
+        <label for="id_phone_number">Phone Number:</label>
+        <input type="text" id="id_phone_number" name="phone_number"  maxlength="20" value="{{data.phone_number}}" required disabled>
+        <label style="color:red;text-align:center;">Banking Information</label>
+        <label for="id_account_number">Account Number:</label>
+        <input type="text" id="id_account_number" name="account_number" maxlength="30"  value="{{data.account_number}}" required disabled>
+        <label for="id_bank_name">Bank Name:</label>
+        <input type="text" id="id_bank_name" name="bank_name" maxlength="100" value="{{data.bank_name}}" required disabled>
+        <label for="id_ifsc_code">IFSC Code:</label>
+        <input type="text" id="id_ifsc_code" name="ifsc_code" maxlength="15" value="{{data.ifsc_code}}" required disabled>
+        <label for="id_branch">Branch:</label>
+        <input type="text" id="id_branch" name="branch" value="{{data.branch}}" maxlength="100" required disabled>
+        <label for="id_upi_id">UPI ID:</label>
+        <input type="text" id="id_upi_id" name="upi_id" value="{{data.upi_id}}" maxlength="50" required disabled>
+          <label style="color:red;text-align:center;">Home address where the charging setup is installed</label>
+        </label>
+        {% if not data.got_loc %}<label style="color:red;text-align:center;">Its
+            necessary to allow location</label>
+            <label style="color:purple;text-align:right;cursor:pointer;" id="get-location">Allow Location First</label>
+            {% endif %}
+        <label for="id_home_address">Address:</label>
+        <input type="text" id="id_home_address" name="home_address" value="{{data.home_address}}" maxlength="200" required disabled>
+        <label for="id_district">District:</label>
+        <input type="text" id="id_district" name="district" value="{{data.district}}" maxlength="50"  required disabled>
+        <label for="id_state">State:</label>
+        <input type="text" name="state" value="{{data.state}}" id="id_state" maxlength="50" required disabled>
+        <label for="id_country">Country:</label>
+        <input type="text" id="id_country" name="country" value="{{data.country}}" maxlength="50"  required disabled>
+        <label for="id_zipcode">Zipcode:</label>
+        <input type="text" value="{{data.zipcode}}" name="zipcode" maxlength="10" id="id_zipcode" required disabled>
+        <input class="my" id="editBtn" value="Edit" style="text-align:center;cursor:pointer;">
+        <input class="my" value="Save"  id="saveBtn" style="display:none;text-align:center;cursor:pointer;">
+        <input type="submit" class="my" value="Make Changes" style="display:none;"  id="makechanges" step="cursor:pointer;">
+    </form>
+            {% else %}<br>
+         <a href="/completeprofile" ><h3 style="text-align:center;color:red;">Upadate Profile Now!</h3></a>
+        {% endif %}
+    {% endif %}
+    </div>
+<script>
+  var getLocationButton = document.getElementById("get-location");
+  getLocationButton.addEventListener("click", function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  });
+  function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/getlocation/");
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+         window.location.reload();
+        } else {
+          console.log("Error:", xhr.status);
+        }
+      }
+    };
+    xhr.send(JSON.stringify({latitude: latitude, longitude: longitude}));
+  }
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+</script>
+<script>
+const phone = document.getElementById('id_phone_number');
+const acc_no = document.getElementById('id_account_number');
+const bank_name = document.getElementById('id_bank_name');
+const ifsc = document.getElementById('id_ifsc_code');
+const branch = document.getElementById('id_branch');
+const upi = document.getElementById('id_upi_id');
+const address = document.getElementById('id_home_address');
+const dist = document.getElementById('id_district');
+const state = document.getElementById('id_state');
+const country = document.getElementById('id_country');
+const zipcode = document.getElementById('id_zipcode');
+const editBtn = document.getElementById('editBtn');
+const saveBtn = document.getElementById('saveBtn');
+const makechanges = document.getElementById('makechanges');
+editBtn.addEventListener('click', () => {
+ editBtn.style.display = 'none';
+  editBtn.disabled = true;
+  phone.disabled = false;
+  acc_no.disabled = false;
+  bank_name.disabled = false;
+  ifsc.disabled = false;
+  branch.disabled = false;
+  upi.disabled = false;
+  address.disabled = false;
+  dist.disabled = false;
+  state.disabled = false;
+  country.disabled = false;
+  zipcode.disabled = false;
+  saveBtn.style.display = 'block';
+});
+saveBtn.addEventListener('click', () => {
+  saveBtn.style.display = 'none';
+  makechanges.style.display = 'block';
+});
+</script>
+{% endblock %}

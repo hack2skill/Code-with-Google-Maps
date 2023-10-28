@@ -1,0 +1,70 @@
+{% extends 'account/base.html' %}
+{% block links %}
+<li class="nav__item">
+    <a href="/account/login" class="nav__link">Login</a>
+</li>
+{% endblock %}
+{% block content %}
+<main class="main" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <section class="login" id="login"
+             style="max-width: 400px; padding: 1rem; text-align: center; background-color: #f5f5f5; border-radius: 10px;">
+        <div class="login__container">
+            <h1 class="login__title" style="font-size: 2rem; margin-bottom: 2rem;color:black;">Sign Up</h1>
+            <form action="/account/signup/" id="loginForm" method="post" name="loginForm">
+                {% csrf_token %}
+                {% if form.email.errors %}
+                <p style="text-align:center;color:red">
+                    {{form.email.errors.as_text}}
+                </p>
+                {% endif %}
+                {% if form.username.errors %}
+                <p style="text-align:center;color:red">
+                    {{form.username.errors.as_text}}
+                </p>
+                {% endif %}
+                {% if form.password1.errors %}
+                <p style="text-align:center;color:red">
+                    {{form.password1.errors.as_text}}
+                </p>
+                {% endif %}
+                {% if form.password2.errors %}
+                <p style="text-align:center;color:red">
+                    {{form.password2.errors.as_text}}
+                </p>
+                {% endif %}
+                {% if form.captcha.errors %}
+                <p style="text-align:center;color:red">Invalid Captcha</p>
+                {% endif %}
+                <input class="login__input" type="email" name="email" id="id_email" placeholder="Email"
+                       style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 5px;margin-top:2em;"
+                       required>
+                <input class="login__input" type="text" name="username" placeholder="Username" autocomplete="username" minlength="1" maxlength="150" id="id_username"
+                       style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 5px;"
+                       required>
+                <input class="login__input" minlength="1" maxlength="150"  type="password" name="password1" id="id_password1" placeholder="Password" autocomplete="new-password"
+                       style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 5px;"
+                       required>
+                <input class="login__input" minlength="1" maxlength="150" type="password" name="password2" id="id_password2" placeholder="Confirm Password" autocomplete="new-password" r
+                       style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 5px;"
+                       required>
+                <label style="color:black;">Enter Captcha:</label>
+                {{ form.captcha.image }}
+                {{ form.captcha }}
+                <button type="submit" class="login__button"
+                        style="width: 100%; padding: 1rem; background-color: purple; color: #fff; border: none; border-radius: 5px; cursor: pointer;margin-top:5%;">
+                    Sign Up
+                </button>
+            </form>
+            <div class="login__divider" style="margin-bottom: 1rem;color:black;">
+                <span class="login__divider-text" style="display: block; font-size: 0.8rem;">or</span>
+            </div>
+            <div class="login__oauth">
+                <a href="/account/login" class="login__oauth-link"
+                   style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: purple;">
+                     Already a user? Login Here
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

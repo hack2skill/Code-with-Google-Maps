@@ -1,0 +1,39 @@
+{% extends "socialaccount/base.html" %}
+{% load i18n %}
+{% block links %}
+{% if user.is_authenticated %}
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% else %}
+<li class="nav__item">
+    <a href="/account/login" class="nav__link">Login</a>
+</li>
+<li class="nav__item">
+    <a href="/account/signup" class="nav__link">Sign In</a>
+</li>
+{% endif %}
+{% endblock %}
+{% block content %}
+{% if process == "connect" %}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin-top:10%; padding: 0;">
+    <div style="max-width: 400px; padding: 20px; background-color: #ffffff; text-align: center; border: 1px solid #e0e0e0; border-radius: 5px;color:black;">
+        <h1 style="font-size: 24px; margin-top: 10%;color:black;">{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
+        <br>
+        <p style="font-size: 14px;">{% trans "An error occurred while attempting to login via your social network account." %}</p>
+
+<p style="font-size: 14px;">{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
+{% else %}
+<h1 style="font-size: 24px; margin-top: 10%;color:black;">{% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}</h1>
+<br>
+<p style="font-size: 14px;">{% blocktrans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endblocktrans %}</p>
+{% endif %}
+<br>
+<form method="post">
+  {% csrf_token %}<br>
+  <button class="button-73" type="submit"  style="width: 100%; padding: 0.5rem; margin-top: 1rem; background-color: purple; color: #fff; font-size: 18px; border: none; cursor: pointer;">{% trans "Continue" %}</button>
+</form>
+    </div>
+</div>
+{% endblock %}
+

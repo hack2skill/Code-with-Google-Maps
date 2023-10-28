@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/favion.png' %}" type="image/x-icon" class="favicon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <title>Voltage Vikings</title>
+    {% block style %}{% endblock %}
+    <style>
+    .home__button1{
+          z-index: 888;
+          position: relative;
+          border: 2px solid hsl(158, 89%, 30%);
+          width: 220px;
+          height: 50px;
+          border-radius: 5px; /* change to a small value for sharp corners */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          justify-self: center;
+          cursor: pointer;
+          font-size: var(--small-font-size);
+          color: var(--white-color);
+          font-weight: var(--font-medium);
+    }
+
+    .home__button1::before{
+          content: '';
+          border: 2px solid hsl(158, 98%, 43%);
+          width: 240px;
+          height: 70px;
+          position: absolute;
+          border-radius: 5px; /* change to a small value for sharp corners */
+          box-shadow: 0 0 12px hsl(158, 98%, 43%);
+          transition: .3s;
+          animation: button 3s infinite;
+    }
+    </style>
+</head>
+<body>
+     <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo" style="font-size: 0.8cm;margin-top:8px;" >
+                <i class="ri-steering-fill" style="font-size: 1cm;margin-top:1px;"></i>
+                Voltage Vikings
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    {% block toplink %}{% endblock %}
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="foot" style="text-align:center;margin-bottom:40px;margin-top:10%;margin-bottom:-1%">
+        <span>
+            &#169; <a target="_blank" href="#" class="footer__dev-link">Voltage Vikings.</a> All rigths
+            reserved
+        </span>
+    </footer>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      {% block extend_footer %}
+      {% endblock %}
+      <script src="{% static 'main.js' %}"></script>
+    <script src="{% static 'js/scrollrevealAnimation.min.js'%}"></script>
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

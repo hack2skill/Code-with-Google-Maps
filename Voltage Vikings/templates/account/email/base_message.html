@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/favion.png' %}" type="image/x-icon" class="favicon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Voltage Vikings</title>
+</head>
+<body>
+{% autoescape off %}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; padding: 0;">
+    <div style="max-width: 400px; padding: 20px; background-color: #ffffff; text-align: center; border: 1px solid #e0e0e0; border-radius: 5px;color:black;">
+        <h1 style="font-size: 24px; margin-top: 0;color:black;">{% blocktrans with site_name=current_site.name %}Hello from {{ site_name }}!{% endblocktrans %}</h1>
+         {% block content %}{% endblock %}
+      <h5 style="font-size: 24px; margin-top: 0;color:black;">Thank you for using {{ site_name }}!</h5>
+        <br>
+        <p style="font-size: 14px;">Voltage Vikings Team</p>
+      <p style="font-size: 14px;">Voltage Vikings<br>Query?am.sagarpatil@gmail.com</a></p>
+    </div>
+</div>
+{% endautoescape %}
+<script src="{% static 'js/scrollrevealAnimation.min.js'%}"></script>
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
