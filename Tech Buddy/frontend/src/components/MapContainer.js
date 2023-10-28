@@ -26,7 +26,7 @@ const MapContainer = (props) => {
         })
     }, [])
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: "AIzaSyCLl4vXNus3Wf4McGMt3gGpwap_kzGIMHk",
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
         libraries: ['places'],
     })
     if (!isLoaded) {
