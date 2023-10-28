@@ -184,7 +184,7 @@ class SolarApiActivity : AppCompatActivity(),
     /** Show Ui components as needed */
     private fun showUiButtons() {
         binding.showSolarPanels.visibility = View.VISIBLE
-        //binding.wealthMeterBTN.visibility = View.VISIBLE
+        binding.wealthMeterBTN.visibility = View.VISIBLE
     }
 
     /** When building insight done, let's complete zoom to that location */
