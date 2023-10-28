@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:stepSize="1"
-            app:labelBehavior="floating" />
+            app:labelBehavior="visible" />
 
         <!-- <LinearLayout
                 android:id="@+id/cloud_styling_basic_demo_mode_buttons"
