@@ -33,7 +33,6 @@ Prototype Components:
   - Javascript
 - API's
   -  Google Maps(Routes,Directions,Maps Javascript), Razor Pay, Google OAuth Consent Screen
-- Database - Mentioning the specific database system we are using SQLite. For production PostgreSQL can be used.
 # Libraries and Dependencies
 - Pychram/VS Code
 - Google Map API Key
@@ -41,18 +40,54 @@ Prototype Components:
 - Razor Pay API Key
 - Gmail App Password
 - Required Module Are In The requiements.txt
-# Step-by-Step Code Execution Instructions
-- Clone The Repository And Activate venv (Since all the dependencies are pushed along with code to run the project smoothly)
-- Just run the commands below
-  - `source bin/activate` (Activate Your Virtual Environment)
-  - `pip install -r requirements.txt`
-  -  `python3 manage.py runserver`
 
+**NOTE : All the dependencies are pushed along with code to run the project smoothly**
+# Step-by-Step Code Execution Instructions For Windows
+**Make sure that git and python installed in your system**
+
+Just open command prompt and run below commands
+  - `git` 
+    - If you get git command not found then install from this site - https://git-scm.com/download/win
+  - `python --version`
+    - If you get python not found then install any version from this site - https://www.python.org/downloads/windows/ and while installing make sure to add path
+
+**After successfull install or if already install run following commands**
+- Clone the github repo `git clone https://github.com/amsagar/Code-with-Google-Maps.git`
+- Go to clone Directory `cd Code-with-Google-Maps`
+- Go to project folder `cd Voltage Vikings`
+- Create your virtual environment `python -m venv <venv name>`
+- Activate your virtual environment `<venv name>\Scripts\activate`
+- Install requirements `pip install -r requirements.txt`
+- Finally run project `python manage.py runserver`
 -  Project Will Be Running At `localhost` Head On To Link http://127.0.0.1:8000/
   - To Access The Admin Account Head On To Link http://127.0.0.1:8000/admin And Login With username(`sagar`) and password(`2002`) Given While Creating Superuser
   - And Also Its Important To Ensure That The Social Application Provider Is Configured With The Neccessary Keys In The Admin Panel Just As Shown Below
     - ![Image Alt Text](soc_app.png)
-- The Site Is Hosted Here - https://evconnects06.pythonanywhere.com/
+
+# Step-by-Step Code Execution Instructions For MacOS
+**Make sure that git and python installed in your system**
+
+Just open command prompt and run below commands
+  - `git` 
+    - If you get git command not found then install from this site - https://git-scm.com/download/mac
+  - `python3 --version`
+    - If you get python not found then install any version from this site - https://www.python.org/downloads/macos/
+
+**After successfull install or if already install run following commands**
+- Clone the github repo `git clone https://github.com/amsagar/Code-with-Google-Maps.git`
+- Go to clone Directory `cd Code-with-Google-Maps`
+- Go to project folder `cd Voltage Vikings`
+- Create your virtual environment `python3 -m venv <venv name>`
+- Activate your virtual environment `source <venv name>/bin/activate`
+- Install requirements `pip install -r requirements.txt`
+- Finally run project `python3 manage.py runserver`
+-  Project Will Be Running At `localhost` Head On To Link http://127.0.0.1:8000/
+  - To Access The Admin Account Head On To Link http://127.0.0.1:8000/admin And Login With username(`sagar`) and password(`2002`) Given While Creating Superuser
+  - And Also Its Important To Ensure That The Social Application Provider Is Configured With The Neccessary Keys In The Admin Panel Just As Shown Below
+    - ![Image Alt Text](soc_app.png)
+
+# Live Site https://evconnects06.pythonanywhere.com/
+
 # Future Scope
 - **Integration** of this platform along with hardware interfacing in **EV's Infotainment Area**
 - **Expanding Charging Station Network**: Continuously expand the database of charging stations to cover more regions, including rural areas and highways, to make EV adoption more convenient.
