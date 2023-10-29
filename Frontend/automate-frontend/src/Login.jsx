@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import axios from "axios"
 
+import Alert from 'react-bootstrap/Alert';
+
 const backend_api = import.meta.env.VITE_BACKEND_API
 
 export default function Login() {
@@ -28,11 +30,26 @@ export default function Login() {
             setError(false)
             navigate("/");
         } catch (error) {
-            // console.log(error.response)
-            setError(true)
-            setErrorMsg(error.response.data.msg)
             setUser({});
             localStorage.clear();
+
+            setError(true)
+            if (error.message && !error.response) {
+                setErrorMsg(error.message)
+            }
+            else if (error.response.status == 401) {
+
+                setErrorMsg(error.response.data.msg)
+            }
+            else {
+
+
+                setErrorMsg("Something went wrong")
+
+            }
+
+
+
         }
     }
 
@@ -101,6 +118,12 @@ export default function Login() {
                                                 </div>
                                                 <div className="pt-1 mb-4">
                                                     <button className="btn btn-dark btn-lg" type="submit" form="myform" style={{ backgroundColor: '#296E73' }}>Login</button>
+                                                    {error ? <Alert variant="danger" className="m-2">
+                                                        {errorMsg}
+                                                    </Alert> : null}
+
+
+
                                                     <p className="mt-2 " style={{ color: '#393f81' }}>Do not have an account?
                                                         <Link to="/" style={{ color: '#393f81' }}>
 
