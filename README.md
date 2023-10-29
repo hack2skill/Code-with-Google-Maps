@@ -1,4 +1,4 @@
-![image](https://github.com/I-am-the-coder-Tusharbola/lone-tech-wolf/assets/149319221/de962714-bca5-46e2-82a9-eb3f377098f2)#### Team Name - Lone Tech Wolf
+#### Team Name - Lone Tech Wolf
 #### Problem Statement - “Individuals seeking to adopt a sustainable lifestyle often struggle due to the lack of a centralized platform for discovering eco-friendly resources and businesses. This, coupled with a general lack of awareness about sustainable choices, hinders their transition towards a greener lifestyle.”
 
 #### Team Leader Email - Tushar2010@outlook.com
@@ -10,9 +10,13 @@ The Sustainable Living Guide is a mobile application that uses Google Maps Platf
   
 ### Tech Stack: 
 Programming Language: Dart
+
 Framework: Flutter
+
 IDE: Visual Studio Code
+
 APIs and Libraries:
+
   Google Maps API: Used to display maps and place markers on it.
   Google Places API: Used to find nearby recycling centers.
   Geolocation API: Used to get the current location of the user.
