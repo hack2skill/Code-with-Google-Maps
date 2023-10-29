@@ -10,8 +10,8 @@ Welcome to the official repository for the Code-with-Google-Maps-2023 organized 
 #### Team Leader Email - ajayvjohny2002@gmail.com
 
 ### A Brief of the Prototype:
-  ##An application is built using flutter and firebase for tracking of hospitals nearby
-  ##Working : https://drive.google.com/drive/u/2/folders/1Uo_aci1hbxjxSt3amMCEaAGbQkpT_g4J
+  ## An application is built using flutter and firebase for tracking of hospitals nearby
+  ## Working : https://drive.google.com/drive/u/2/folders/1Uo_aci1hbxjxSt3amMCEaAGbQkpT_g4J
   
   ![flow_Diagram](https://github.com/AjayJohny-2002/Code-with-Google-Maps/assets/83871660/ef6f89cc-9e67-496c-b7b5-bcbea137f034)
 
@@ -22,9 +22,9 @@ Welcome to the official repository for the Code-with-Google-Maps-2023 organized 
 
 # Meditrack Code and Running Mechanism
 
-##https://github.com/BIBS23/meditrack
+## https://github.com/BIBS23/meditrack
 
-##(Github link of Bibin (team member)- open the code in VS CoDE , type command : [project]/build/app/outputs/apk/release/app-armeabi-v7a-release.apk.
+## (Github link of Bibin (team member)- open the code in VS CoDE , type command : [project]/build/app/outputs/apk/release/app-armeabi-v7a-release.apk.
    
 ### About MediTrack
 
