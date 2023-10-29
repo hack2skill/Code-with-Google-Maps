@@ -37,4 +37,6 @@ Authentication: OAuth or JWT for secure user authentication.
     4) For stopping say stop loco!
   
 ### Future Scope:
-   In future i will some more functionality like house inner view using AR and app will be available in various languages.
+   ##### In future i will add some more functionality like inside view of house using AR , app will be available in various languages and user can pay their monthly wages to owner directly through app as well.
+   ##### Messaging system so user and owner can do direct messages to each other.
+   
