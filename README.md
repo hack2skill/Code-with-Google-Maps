@@ -32,7 +32,6 @@ IDE: Visual Studio Code
 
 ### Step-by-Step Code Execution Instructions:
 
-## Getting Started
 
 
 1. **Clone the Repository**: Start by cloning the repository to your local machine. To do this, open your terminal or command prompt, navigate to the directory where you want to clone the repository and run:
