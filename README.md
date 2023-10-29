@@ -15,7 +15,7 @@ To get started with the Code-with-Google-Maps-2023 repository, follow these step
 
 ### README.md must consist of the following information:
 
-#### Team Name -
+#### Team Name - Pathfinder Pro
 #### Problem Statement - 
 #### Team Leader Email -
 
