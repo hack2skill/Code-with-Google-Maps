@@ -85,6 +85,7 @@ function Map() {
 				method: "POST",
 				body: formdata,
 				redirect: "follow",
+				referrerPolicy: "unsafe_url" 
 			};
 
 			const response = await fetch(apiUrl, requestOptions);
