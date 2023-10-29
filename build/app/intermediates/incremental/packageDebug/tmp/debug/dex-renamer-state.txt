@@ -1,0 +1,4 @@
+#Sun Oct 29 23:06:48 IST 2023
+base.0=C\:\\Users\\suyas\\Desktop\\users_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
