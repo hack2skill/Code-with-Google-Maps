@@ -1,0 +1,3 @@
+[console_scripts]
+populartimes = populartimes:execute
+
