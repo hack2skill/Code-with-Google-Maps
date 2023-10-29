@@ -23,6 +23,8 @@ ease of use.
 #### Team Leader Email - sbharathsree1@gmail.com
 #### YouTube link describing about above prototype - https://www.youtube.com/watch?v=XtehHMua_qc
 
+
+
 ### A Brief of the Prototype:
   The prototype of the "Pathfinder Pro" app provides a user-friendly, interactive experience that empowers commuters to navigate through traffic and parking with ease. Here's a brief description of the prototype:
 
@@ -55,6 +57,8 @@ ease of use.
 - This ensures that users have the guidance they need when navigating through the app.
 
 The prototype offers a holistic solution for traffic and parking, allowing users to make informed choices based on their preferences, access real-time data, and contribute to a community that collectively improves the daily commute for all.
+
+
   
 ### Tech Stack: 
 ### FlutterFlow:
@@ -71,6 +75,8 @@ The prototype offers a holistic solution for traffic and parking, allowing users
   Version control systems like Git/GitHub might be used to manage changes and collaborate on the project.
 ### Cloud Services:
   Cloud hosting services may be used to deploy and host the prototype for testing and sharing.
+
+  
    
 ### Step-by-Step Code Execution Instructions:
   Cloning and Running the Prototype:
@@ -89,6 +95,8 @@ The prototype offers a holistic solution for traffic and parking, allowing users
   If you're looking to deeply analyze the prototype or make modifications, you can use FlutterFlow's visual design tools to customize the app's interface, interactions, or add new features.
 ## Share the Prototype:
   If you want to share the prototype with others for analysis, collaboration, or feedback, you can generate a shareable link within FlutterFlow.
+
+
   
 ### Future Scope:
    The "Pathfinder Pro" project has significant future scope and can further enhance daily life in various ways. Here are some potential future developments and their impact:
