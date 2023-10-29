@@ -1,0 +1,108 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+}
+
+android {
+    namespace "com.google.maps.android.compose"
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.composecompiler.get()
+    }
+
+    buildFeatures {
+        buildConfig true
+        compose true
+        viewBinding true
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
+    }
+}
+
+dependencies {
+    def nav_version = "2.5.3"
+    def lifecycle_version = "2.6.0"
+    def activity_version = "1.6.1"
+    implementation platform(libs.androidx.compose.bom)
+    implementation libs.androidx.compose.activity
+    implementation libs.androidx.compose.foundation
+    implementation libs.androidx.compose.material
+    implementation libs.kotlin
+    implementation libs.material
+    implementation libs.maps.ktx.std
+    implementation libs.androidx.compose.ui.preview.tooling
+    implementation libs.androidx.tools.core
+    debugImplementation libs.androidx.compose.ui.tooling
+
+    androidTestImplementation platform(libs.androidx.compose.bom)
+    androidTestImplementation libs.androidx.test.core
+    androidTestImplementation libs.androidx.test.rules
+    androidTestImplementation libs.androidx.test.runner
+    androidTestImplementation libs.androidx.test.espresso
+    androidTestImplementation libs.androidx.test.junit.ktx
+    androidTestImplementation libs.test.junit
+    androidTestImplementation libs.androidx.test.compose.ui
+    androidTestImplementation libs.coroutines
+
+    implementation project(':maps-compose')
+    //implementation  "com.google.maps.android:maps-compose-widgets:1.0.0"
+    implementation project(':maps-compose-widgets')
+    //implementation  "com.google.maps.android:maps-compose-utils:1.0.0"
+    implementation project(':maps-compose-utils')
+    implementation libs.maps.playservice
+//    implementation "androidx.compose.material:material:1.5.2"
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation libs.poi
+    implementation libs.poi.ooxml
+    implementation libs.ycharts
+
+    implementation libs.androidx.media3.exoplayer
+    implementation libs.androidx.media3.exoplayer.dash
+    implementation libs.androidx.media3.ui
+    implementation libs.accompanist.systemuicontroller.v0312alpha
+    implementation "androidx.compose.material3:material3:1.1.2"
+    implementation "androidx.compose.material3:material3-window-size-class:1.1.2"
+    implementation "com.opencsv:opencsv:3.7"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
+    implementation "androidx.activity:activity-ktx:$activity_version"
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation "androidx.compose.ui:ui-viewbinding:1.5.2"
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.11.0"))
+
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation ("com.google.android.libraries.places:places:3.1.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.0")
+
+
+}
+
+secrets {
+    // To add your Maps API key to this project:
+    // 1. Add this line to your local.properties file, where YOUR_API_KEY is your API key:
+    //        MAPS_API_KEY=YOUR_API_KEY
+    defaultPropertiesFileName 'local.defaults.properties'
+}
