@@ -15,6 +15,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Label } from "@/components/ui/label";
 import { Link } from 'react-router-dom'
+import Alert from 'react-bootstrap/Alert';
+
 
 const backend_api = import.meta.env.VITE_BACKEND_API
 
@@ -32,6 +34,8 @@ export function RegisterForm({ className, ...props }) {
         password: "",
     });
     // console.log(formData)
+    const [error, setError] = useState(false)
+    const [errorMsg, setErrorMsg] = useState(null)
 
     async function onSubmit(event) {
         event.preventDefault();
@@ -45,6 +49,20 @@ export function RegisterForm({ className, ...props }) {
 
         } catch (error) {
             console.error('Error:', error);
+            setError(true)
+            if (error.message && !error.response) {
+                setErrorMsg(error.message)
+            }
+            else if (error.response.status == 400) {
+
+                setErrorMsg(error.response.data.msg)
+            }
+            else {
+
+
+                setErrorMsg("Something went wrong")
+
+            }
         }
 
     }
@@ -188,6 +206,9 @@ export function RegisterForm({ className, ...props }) {
                 <button type="submit" form='myForm' style={{ backgroundColor: '#296E73' }} className="btn btn-primary btn-block">
                     Submit
                 </button>
+                {error ? <Alert variant="danger" className="m-2">
+                    {errorMsg}
+                </Alert> : null}
                 <p className="mt-2 " style={{ color: '#296E73' }}>Already have an account?
                     <Link to="/login" style={{ color: '#296E73', textDecoration: 'underline' }}>
                         Login

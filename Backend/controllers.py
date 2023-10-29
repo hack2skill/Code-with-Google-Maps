@@ -73,11 +73,15 @@ def login():
 @app.post("/api/register")
 def register():
     userdata = request.get_json()
+
+    if not userdata["username"] or not userdata["password"]:
+        return jsonify({"msg": "Please enter username and pasword"}), 400
+
     usr = User.query.filter_by(username=userdata["username"]).first()
     em = User.query.filter_by(email=userdata["email"]).first()
 
     if usr or em:
-        return jsonify("User already Exists"), 412
+        return jsonify({"msg": "User already Exists"}), 400
     password = userdata["password"].encode()
 
     # Hashing Password
