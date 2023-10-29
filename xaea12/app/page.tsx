@@ -7,7 +7,7 @@ import Map from "./components/map"
 
 export default function Home() {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCMtUFMOV1x4yp9cB8Z22nLX85iItpqdIg",
+    googleMapsApiKey: "",
     libraries: ["places", "visualization"],
   });
 
