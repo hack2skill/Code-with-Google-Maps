@@ -47,7 +47,7 @@ function Map() {
 		// 	iconSize: [30, 30],
 		// });
 
-		const marker = L.marker([clickedLat, clickedLng], { icon: stepIcon });
+		const marker = L.marker([clickedLat, clickedLng]);
 		marker.addTo(map);
 
 		setMarkers((prevMarkers) => [...prevMarkers, marker]);
