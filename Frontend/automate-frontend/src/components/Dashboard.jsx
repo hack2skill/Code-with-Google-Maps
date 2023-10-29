@@ -22,6 +22,8 @@ function Dashboard() {
     const [isLoggedIn, setLoggedIn] = useState(false);
 
 
+
+
     const mapOptions = {
         zoom: 15,
     };
@@ -54,9 +56,9 @@ function Dashboard() {
             if (locationPermission == 'denied') {
                 alert('why u deny');
             }
-            console.log('prompt shown');
+            // console.log('prompt shown');
             navigator.geolocation.getCurrentPosition((position) => {
-                console.log('prompt accepted');
+                // console.log('prompt accepted');
                 const userLat = position.coords.latitude;
                 const userLng = position.coords.longitude;
                 setUserLocation({ lat: userLat, lng: userLng });
@@ -82,17 +84,17 @@ function Dashboard() {
         }
     };
 
-    console.log(apiKey);
+
 
     return (
         <>
-
-            <LoadScript googleMapsApiKey={apiKey} libraries={["places"]}>
+            {userLocation ? <LoadScript googleMapsApiKey={apiKey} libraries={["places"]}>
                 <GoogleMap mapContainerStyle={containerStyle} center={userLocation} zoom={mapOptions.zoom} >
                     {userLocation && <Marker position={userLocation} />}
                     <MyMapWithAutocomplete userLocation={userLocation} />
                 </GoogleMap>
-            </LoadScript>
+            </LoadScript> : <div>Please allow location access for app to work</div>}
+
         </>
     );
 }

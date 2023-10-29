@@ -73,7 +73,7 @@ function App() {
     }
   };
 
-  console.log('in app', user);
+  // console.log('in app', user);
 
   return (
     <>

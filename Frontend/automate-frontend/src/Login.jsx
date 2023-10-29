@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import axios from "axios"
 
+const backend_api = import.meta.env.VITE_BACKEND_API
+
 export default function Login() {
     const navigate = useNavigate();
 
@@ -19,14 +21,14 @@ export default function Login() {
         event.preventDefault();
 
         try {
-            const response = await axios.post("http://127.0.0.1:5000/login", formData);
+            const response = await axios.post(`${backend_api}/login`, formData);
 
-            console.log('Response:', response.data.access_token);
+            // console.log('Response:', response.data.access_token);
             localStorage.setItem('user', response.data.access_token)
             setError(false)
             navigate("/");
         } catch (error) {
-            console.log(error.response)
+            // console.log(error.response)
             setError(true)
             setErrorMsg(error.response.data.msg)
             setUser({});
@@ -42,7 +44,7 @@ export default function Login() {
     }, [user]);
 
     function handleInputChange(event) {
-        console.log(formData);
+        // console.log(formData);
         const { name, value } = event.target;
         setFormData({
             ...formData,

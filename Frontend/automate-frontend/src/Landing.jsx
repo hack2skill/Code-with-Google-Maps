@@ -1,34 +1,36 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { RegisterForm } from "@/components/RegisterForm"
-
 
 export default function Landing() {
     return (
-        <>
-            <div className="row" style={{ backgroundColor: '#B5EECB' }}>
-                <div className="col-6" style={{
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-md-6" style={{
+                    backgroundColor: '#B5EECB',
                     backgroundImage: 'url(/bg_landing_transparent.png)',
-                    backgroundSize: 'cover',
+                    backgroundSize: '100% 100%',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
                     position: 'relative',
+                    height: '100vh', // Set a minimum height for the image column
                 }}>
-                    <h1 className="display-2 fw-bold text-body-emphasis" style={{ fontSize: '55px', position: 'absolute', top: '12%', left: '38%', transform: 'translate(-50%, -50%)' }}>
+                    <h1 className="display-4 fw-bold text-body-emphasis" style={{ fontSize: '2.5rem', position: 'absolute', top: '10%', left: '50%', transform: 'translate(-50%, -50%)' }}>
                         AutoMate
                     </h1>
-                    <p className="lead fw-bold text-body-emphasis" style={{ fontSize: '25px', fontStyle: 'italic', position: 'absolute', top: '20%', left: '45%', transform: 'translate(-50%, -50%)' }}>
+                    <p className="lead fw-bold text-body-emphasis" style={{ fontSize: '1.5rem', fontStyle: 'italic', position: 'absolute', top: '20%', left: '50%', transform: 'translate(-50%, -50%)' }}>
                         Find a Mate for every Auto ride!
                     </p>
+                </div>
+                <div className="col-md-6 p-4">
+                    <div className="text-center">
+                        <h1 className="fw-bold text-body-emphasis" style={{ fontSize: '2rem' }}>
+                            Create an account
+                        </h1>
+                    </div>
+                    <RegisterForm />
 
                 </div>
-                <div className="col-1" ></div>
-                <div className="col-4 p-3 m-4" style={{ borderRadius: '10px', border: '1px solid #ccc', padding: '20px', backgroundColor: 'white' }}>
-                    <h1 className="fw-bold text-body-emphasis text-center" style={{ fontSize: '25px' }}>
-                        Create an account
-                    </h1>
-                    <RegisterForm />
-                </div>
-            </div >
-        </>
+            </div>
+        </div>
     )
 }

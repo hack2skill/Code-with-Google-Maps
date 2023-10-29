@@ -16,6 +16,8 @@ import { useNavigate } from "react-router-dom";
 import { Label } from "@/components/ui/label";
 import { Link } from 'react-router-dom'
 
+const backend_api = import.meta.env.VITE_BACKEND_API
+
 // eslint-disable-next-line react/prop-types
 export function RegisterForm({ className, ...props }) {
     const navigate = useNavigate();
@@ -29,16 +31,16 @@ export function RegisterForm({ className, ...props }) {
         pagegrp: "",
         password: "",
     });
-    console.log(formData)
+    // console.log(formData)
 
     async function onSubmit(event) {
         event.preventDefault();
-        console.log(formData);
+        // console.log(formData);
 
         try {
-            const response = await axios.post("http://127.0.0.1:5000/register", formData);
+            const response = await axios.post(`${backend_api}/register`, formData);
 
-            console.log('Response:', response.data);
+            // console.log('Response:', response.data);
             navigate("/login");
 
         } catch (error) {
@@ -54,7 +56,7 @@ export function RegisterForm({ className, ...props }) {
             ...formData,
             [name]: value,
         });
-        console.log(event.target);
+        // console.log(event.target);
     }
 
     return (
