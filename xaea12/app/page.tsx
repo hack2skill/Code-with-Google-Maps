@@ -2,18 +2,17 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { useLoadScript } from "@react-google-maps/api";
 import Map from "./components/map"
+
 export default function Home() {
-  
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDi9JdwPoacIpGgQKvZCZMyNsKQbuaZu94",
+    googleMapsApiKey: "AIzaSyCMtUFMOV1x4yp9cB8Z22nLX85iItpqdIg",
     libraries: ["places", "visualization"],
   });
 
   if (!isLoaded) return <div>Loading...</div>;
-  return <Map/>;
+  return (<Map/>);
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
