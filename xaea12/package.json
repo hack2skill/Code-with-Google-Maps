@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mui/material": "^5.14.15",
     "@react-google-maps/api": "^2.19.2",
     "@types/node": "20.1.4",
     "@types/react": "18.2.6",

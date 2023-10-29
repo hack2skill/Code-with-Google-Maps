@@ -26,7 +26,7 @@ export default function Map() {
         () => ({ lat: 12.9682704, lng: 74.8065197 }),
         []
     );
-    const onLoad = useCallback((map) => (mapRef.current = map), []);
+    // const onLoad = useCallback((map) => (mapRef.current = map), []);
     const options = useMemo<MapOptions>(
         () => ({
             mapId: "5e7d266a88c0cf9",
@@ -48,7 +48,7 @@ export default function Map() {
     useEffect(() => {
         async function fetchData() {
         try {
-            const response = await fetch('/api/popular_times');
+            const response = await fetch('/api/popular_times_demo');
             if (response.ok) {
                 const data = await response.json() as BusinessDataItem[];
                 setBusinessData(data);
@@ -59,7 +59,6 @@ export default function Map() {
             console.error('Error:', error);
         }
         }
-
         fetchData();
     }, []);
 
@@ -93,7 +92,7 @@ export default function Map() {
                     center={center}
                     mapContainerClassName="map-container"
                     options={options}
-                    onLoad={onLoad}
+                    // onLoad={onLoad}
                 >
                     <HeatmapLayerF
                         data={heatMapData}

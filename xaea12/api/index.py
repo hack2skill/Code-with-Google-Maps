@@ -1,4 +1,5 @@
 import datetime
+import time
 
 import requests
 from flask import Flask, jsonify
@@ -17,7 +18,64 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/api/popular_times", methods=['GET'])
+@app.route("/api/popular_times_demo", methods=['GET'])
+def delayed_api_req():
+    time.sleep(20)
+    response = [
+        {
+            "coordinates": {
+            "lat": 12.9682704,
+            "lng": 74.8065197
+            },
+            "weekly_sum": 5307
+        },
+        {
+            "coordinates": {
+            "lat": 12.9883174,
+            "lng": 74.8005921
+            },
+            "weekly_sum": 3800
+        },
+        {
+            "coordinates": {
+            "lat": 13.0223759,
+            "lng": 74.8079575
+            },
+            "weekly_sum": 5655
+        },
+        {
+            "coordinates": {
+            "lat": 12.9894559,
+            "lng": 74.8015439
+            },
+            "weekly_sum": 3798
+        },
+        {
+            "coordinates": {
+            "lat": 12.9743232,
+            "lng": 74.8036651
+            },
+            "weekly_sum": 4279
+        },
+        {
+            "coordinates": {
+            "lat": 12.9815466,
+            "lng": 74.8227607
+            },
+            "weekly_sum": 4314
+        },
+        {
+            "coordinates": {
+            "lat": 13.0010366,
+            "lng": 74.8260901
+            },
+            "weekly_sum": 5191
+        }
+    ]
+    return response
+
+
+@app.route("/api/popular_times_test", methods=['GET'])
 def weight_gen():
     weights = []
     pop_time = popular_times()
@@ -56,19 +114,6 @@ def geocode():
     p2 = (northeast["lat"], northeast["lng"])
 
     return [p1, p2]
-
-    #Approach 1: We don't have much work in terms of getting popular times here
-    # #Syntax of popular times lib: https://github.com/m-wrzr/populartimes#populartimesget
-    # response = populartimes.get_id(API_KEY, "ChIJj0i_N0xaozsRZP78dHq8e4I")
-    # response = populartimes.get(API_KEY, ["restaurant"], (12.907582, 74.810978), (12.927127, 74.879116))
-    # return response
-    #It is ideally supposed to be giving me a combined popular times data of all such establishments in the region
-
-    #Approach 2 
-    #Syntax of popular times lib: https://github.com/m-wrzr/populartimes#populartimesget_id
-        # response = populartimes.get_id(api_key=API_KEY, place_id=query_response)
-    #This takes 2x the API calls but essentially does the same thing as the first approach.
-    #All the client work is under the hood prolly. We can look at source code and figure something out maybe?
 
 if __name__ == "__main__":
     app.run(debug=True)
