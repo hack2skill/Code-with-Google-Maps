@@ -19,7 +19,14 @@
 - Geospatial Creator
 - ARCore
 
-   
+### How to Run the App
+- Download and install the Apk's provided in the Gdrive link via hack2skill dashboard video demo submissions
+- The Apk names are as follows
+	- O1mainApplication.apk
+	- O2nerfNav360.apk
+	- O3nerfNavAR.apk
+	- O4nerfNavGeospatial.apk
+	
 ### Step-by-Step Code Execution Instructions:
 - Step 1: clone the repository.
 - Step 2: You will find a file named ```local.properties```
