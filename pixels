@@ -36,6 +36,7 @@ the libraries are listed  googlemaps,opencvpyttsx3.
 after that write the code and simply execute it.
 during the execution in the terminal type location
 then it asks your starting and ending point enter that and then the code does its work.
+
 FUTURE SCOPE:
 
 for a lightweight and compact code like "Trinetra: An Eye for the Blind," the future scope can focus on enhancements and broader applications within the constraints of its compact design. Here's the future scope:
@@ -63,3 +64,9 @@ for a lightweight and compact code like "Trinetra: An Eye for the Blind," the fu
 10. **User Customization:** Allow users to personalize settings, voice guidance, and preferences to tailor "Trinetra" to their individual needs and comfort.
 
 The future scope for "Trinetra: An Eye for the Blind" centers on making the lightweight and compact code even more versatile and user-friendly, expanding its functionality while maintaining its efficiency.
+
+**************************************POINTS TO BE NOTED DURING EVALUATION*************************************************
+1. Since this a prototype model there are some limitations to it please understand those and keep them in mind.
+    =>because of googles privacy policy we are not allowed to track location as of now due to which the feacture of live location is currently not available,otherwise it was planned that the location feature was supposed to have live location so that the destination route 
+      directly planned according to the users live location.
+2. One other major limitation is that the location should be entered by typing and not by speaking that is because this is a prototype version and a prototype is supposed to be the most basic version.
