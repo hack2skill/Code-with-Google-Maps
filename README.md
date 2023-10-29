@@ -78,6 +78,8 @@ IDE: Visual Studio Code
 
    This command generates an APK file in the `build/app/outputs/flutter-apk/` directory in your project.
 
+   note --> You also have to change all the API keys . The google Map SDK for andriod is given in the andriodmainfest.xml file and the geolocation and places api are added in the welcome_screen.dart file present in the ```bash lib folder ```
+
 
 
 
