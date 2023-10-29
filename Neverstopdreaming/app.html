@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Krypton Solar</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krypton Solar</title>
+    <style>
+        /* General Styles */
+        body {
+            background-image: url('https://wallpapers.com/images/featured/best-anime-syxejmngysolix9m.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: 100vh;
+            margin: 0;
+            color: #F0F0F0;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: auto;
+            transition: background 0.3s;
+        }
+
+        #left-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Content Styles */
+        #content {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: auto;
+            transition: background 0.3s;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transition: transform 0.3s;
+        }
+
+        /* Right Sidebar Styles */
+        #right-sidebar {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: auto;
+            transition: background 0.3s;
+        }
+
+        /* Responsive Card Styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-height: 100%;
+            overflow-y: auto;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.2s, background 0.2s;
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Number Input Styles */
+        .number-input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .number-input {
+            width: 100%;
+            text-align: center;
+            border: none;
+            background: rgba(0, 0, 0, 0.9);
+            margin: 10px;
+            padding: 10px;
+            border-radius: 15px;
+            color: white;
+        }
+
+        /* Glassmorphic Search Bar Styles */
+        #search-location {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px;
+            transition: background 0.3s;
+            border-radius: 20px;
+            text-align: center;
+         
+        }
+
+        /* Glassmorphic Search Bar Focus Styles */
+        #search-location:focus {
+            background: rgba(255, 255, 255, 0.3);
+        }
+      #search-location::placeholder {
+    color: white; /* Change the placeholder text color to white */
+    font-weight: bold; /* Make the placeholder text bold */
+}
+
+        /* Super Cool Installation Button Styles */
+        .big-button {
+            background: linear-gradient(to right, #00FFFF, #00aaff);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .big-button:hover {
+            background: linear-gradient(to right, #00aaff, #00FFFF);
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Added hover effects for other elements */
+
+        .sidebar:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        #search-location:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .number-input:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+ .sidebar:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Added hover effect for the right sidebar */
+    #right-sidebar:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+          .card-container {
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: transparent transparent; /* Firefox */
+
+        /* Webkit (Safari, Chrome, Edge) */
+        &::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+            /* Styles for the item table */
+
+
+    }
+      .item-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.item-table th {
+    text-align: left;
+    font-weight: bold;
+}
+
+.item-table th,
+.item-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styles for the table rows with hover content */
+.table-row {
+    cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+ <div id="left-sidebar" class="sidebar">
+    <h2>Data and Analytics</h2>
+    <table class="item-table">
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+        <tr class="table-row" id="bill-row">
+            <td>Average Monthly Electric Bill</td>
+            <td class="hover-content">
+                $90 (based on nearby locations)
+            </td>
+        </tr>
+        <tr class="table-row" id="size-row">
+            <td>Recommended Solar Installation Size</td>
+            <td class="hover-content">
+                2.8 kW (194 ft2) [92% of your electricity usage.]
+            </td>
+        </tr>
+        <tr class="table-row" id="cost-row">
+            <td>Up-front Cost of Installation</td>
+            <td class="hover-content">
+                $13,223
+            </td>
+        </tr>
+        <tr class="table-row" id="sunlight-row">
+            <td>Usable Sunlight per Year</td>
+            <td class="hover-content">
+                Based on day-to-day analysis of weather patterns
+            </td>
+        </tr>
+        <tr class="table-row" id="space-row">
+            <td>Square Feet for Solar Panels</td>
+            <td class="hover-content">
+                Based on 3D modeling of your roof and nearby trees
+            </td>
+        </tr>
+        <tr class="table-row" id="savings-row">
+            <td>Savings Over 20 Years</td>
+            <td class="hover-content">
+                Estimated net savings for your roof over 20 years
+            </td>
+        </tr>
+        <tr class="table-row" id="total-cost-row">
+            <td>Total 20-Year Cost with Solar</td>
+            <td class="hover-content">
+                Includes above costs and incentives. $14,200
+            </td>
+        </tr>
+        <tr class="table-row" id="total-cost-no-solar-row">
+            <td>Total 20-Year Cost without Solar</td>
+            <td class="hover-content">
+                Assumes 2.2% annual increase in electricity prices. $26,887
+            </td>
+        </tr>
+        <tr class="table-row" id="total-savings-row">
+            <td>Total 20-Year Savings</td>
+            <td class="hover-content">
+                Net present value at 4% discount rate: $5,489. $12,687
+            </td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>Latitude 37.4449416, Longitude -122.1972638</td>
+        </tr>
+    </table>
+
+
+    <canvas id="interactive-graph" width="300" height="150"></canvas>
+</div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Sample data for the interactive graph
+    var graphData = {
+        labels: ["Year 1", "Year 5", "Year 10", "Year 15", "Year 20"],
+        datasets: [
+            {
+                label: "Savings with Solar",
+                data: [500, 2000, 4000, 6000, 8000],
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 2,
+                fill: false,
+            },
+        ],
+    };
+
+    // Create and render the interactive graph
+    var ctx = document.getElementById("interactive-graph").getContext("2d");
+    var myLineChart = new Chart(ctx, {
+        type: "line",
+        data: graphData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    beginAtZero: true,
+                },
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
+    });
+</script>
+    <div id="content">
+        <h1>AI Powered Solar Panel Optimizer</h1>
+        <!-- Search bar -->
+        <input type="text" id="search-location" color="white" placeholder="S-245, Panini-B Hostel, IIITDMJ Campus, Khamaria, Jabalpur">
+       
+        <!-- Solar Map -->
+        <iframe src="http://localhost:3000"></iframe>
+<br />
+ 
+
+
+        <h2>Ai Based Placement Recommendation System 3d Modeller</h2>
+        <iframe src="https://app.opensolar.com/#/projects/3203765/design"></iframe>
+    </div>
+    <div id="right-sidebar" class="sidebar">
+        <h2>Recommended Panels</h2>
+        <!-- Responsive cards with hover effect -->
+        <div class="card-container">
+            <div class="card">
+                <h3>EVPV360K</h3>
+                <p>Manufacturer :
+Panasonic <br/>
+Technology :
+Mono-c-Si.<br/>
+              Rated output power :
+360 W<br/>
+Width :
+1.016 m<br/>
+Height :
+1.721 m<br/>
+Thickness :
+30 mm<br/>
+Weight :
+19.5 kg<br/>
+Vmp :
+36.7 V<br/>
+Voc :
+43.9 V<br/>
+Imp :
+9.82 A<br/>
+Isc :
+10.49 A<br/>
+</p>
+              <a href="https://www.solarelectricsupply.com/panasonic-evervolt-evpv360k-solar-panel/">
+    <img src="https://i.ibb.co/HDxrM0j/ZZ299700026-O1-600x600-removebg-preview.png" border="0" width="200" height="200">
+</a>
+
+            </div>
+            <div class="card">
+                <h3>Q.PEAK DUO BLK ML-G9+ 380</h3>
+                <p>Manufacturer :
+Q CELLS<br/>
+Technology :
+Mono-c-Si<br/>
+
+Rated output power :
+380 W<br/>
+Width :
+1.03 m<br/>
+Height :
+1.84 m<br/>
+Thickness :
+32 mm<br/>
+Weight :
+19.5 kg<br/>
+Vmp :
+37.85 V<br/>
+Voc :
+45.04 V
+Imp :
+10.04 A<br/>
+Isc :
+10.5 A<br/>
+</p>
+               
+    <img src="https://i.ibb.co/1qJn7y7/ZZ304800078-O1-600x600-removebg-preview.png" border="0" width="200" height="200">
+</a>
+            
+            </div>
+       <div class="card">
+                <h3>Solaria PowerXT-370R-PD</h3>
+                <p>Manufacturer :
+Solaria Corporation<br/>
+Technology :
+Mono-c-Si<br/>
+
+Rated output power :
+370 W<br/>
+Width :
+1.116 m<br/>
+Height :
+1.621 m<br/>
+Thickness :
+35 mm<br/>
+Weight :
+20 kg<br/>
+Vmp :
+40.2 V<br/>
+Voc :
+48.3 V<br/>
+Imp :
+9.2 A<br/>
+Isc :
+9.6 A<br/>
+</p>
+               
+    <img src="https://i.ibb.co/zZWrMf1/ZZ302600011-O1-600x600-removebg-preview.png" border="0" width="200" height="200">
+</a>
+            
+            </div>
+            <!-- Add more cards as needed to make the container scrollable -->
+        </div>
+        <div class="number-input-container">
+            <h2>Enter Budget Range in Rupees</h2>
+            <input type="number" class="number-input" id="lower-budget" value="1000000">
+            <input type="number" class="number-input" id="upper-budget" value="2000000">
+            <button class="big-button">Proceed to Installation</button>
+        </div>
+    </div>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

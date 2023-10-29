@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  font-family: 'Dancing Script', cursive, 'Pacifico', 'Bangers', 'Monoton', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #330e58;
+}
+
+code {
+  font-family: 'Inconsolata', 'VT323', 'Orbitron', 'Cousine', monospace;
+}
