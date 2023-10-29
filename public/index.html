@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Directions</title>
+
+    <style>
+        /* Reset some default styles to ensure consistency */
+html, body, h1, h2, h3, p, ul, li, input, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+  }
+  
+  #directions {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Style the text inputs with the same design */
+  input[type="text"] {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff; /* Added background color */
+  }
+
+  input[type="to"] {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff; /* Added background color */
+  }
+  
+  button {
+    width: 98%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 600px) {
+    #directions {
+      max-width: 100%;
+    }
+  }
+  
+  /* Additional styles for Google Maps Autocomplete dropdown */
+  .pac-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1000;
+  }
+  
+  .pac-item {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .pac-item:hover {
+    background-color: #f5f5f5;
+  }  
+
+    </style>
+</head>
+<body>
+    <h1>Get Directions</h1>
+    <div id="directions">
+        <input class="from" type="text" id="from" placeholder="From">
+        <input class="to" type="to" id="to" placeholder="To">
+        <button id="get-directions">Get Directions</button>
+    </div>
+
+    <script>
+        
+        function loadGoogleMapsScript(callback) {
+            var script = document.createElement('script');
+            script.src = 'https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=places';
+            script.onload = callback;
+            document.body.appendChild(script);
+        }
+
+        function initialize() {
+            var fromInput = document.getElementById('from');
+            var toInput = document.getElementById('to');
+
+            var autocompleteFrom = new google.maps.places.Autocomplete(fromInput);
+            var autocompleteTo = new google.maps.places.Autocomplete(toInput);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGoogleMapsScript(initialize);
+        });
+
+        document.getElementById('get-directions').addEventListener('click', function() {
+            var fromValue = document.getElementById('from').value;
+            var toValue = document.getElementById('to').value;
+
+            window.location.href = 'directions.html?from=' + encodeURIComponent(fromValue) + '&to=' + encodeURIComponent(toValue);
+        });
+    </script>
+</body>
+</html>
