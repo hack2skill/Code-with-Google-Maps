@@ -22,12 +22,13 @@ Before you start, make sure you have valid API keys for the Google Maps JavaScri
 
 Step 2: Create HTML File
 
-Create an HTML file (e.g., index.html) with the following content
+Created an HTML file (index.html) 
+
 Step 3: Create JavaScript File
 
-Create a JavaScript file (e.g., main.js) with the JavaScript code that initializes the map, performs location searches, and displays map markers. The JavaScript code should include the modifications discussed earlier in this conversation.
+Create a JavaScript file ( main.js) with the JavaScript code that initializes the map, performs location searches, and displays map markers.
 
-Step 4: Create CSS File (Optional)
+Step 4: Create CSS File 
 
 If you have specific styling requirements, create a CSS file (e.g., styles.css) and add your CSS rules to style the map and other elements as needed
 
