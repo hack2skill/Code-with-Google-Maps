@@ -46,6 +46,7 @@ CODE EXECUTION:
 > Now all you have to do is just run the code, give it some time to intiate.
 > After the code starts detecting in the terminal type the command "location".
 > Then just enter your starting location and then the destination then the code would recite the whole route to you.
+> The explanation of each and every major function is given inside the code it self in the form of comments.
 
 FUTURE SCOPE:
 
