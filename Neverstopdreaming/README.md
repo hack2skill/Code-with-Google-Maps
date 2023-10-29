@@ -78,7 +78,7 @@ To test the prototype and understand its functionalities, follow these steps:
 2. Add your `API Key` to `SolarService.js`(in services) and `index.html` (in public)
 3. Navigate to the Neverstopdreaming folder and run `yarn install` and `yarn start` in the terminal
 4. Then Run the `app.html` file in the browser to view the webapp.(all other files are interlinked)
-5. The Emails Passwords for both the Ai Optimizer and Open Solar Modeller are `21bsm054@iiitdmj.ac.in` and `Qwerty@123`
+5. The Email and Password for both the Ai Optimizer and Open Solar Modeller are `21bsm054@iiitdmj.ac.in` and `Qwerty@123` respectively
 
 ## Future Scope
 
