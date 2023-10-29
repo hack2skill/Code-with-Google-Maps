@@ -7,6 +7,8 @@
 
   ![Alt Text](https://github.com/D4em0nn/Code-with-Google-Maps/blob/main/images/WhatsApp%20Image%202023-10-26%20at%2010.10.03%20PM.jpeg?raw=true)
   
+  ![Website Layout]https://github.com/D4em0nn/Code-with-Google-Maps/blob/main/images/Screenshot%20(1385).png?raw=true
+  
 ### Tech Stack: 
    Hyper-text markup language(HTML)
 
