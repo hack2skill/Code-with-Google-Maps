@@ -74,13 +74,13 @@ export default function Map() {
         async function Loading() {
             await setData();
             setIsLoading(false)
-        } 
-        
-        Loading();  
+        }
+
+        Loading();
     }, []);
 
 
-    console.log("here",businessData)
+    console.log("here", businessData)
 
     const dataa = [
         {
@@ -133,9 +133,8 @@ export default function Map() {
             "weekly_sum": 5191
         }
     ]
-    
-    if(!isLoading)
-    {
+
+    if (!isLoading) {
         for (let i = 0; i < businessData.length; i++) {
             let data = {
                 location: new google.maps.LatLng(businessData[i].coordinates.lat, businessData[i].coordinates.lng),
@@ -144,10 +143,10 @@ export default function Map() {
             heatt.push(data);
         }
     }
-    
+
     const [business, setBusiness] = useState<LatLngLiteral>();
+    if (isLoading) return <div>Loading...</div>;
     return (
-        !isLoading &&
         <div className="container">
             <div className="controls">
                 <h1>Business Type?</h1>
