@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directions with Air Quality</title>
+    <style>
+        /* directions.css */
+
+/* Apply styles to the body element */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+/* Apply styles to the map container */
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+/* Apply styles to the directions information container */
+#directions-info {
+    margin-top: 20px;
+}
+
+/* Apply styles to the air quality information container */
+#air-quality {
+    margin-top: 20px;
+}
+
+/* Style for the h1 element (Main heading) */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Style for the strong element inside air quality information */
+#air-quality strong {
+    color: #007BFF; /* Customize the color as needed */
+}
+
+/* Style for the route color display element */
+#directions-info p[style*="color"] {
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Directions with Air Quality</h1>
+    <div id="map"></div>
+    <div id="directions-info">
+        <div id="air-quality-from"></div>
+        <div id="air-quality-to"></div>
+    </div>
+    
+    <script>
+        
+        function setPolylineColor(airQualityCategory) {
+            switch (airQualityCategory) {
+                case 'low':
+                    return 'green';
+                case 'medium':
+                    return 'yellow';
+                case 'high':
+                    return 'red';
+                default:
+                    return 'blue'; // Default color
+            }
+        }
+
+        // Function to get air quality data using AirVisual API
+        function getAirQuality(latitude, longitude) {
+            var apiKey = 'API_KEY';  // Replace with your AirVisual API key
+            var apiUrl = `https://api.airvisual.com/v2/nearest_city?lat=${latitude}&lon=${longitude}&key=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var airQuality = data.data.current.pollution.aqius;  // Air Quality Index (AQI)
+
+                    // Display air quality information
+                    displayAirQuality(airQuality);
+                })
+                .catch(error => {
+                    console.error('Error fetching air quality data:', error);
+                });
+        }
+
+        // Function to display air quality information
+        function displayAirQuality(airQuality) {
+            var airQualityInfo = document.getElementById('air-quality');
+            airQualityInfo.innerHTML = `
+                <p>Air Quality Index (AQI): <strong>${airQuality}</strong></p>
+            `;
+        }
+
+        // Function to categorize air quality based on AQI thresholds
+        function categorizeAirQuality(aqi) {
+            // Define your AQI thresholds and categories here
+            if (aqi <= 50) {
+                return 'low';
+            } else if (aqi <= 100) {
+                return 'medium';
+            } else {
+                return 'high';
+            }
+        }
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: { lat: 41.85, lng: -87.65 }  // Default map center
+            });
+
+            var directionsService = new google.maps.DirectionsService();
+            var directionsDisplay = new google.maps.DirectionsRenderer();
+            directionsDisplay.setMap(map);
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const fromValue = urlParams.get('from');
+            const toValue = urlParams.get('to');
+
+            var request = {
+                origin: fromValue,
+                destination: toValue,
+                travelMode: 'DRIVING'
+            };
+
+            directionsService.route(request, function(result, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(result);
+
+                    // Simulate air quality data for demonstration purposes
+                    var fromAirQuality = 'high';  // Replace with actual air quality data
+                    var toAirQuality = 'high';  // Replace with actual air quality data
+
+                    var routeColor = setPolylineColor(fromAirQuality); // Set the color based on 'from' location
+                    directionsDisplay.setOptions({ polylineOptions: { strokeColor: routeColor } });
+
+                    var directionsInfo = document.getElementById('directions-info');
+                    directionsInfo.innerHTML = `
+                        <p>Directions from: <strong>${fromValue}</strong></p>
+                        <p>Directions to: <strong>${toValue}</strong></p>
+                        <p>Route Importance: <strong>${fromAirQuality}</strong></p>
+                        <p style="color: ${routeColor};">Route Color: <strong>${routeColor}</strong></p>
+                    `;
+
+                    // Get air quality data using the AirVisual API
+                    getAirQuality(/* Pass the latitude and longitude of 'from' and 'to' locations */);
+                } else {
+                    document.getElementById('directions-info').innerHTML = "<p>No directions found.</p>";
+                }
+            });
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
