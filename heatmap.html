@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css" />
+
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        #map_4cb9fbd9d02d46f44668cb337451afe0 {
+            position: relative;
+            width: 70%;
+            height: 70%;
+            margin: auto;
+        }
+
+        .leaflet-container {
+            font-size: 1rem;
+        }
+    </style>
+
+    <script
+        src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="slide">
+            <div class="suggest">
+                <h2>The best place to start a business is ........</h2>
+            </div>
+            <div class="item" style="background-image: url(bg_image.avif);">
+                <div class="content">
+                    <div class="name">WHERE DATA MEETS LOCATION</div>
+                    <div class="des">Navigate Your Business to Success</div>
+                    <button class="see-more">See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(bg_image_3.avif);">
+                <div class="content">
+                    <div class="name">Coffee Shops</div>
+                    <div class="des">Enhance your coffee shop's success with our footfall heatmap data. We'll help you
+                        discover the busiest times, optimize store layouts, and find the perfect locations for new
+                        branches, ensuring that every cup of coffee is served in the heart of your customers' daily
+                        routines.</div>
+                    <button class="see-more">See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(bg_image_2.avif);">
+                <div class="content">
+                    <div class="name">CAFES & BARS</div>
+                    <div class="des">Elevate your cafe or bar's performance with our footfall heatmap insights. We
+                        empower you to pinpoint peak hours, strategically seat patrons, and identify thriving
+                        neighborhoods for expansion, ensuring every sip and conversation thrives in high-traffic
+                        locales.</div>
+                    <button class="see-more">See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(bg_image_1.avif);">
+                <div class="content">
+                    <div class="name">RESTAURANTS</div>
+                    <div class="des">Revamp your restaurant's success with our footfall heatmap analysis. We empower you
+                        to discover busy dining times, optimize table arrangements, and pinpoint ideal locations for new
+                        establishments, ensuring every meal is served where the crowds gather.</div>
+                    <button class="see-more">See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(bg_image_4.avif);">
+                <div class="content">
+                    <div class="name">SHOPPING MALLS</div>
+                    <div class="des">Elevate your shopping mall's appeal with our footfall heatmap solutions. We provide
+                        valuable insights into customer traffic patterns, helping you attract premium tenants, refine
+                        rent strategies, and create an exceptional shopping experience in high-traffic areas.</div>
+                    <button class="see-more">See more</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(bg_image_5.avif);">
+                <div class="content">
+                    <div class="name">REAL ESTATES</div>
+                    <div class="des">Transform real estate decisions with our footfall heatmap data. We enable
+                        developers and agents to pinpoint prime locations for new properties, optimize infrastructure
+                        planning, and make informed investment choices based on customer density and trends.</div>
+                    <button class="see-more">See more</button>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+            <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+
+    </div>
+
+
+    <div class="folium-map" id="map_4cb9fbd9d02d46f44668cb337451afe0"></div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+   document.getElementById('next').onclick = function () {
+        let lists = document.querySelectorAll('.item');
+        document.getElementById('slide').appendChild(lists[0]);
+    }
+    document.getElementById('prev').onclick = function () {
+        let lists = document.querySelectorAll('.item');
+        document.getElementById('slide').prepend(lists[lists.length - 1]);
+    }
+
+    $('.see-more').on('click', function () {
+        $('#map_4cb9fbd9d02d46f44668cb337451afe0').toggle();
+        $('.suggest').toggle(); 
+    });
+
+    var map_4cb9fbd9d02d46f44668cb337451afe0 = L.map(
+        "map_4cb9fbd9d02d46f44668cb337451afe0",
+        {
+            center: [-33.8688197, 151.2092955],
+            crs: L.CRS.EPSG3857,
+            zoom: 12,
+            zoomControl: true,
+            preferCanvas: false,
+        }
+    );
+
+
+
+
+
+    var tile_layer_3ba1048daf16e82be140faa51f42a3d3 = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        { "attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false }
+    ).addTo(map_4cb9fbd9d02d46f44668cb337451afe0);
+
+
+    var heat_map_573b9d6a2249bbbc833de99e972bb7e0 = L.heatLayer(
+        [[-33.8688197, 151.2092955, 6], [-33.8712578, 151.1979828, 27], [-33.8722417, 151.1978693, 33], [-33.8741293, 151.1973586, 27], [-33.8703417, 151.1979222, 27], [-33.8686241, 151.2024054, 44], [-33.8684714, 151.1953331, 25], [-33.86896410000001, 151.2058908, 15], [-33.8726709, 151.1970516, 26], [-33.8666848, 151.2015819, 20], [-33.8686115, 151.2037804, 35], [-33.8722357, 151.2020326, 25], [-33.8648112, 151.2037339, 16], [-33.8666184, 151.2027477, 29], [-33.8689246, 151.2040301, 24], [-33.866664, 151.2014112, 33], [-33.8718109, 151.202198, 20], [-33.8716577, 151.2022001, 20], [-33.864542, 151.2051287, 26], [-33.8688197, 151.2092955, 6]],
+        { "blur": 15, "maxZoom": 18, "minOpacity": 0.5, "radius": 25 }
+    ).addTo(map_4cb9fbd9d02d46f44668cb337451afe0);
+
+</script>
+
+</html>
