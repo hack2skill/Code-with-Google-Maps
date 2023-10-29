@@ -58,19 +58,19 @@ The prototype offers a holistic solution for traffic and parking, allowing users
   
 ### Tech Stack: 
 ### FlutterFlow:
-     FlutterFlow is the core platform for building your app's user interface, designing screens, and defining interactions without writing code.
+  FlutterFlow is the core platform for building your app's user interface, designing screens, and defining interactions without writing code.
 ### Flutter: 
-     Flutter is the underlying framework that FlutterFlow is built upon. It's used for creating and developing the app's user interface components and handling interactions.
+  Flutter is the underlying framework that FlutterFlow is built upon. It's used for creating and developing the app's user interface components and handling interactions.
 ### Google Maps API: 
-     To integrate maps, real-time traffic data, and parking information into your prototype, you may have used Google Maps API services.
+  To integrate maps, real-time traffic data, and parking information into your prototype, you may have used Google Maps API services.
 ### Firebase: 
-     Firebase can be used for back-end functionality in your prototype, such as user authentication, data storage, and real-time database access.
+  Firebase can be used for back-end functionality in your prototype, such as user authentication, data storage, and real-time database access.
 ### Design Tools:
-     Graphic design tools like Adobe XD or Figma may have been used in conjunction with FlutterFlow for creating assets and design elements.
+  Graphic design tools like Adobe XD or Figma may have been used in conjunction with FlutterFlow for creating assets and design elements.
 ### Version Control:
-     Version control systems like Git/GitHub might be used to manage changes and collaborate on the project.
+  Version control systems like Git/GitHub might be used to manage changes and collaborate on the project.
 ### Cloud Services:
-    Cloud hosting services may be used to deploy and host the prototype for testing and sharing.
+  Cloud hosting services may be used to deploy and host the prototype for testing and sharing.
    
 ### Step-by-Step Code Execution Instructions:
   Cloning and Running the Prototype:
