@@ -168,8 +168,7 @@ const addresultmarker = (response) => {
 		const marker = L.marker([
 			selectedLocations[i].lat,
 			selectedLocations[i].lng,
-		],{ icon: stepIcon });
-		marker.addTo(map);
+		]);
 
 		const j = rank[i];
 		const i_ = i + 1;
