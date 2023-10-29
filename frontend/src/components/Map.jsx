@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+// import icon from 'leaflet/dist/images/marker-icon.png';
+// import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import L from "leaflet";
 import "./Map.css";
 import Loader from "./Loader";
@@ -41,11 +41,11 @@ function Map() {
 		const clickedLat = e.latlng.lat;
 		const clickedLng = e.latlng.lng;
 
-		const stepIcon = L.icon({
-			iconUrl: icon,
-    			shadowUrl: iconShadow
-			iconSize: [30, 30],
-		});
+		// const stepIcon = L.icon({
+		// 	iconUrl: icon,
+  //   			shadowUrl: iconShadow
+		// 	iconSize: [30, 30],
+		// });
 
 		const marker = L.marker([clickedLat, clickedLng], { icon: stepIcon });
 		marker.addTo(map);
