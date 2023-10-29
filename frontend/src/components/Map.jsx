@@ -40,11 +40,11 @@ function Map() {
 		const clickedLng = e.latlng.lng;
 
 		const stepIcon = L.icon({
-			iconUrl:"https://cdn-icons-png.flaticon.com/512/3082/3082383.png"
+			iconUrl: "https://cdn-icons-png.flaticon.com/512/3082/3082383.png",
 			iconSize: [30, 30],
 		});
 
-		const marker = L.marker([clickedLat, clickedLng],{ icon: stepIcon });
+		const marker = L.marker([clickedLat, clickedLng], { icon: stepIcon });
 		marker.addTo(map);
 
 		setMarkers((prevMarkers) => [...prevMarkers, marker]);
@@ -95,7 +95,7 @@ function Map() {
 			if (response.ok) {
 				const data = await response.json(); // Parse the response as JSON
 
-					
+					console.log("Response:", data);
 					addresultmarker(data);
 					BlaaMap();
 			} else {
