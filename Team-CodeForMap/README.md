@@ -12,7 +12,7 @@ AI Assistant:
 Natural Language Processing (NLP): Open AI key (text-davinci-003)
 Programming Languages: Python (common for integrating NLP models)
 Maps Integration:
-Google Maps API: Google Maps Directions API, Google Maps Geocoding API and Google Maps JavaScript API
+Google Maps API: Google Maps Directions API, Google Maps Geocoding API, Google Maps JavaScript API and Google Maps places API
 App Development : Ionic-angular 
 Backend Development : 
 Framework: Node.js with Express.js 
@@ -25,8 +25,16 @@ Authentication: OAuth or JWT for secure user authentication.
   In houseapp-backend (cd houseapp-backend) folder run the below command
   npm install dotenv
   node index
-  In houseopenAi folder run the main.py file by clicking on run icon in any editor(vs code, pycharm)
   when you see connected to Db it means all set, you can see the app in localhost
+
+  In houseopenAi folder run the main.py file by clicking on run icon in any editor(vs code, pycharm)
+  # try to speak these commands 
+    1) what is the distance between any location to any location 
+    2) general questions 
+    3) #SPECIFIC ONES:
+        A) can you find for a one person room in delhi 
+        B) can you help in finding two person room in meerut.
+    4) For stopping say stop loco!
   
 ### Future Scope:
    In future i will some more functionality like house inner view using AR and app will be available in various languages.
