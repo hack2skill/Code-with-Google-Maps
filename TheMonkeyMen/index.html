@@ -1,0 +1,856 @@
+<html>
+  <head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> 
+    <script src="https://unpkg.com/deck.gl@8.9.15/dist.min.js"></script>
+    <script src="https://unpkg.com/three/build/three.min.js"></script>
+    <script src="https://unpkg.com/@googlemaps/three/dist/index.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+   <style>
+      #map {
+  height: 100vh;
+  width : 100%;
+  position: relative;
+  
+}
+
+.slider{
+  position: absolute;
+  background: transparent;
+  top: 35%;
+  border: none;
+  text-align: center;
+  font-size: 25px;
+  z-index: 3;
+  width: 20%;
+}
+.tslider{
+  position: absolute;
+  background: transparent;
+  bottom: 2%;
+  left: 40%;
+  text-align: center;
+  font-size: 25px;
+}
+
+
+
+#creditsElement{
+  position: absolute;
+  z-index: 3;
+  bottom:1.9%;
+  right:0%;
+  color: white;
+}
+
+
+#autocomplete{
+  position:absolute;
+  top : 7.5%;
+  width : 20%;
+  left:40%;
+  overflow: none;
+  font-style: normal;
+  font-family: 'Roboto' ;
+  font-weight: bold;
+  color: #000;
+  border-radius: 5px;
+  height: 45px;
+  width: 300px;
+  opacity: 0.7;
+  color: #222;
+  border: solid;
+  box-shadow: 0px 1px 10px 1px black;  
+  /* box-shadow: 0 0.2em 0 black; */
+  z-index: 3;
+}
+.pac-container{
+  opacity: 0.7;
+}
+
+
+#height-slider {
+  position: relative;
+  display:flexbox;
+  bottom: 20%; 
+  left: 0.002%; 
+  /* -webkit-appearance: none; */
+  background: none;
+  outline: none;
+  overflow: hidden;
+  width: 250px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+  transform: rotate(270deg); /* Rotate the slider back to normal */
+  margin-left:-55%;
+  z-index: 3;
+  /* box-shadow: 0px 1px 10px 1px black; */
+}
+#height-slider::-webkit-slider-thumb{
+  background: transparent;
+  outline: none;
+  height: 40px;
+  width: 40px;
+  
+  border-radius: 50%;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: transparent;
+  box-shadow: 0px 1px 10px 1px black;
+  border-radius: 50%;
+}
+
+
+  
+
+#timeslider {
+  position: relative; 
+  display:flexbox;
+  bottom: 10%; 
+  /* left: 37.5%;  */
+  width: 250px;
+  height: 50px;
+  /* -webkit-appearance: none; */
+  /* background: none; */
+  outline:none;
+  overflow: hidden;
+
+  z-index: 3;
+}
+#timeslider::-webkit-slider-thumb{
+  background: transparent;
+  border-radius: 50%;
+  color: black;
+  width: 40px;
+  height: 40px;
+}
+
+.container{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  word-wrap: break-word;
+  padding: 20px;
+  width: 100%;
+  /* height: 250vh; */
+  z-index: 3;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  text-align: center;
+}
+.card h2 {
+  color: orange;
+}
+.card p {
+  margin-bottom: 10px;
+}
+
+
+/* input[type="range"]::-moz-range-track,
+input[type="range"]::-ms-track, */
+/* input[type="range"]::-webkit-slider-runnable-track{
+  width: 10px;
+  
+  
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to right,
+    
+    #fee154 0%,
+    #ffe467 17%,
+    #ffac6f 25%,
+
+    #f4896b 37%,
+    #ca5a92 45%,
+    #d1628b 50%,
+    #5b2c83 80%,
+    #192861 100% */
+
+    /* #faeb49 0%, 
+    #f7972a 30%, 
+    #9c1eb6 50%, 
+    #150a27 70% */
+
+    
+  /* );
+  border-radius: 10px;
+} */
+/* #time-slider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #222;
+  outline: none;
+  cursor: pointer;
+  
+  
+} */
+
+
+
+body {
+  background-color: white;
+  height: 100%;
+  width: 100%; 
+  font-family: 'Roboto' ;
+  font-weight: bold; 
+}
+
+.gm-style-mtc{
+  display: none;
+}
+.gm-svpc{
+  display: none;
+}
+/* checkbox */
+
+.switch {
+  /* Variables */
+ --switch_width: 3em;
+ --switch_height: 1.5em;
+ --thumb_color: #e8e8e8;
+ --track_color: #e8e8e8;
+ --track_active_color: #888;
+ --outline_color: #000;
+ font-size: 17px;
+ position: relative;
+ display: inline-block;
+ width: var(--switch_width);
+ height: var(--switch_height);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+ opacity: 0;
+ width: 0;
+ height: 0;
+}
+
+/* The checkbox */
+
+.sliderch {
+ box-sizing: border-box;
+ border: 2px solid var(--outline_color);
+ position: absolute;
+ cursor: pointer;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: var(--track_color);
+ transition: .15s;
+ border-radius: var(--switch_height);
+}
+
+.sliderch:before {
+ box-sizing: border-box;
+ position: absolute;
+ content: "";
+ height: var(--switch_height);
+ width: var(--switch_height);
+ border: 2px solid var(--outline_color);
+ border-radius: 100%;
+ left: -2px;
+ bottom: -2px;
+ background-color: var(--thumb_color);
+ transform: translateY(-0.2em);
+ box-shadow: 0 0.2em 0 var(--outline_color);
+ transition: .15s;
+}
+
+input:checked + .sliderch {
+ background-color: var(--track_active_color);
+}
+
+input:focus-visible + .sliderch {
+ box-shadow: 0 0 0 2px var(--track_active_color);
+}
+
+/* Raise thumb when hovered */
+input:hover + .sliderch:before {
+ transform: translateY(-0.3em);
+ box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+input:checked + .sliderch:before {
+ transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.2em);
+}
+
+/* Raise thumb when hovered & checked */
+input:hover:checked + .sliderch:before {
+ transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
+ box-shadow: 0 0.3em 0 var(--outline_color);
+}
+#checkboxalign{
+  position: absolute;
+  top:7%;
+  left:2%;
+  z-index: 4;
+}
+#e3b{
+  margin-top: 30px;
+  margin-left: 2px;
+  font-size: 20px;
+  font-family: 'Roboto' ;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+    </style>
+   
+  </head>
+  <body>
+    <script  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVvhGrlSMOQPtEf3j66JFR1UcNdp1Ld6Q&callback=initAutocomplete&libraries=places,drawing" ></script>
+    
+    <div id="map"></div>
+    <div id="creditsElement"></div>
+
+    <div class="tslider">
+      <input type="range" id="timeslider" min="0" max="1440"
+      value="150">
+      <div id="tslidevalue" class="tslide-value"></div>
+    </div>
+    
+    <input id ="autocomplete">
+
+    <div class="slider">
+      <input type="range" id="height-slider" min="1" max="150" value="50">
+      <p style="font-size:20px; margin-left:-50%; margin-top:-1%">Adjust Panel<br> Height</p>
+    </div>
+
+<div id="checkboxalign">
+  <label class="switch">
+  <div id="e3b">Photorealistic <br>3D Buildings</div>
+    <input type="checkbox"id="disable3DBuildings">
+    <span class="sliderch"></span>
+  </label>
+</div>
+
+  
+
+      <p class="current-height"><span id="slidervalue"></span></p>
+      </div>
+    <div id="time-display"></div>
+  <div class="container">
+    <div class="card">
+      <h2>Net Energy Production (DC) per year in kWh</h2>
+      <p id="netEnergyProductionDC"></p>
+  </div>
+  <div class="card">
+      <h2>Net Energy Production(AC) per year in kwh</h2>
+      <p id="yearlyACProduction"></p>
+  </div>
+  <div class="card">
+    <h2>Total AC production over</h2>
+    <p id="totalACProduction"></p>
+  </div>
+  <div class="card">
+    <h2>Average Payback Years:</h2>
+    <p id="roundedAverage"></p>
+  </div>
+  <div class="card">
+     <h2>Approx Electricity Bill Savings Per Year(USD) :</h2>
+     <p id="savings1yr"></p>
+  </div>
+ <div class="card">
+  <h2>Approx Electricity Bill Savings in 20 Years(USD) :</h2>
+  <p id="savings20yrs"></p>
+ </div>
+  <div class="card">
+    <h2>Max Panels for Roof is:</h2>
+    <p id="maxArrayPanelsCount"></p>
+  </div>
+  <div class="card">
+    <h2>Max sunshine hours per year:</h2>
+    <p id="maxSunshinehoursPerYear"></p>
+  </div>
+  <div class="card">
+    <h2> Max roof space in metre square:</h2>
+    <p id="MaxRoofSpace"></p>
+  </div>
+</div>
+    
+    <script>
+
+      
+function initAutocomplete(){
+
+let latitude =37.7793;
+let longitude =-122.4192;
+
+const GOOGLE_API_KEY = 'AIzaSyBVvhGrlSMOQPtEf3j66JFR1UcNdp1Ld6Q'; // API Key
+const TILESET_URL = 'https://tile.googleapis.com/v1/3dtiles/root.json'; //Photorealistic 3D Tiles URL
+// Create a GoogleMapsOverlay instance
+
+const map = new google.maps.Map(document.getElementById("map"), {
+    center: {
+      lat: 37.7793,
+      lng: -122.4192,
+    },
+    zoom: 18,
+    heading: 320,
+    tilt: 47.5,
+    mapId: 'ab7ba35e5564ec67',
+  });
+  const ambientLight = new deck.AmbientLight({
+        color: [0, 0, 0],
+        intensity: 1.0,
+      });
+
+      
+      const sunLight = new deck._SunLight({
+        // timestamp: 1554927200000,
+        timestamp : Date.now(),        
+        color: [255, 255, 255],
+        intensity: 1,
+        _shadow: true,
+      });
+
+      const lightingEffect = new deck.LightingEffect({
+        ambientLight,
+        sunLight,
+      });
+      
+      lightingEffect.shadowColor = [0, 0, 0, 0.6];
+
+      const Photorealistic = new deck.Tile3DLayer({
+           id: 'google-3d-tiles',
+           data: TILESET_URL,
+           loadOptions: {
+            fetch: {
+              headers: {
+                'X-GOOG-API-KEY': GOOGLE_API_KEY
+              }
+            }
+          },
+           onTilesetLoad: tileset3d => {
+             tileset3d.options.onTraversalComplete = selectedTiles => {
+               const credits = new Set();
+               selectedTiles.forEach(tile => {
+                 const {copyright} = tile.content.gltf.asset;
+                 copyright.split(';').forEach(credits.add, credits);
+                 creditsElement.innerHTML = [...credits].join('; ');
+               });
+               return selectedTiles;
+             }
+           }
+         });
+      
+const deckoverlay = new deck.GoogleMapsOverlay({
+  controller: true,
+  effects:[lightingEffect],
+  layers: [Photorealistic],
+});
+const disable3DBuildingsCheckbox = document.getElementById("disable3DBuildings");
+  disable3DBuildingsCheckbox.addEventListener("change",function(){
+    if(disable3DBuildingsCheckbox.checked){
+      map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+      deckoverlay.setMap(map);
+      
+      
+    }
+    else{
+            map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+      deckoverlay.setMap(null);
+    }
+  })
+
+// Calculate the center of a polygon
+function calculatePolygonCenter(coordinates) {
+    let latSum = 0;
+    let lngSum = 0;
+    for (const coord of coordinates) {
+      latSum += coord[1];
+      lngSum += coord[0];
+    }
+    const latCenter = latSum / coordinates.length;
+    const lngCenter = lngSum / coordinates.length;
+    
+    return { lat: latCenter, lng: lngCenter };
+  }
+
+const slider = document.getElementById('timeslider');
+
+
+// Function to convert slider value to timestamp
+function getTimeFromSliderValue(value) {
+  const hours = Math.floor(value / 60);
+  const minutes = value % 60;
+  const date = new Date();
+  date.setHours(hours, minutes, 0, 0);
+  return date.getTime();
+}
+
+// Update the SunLight timestamp when the slider value changes
+slider.addEventListener('input', (e) => {
+  const value = parseInt(e.target.value, 10);
+  const time = getTimeFromSliderValue(value);
+  
+  // Convert the time in milliseconds to a Date object
+  const date = new Date(time);
+  const formattedTime = date.getHours().toString().padStart(2, '0') + ':' + 
+  date.getMinutes().toString().padStart(2, '0');
+
+  let timeslidervalue = document.getElementById('tslidevalue');
+  timeslidervalue.innerHTML="Current Time : "+ formattedTime;
+  
+  const timestamp = getTimeFromSliderValue(value);
+  sunLight.timestamp = timestamp;
+
+});
+slider.dispatchEvent(new Event('input'));
+
+
+let autocomplete;
+//Function for Autocomplete predictions
+
+autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'),
+  {
+    fields: ['place_id', 'geometry', 'name']
+  });
+
+autocomplete.addListener('place_changed', onPlaceChanged);
+
+function onPlaceChanged(){
+  const place = autocomplete.getPlace();
+
+  if (!place.geometry) {
+    window.alert("No details available for input: '" + place.name + "'");
+    return;
+  }
+
+  // If the place has a geometry, then present it on a map.
+  if (place.geometry.viewport) {
+    map.fitBounds(place.geometry.viewport);
+    map.setTilt(47.5);
+  } else {
+    map.setCenter(place.geometry.location);
+    map.setZoom(16); 
+
+  }
+  latitude = place.geometry.location.lat();
+  longitude = place.geometry.location.lng();
+  console.log('Coordinates:', latitude, longitude);
+}
+
+let userCreatedPolygon;
+const drawingManager = new google.maps.drawing.DrawingManager({
+  drawingMode: google.maps.drawing.OverlayType.POLYGON,
+  drawingControl: true,
+  drawingControlOptions: {
+    position: google.maps.ControlPosition.TOP_CENTER,
+    drawingModes: [
+      google.maps.drawing.OverlayType.POLYGON,
+    ],
+  },
+  map: map, // associate the drawingManager with the map
+});
+drawingManager.setDrawingMode(null);//setting the default to hand
+google.maps.event.addListener(drawingManager, 'polygoncomplete', function(polygon) {
+  if (userCreatedPolygon) {
+    userCreatedPolygon.setMap(null);
+  }
+  userCreatedPolygon = polygon;
+  let coordinates = polygon.getPath().getArray(); // for dragable
+  let coordinatesgl = polygon.getPath().getArray().map(latlng => [latlng.lng(), latlng.lat()]);
+ 
+  let fillColor = '#ffac6f';
+  const newPolygon = new google.maps.Polygon({   // for dragable polygon 
+    paths: coordinates, 
+    fillColor: fillColor,
+    fillOpacity: 0.8,
+    draggable: true,
+    // editable: true, //disabled for testing purposes
+    strokeColor: '#5b2c83',
+    map: map
+  });
+
+  userCreatedPolygon.setMap(null);
+  userCreatedPolygon = newPolygon;
+  google.maps.event.addListener(newPolygon, 'click', function() {
+    // Show a confirmation dialog to the user
+    if (confirm('Do you want to delete this polygon?')) {
+      // If the user confirms, remove the polygon from the map
+      newPolygon.setMap(null);
+      userCreatedPolygon = null;
+    }
+  });
+  console.log("Location of user created  ",coordinatesgl)
+  const center = calculatePolygonCenter(coordinatesgl);
+  console.log(center.lat, center.lng);
+  
+  // overlay.anchor =  { lat: latitude, lng: longitude, altitude:  0};//disabled for testing
+ 
+  fetchSolarData(center.lat, center.lng);// disabled for testing
+  drawingManager.setDrawingMode(null);
+  google.maps.event.addListener(newPolygon, 'dragend', function() {
+  // Update the coordinates when the polygon is dragged
+  let coordinates = newPolygon.getPath().getArray(); // for draggable
+  let coordinatesgl = coordinates.map(latlng => [latlng.lng(), latlng.lat()]);
+  console.log(coordinatesgl);
+
+  const center = calculatePolygonCenter(coordinatesgl);
+  console.log(center.lat, center.lng);
+  
+  fetchSolarData(center.lat, center.lng);
+});
+});
+
+//ThreeJS Code
+const heightSlider = document.getElementById('height-slider');
+heightSlider.addEventListener('input', (e) => {
+  const newHeight = parseInt(e.target.value, 10);
+  // updatePolygonHeight(newHeight);
+  // updateSolarPanelAltitude(newHeight);
+});
+const overlay = new google.maps.plugins.three.ThreeJSOverlayView({
+  map: map,
+  // anchor: { lat: 37.7793, lng: -122.4192, altitude:  0},
+  anchor: { lat: latitude, lng: longitude, altitude:  0},
+}); 
+const renderer = new THREE.WebGLRenderer({alpha:true,antialias:true});
+// const geometry = new THREE.BoxGeometry(1.65, 0.992, 0.1); //OG
+const geometry = new THREE.BoxGeometry(1.50, 0.842, 0.1);
+const material = new THREE.MeshPhongMaterial({ color: 0x0000080, shininess: 100 });
+const cube = new THREE.Mesh(geometry, material);
+const edges = new THREE.EdgesGeometry(cube.geometry);
+const lineMaterial = new THREE.LineBasicMaterial({ color: 0x808080 }); // grey color
+const lines = new THREE.LineSegments(edges, lineMaterial);
+
+cube.add(lines);
+cube.castShadow = true;
+
+overlay.latLngAltitudeToVector3({ lat: 37.7793, lng: -122.4192, altitude: 0 }, cube.position);
+
+const light = new THREE.DirectionalLight(0xFFFFFF, 1);
+light.castShadow = true;
+overlay.latLngAltitudeToVector3({ lat: 37.7793, lng: -122.4192, altitude: 80 }, light.position);
+overlay.scene.add(light);
+overlay.scene.add(cube);
+const ambientLight3 = new THREE.AmbientLight(0x404040); // Soft white light
+overlay.scene.add(ambientLight3);
+
+//SolarPanel Code
+let maxArrayPanelsCount, maxSunshinehoursPerYear, MaxRoofSpace, mesh, dummy, sollat, sollng, panori;
+function fetchSolarData(latitude, longitude) {
+
+const apiUrl = `https://solar.googleapis.com/v1/buildingInsights:findClosest?location.latitude=${latitude}&location.longitude=${longitude}&requiredQuality=HIGH&key=${GOOGLE_API_KEY}`;
+
+// Make the API request
+fetch(apiUrl)
+  .then((response) => response.json())
+  .then((data) => {
+    // Display the solar data in your HTML or log it to the console
+    console.log(data);
+    console.log('Max Panels for Roof is',data.solarPotential.maxArrayPanelsCount);
+    maxArrayPanelsCount = data.solarPotential.maxArrayPanelsCount;
+    maxSunshinehoursPerYear =Math.round(data.solarPotential.maxSunshineHoursPerYear);
+    MaxRoofSpace = Math.round(data.solarPotential.maxArrayAreaMeters2);
+    console.log('max sunshine hours per year, max roof space in metre square',maxSunshinehoursPerYear, MaxRoofSpace);
+
+const financialAnalyses = data.solarPotential.financialAnalyses;
+  let sum = 0;
+  let count = 0;
+
+  for (let i = 0; i < financialAnalyses.length; i++) {
+    const analysis = financialAnalyses[i];
+    if (analysis.cashPurchaseSavings) {
+      sum += analysis.cashPurchaseSavings.paybackYears;
+      count++;
+    }
+  }
+
+const average = count > 0 ? sum / count : 0;
+const roundedAverage = Math.round(average);
+console.log('Average Payback Years:', roundedAverage); //if max supported panels installed
+
+
+let annualEnergyProd = 0
+
+dummy = new THREE.Object3D();
+mesh = new THREE.InstancedMesh(geometry,material,  maxArrayPanelsCount );
+    for(let i=0 ; i< maxArrayPanelsCount; i++){
+      let sollocation = data.solarPotential.solarPanels[i];
+      sollat = sollocation.center.latitude  ; 
+      sollng = sollocation.center.longitude  ; 
+      let panseg = sollocation.segmentIndex;
+      panori = sollocation.orientation;
+
+      let roofseg = data.solarPotential.roofSegmentStats[panseg];
+      let segcen=roofseg.center;
+      let seglat=segcen.latitude;
+      let seglng = segcen.longitude;
+
+      let neLat = roofseg.boundingBox.ne.latitude;
+      let neLng = roofseg.boundingBox.ne.longitude;
+      let swLat = roofseg.boundingBox.sw.latitude;
+      let swLng = roofseg.boundingBox.sw.longitude;
+      
+      let pitch = roofseg.pitchDegrees*0.01745329251;  // convert to radians
+      let azimuth = roofseg.azimuthDegrees*0.01745329251 ;
+      let height = roofseg.planeHeightAtCenterMeters;
+
+      var centerLat = (neLat + swLat) / 2;
+      var centerLng = (neLng + swLng) / 2;
+
+      var vectorLat = neLat - swLat;
+      var vectorLng = neLng - swLng;
+  
+      // rotate the vector by 90 degrees counterclockwise
+      var rotatedVectorLat = -vectorLng;
+      var rotatedVectorLng = vectorLat;
+  
+      // calculate the edge center latitude and longitude based on azimuth
+      var edgeCenterLat = centerLat + Math.cos(azimuth) * rotatedVectorLat;
+      var edgeCenterLng = centerLng + Math.cos(azimuth) * rotatedVectorLng;
+
+
+      function haversine(lat1, lon1, lat2, lon2) {
+        // Radius of the Earth in kilometers
+        const R = 6371*1000;
+    
+        // Convert latitude and longitude from degrees to radians
+        const radLat1 = (Math.PI * lat1) / 180;
+        const radLon1 = (Math.PI * lon1) / 180;
+        const radLat2 = (Math.PI * lat2) / 180;
+        const radLon2 = (Math.PI * lon2) / 180;
+    
+        // Haversine formula
+        const dLon = radLon2 - radLon1;
+        const dLat = radLat2 - radLat1;
+        const a = Math.sin(dLat / 2) ** 2 + Math.cos(radLat1) * Math.cos(radLat2) * Math.sin(dLon / 2) ** 2;
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distance = R * c;
+    
+        return distance;
+    }
+    
+    let g; //distance from the center of bounding box
+    g= haversine(sollat,sollng,edgeCenterLat,edgeCenterLng);
+
+    annualEnergyProd = Math.round(annualEnergyProd+sollocation.yearlyEnergyDcKwh)
+    
+
+    let eh = g*Math.tan(roofseg.pitchDegrees*0.01745329251); //error term
+
+
+    overlay.latLngAltitudeToVector3({ lat: sollat, lng: sollng, altitude: height - 15 }, dummy.position);
+      
+    //dummy.rotation.x = pitch;
+    if(panori==="LANDSCAPE"){
+      dummy.rotation.z= 3.14-azimuth;
+      dummy.rotation.x= pitch * Math.cos(dummy.rotation.z); // Pitch (rotation about x-axis in the direction of azimuth)
+      dummy.rotation.y= pitch * Math.sin(dummy.rotation.z);
+      
+      
+      }
+    else{
+      dummy.rotation.z=1.57-azimuth;
+      dummy.rotation.x= pitch * Math.cos(3.14-azimuth); // Pitch (rotation about x-axis in the direction of azimuth)
+      dummy.rotation.y= pitch * Math.sin(3.14-azimuth);
+    }
+    
+    dummy.updateMatrix();
+    mesh.setMatrixAt(i,dummy.matrix);
+    dummy.castShadow = true;
+
+    heightSlider.addEventListener('input', (e) => {
+    let newHeight = parseInt(e.target.value, 10);
+    newHeight -=40;
+        
+      mesh.getMatrixAt(i, matrix);
+      matrix.decompose(dummy.position, dummy.rotation, dummy.scale);
+      
+      sollocation = data.solarPotential.solarPanels[i];
+      sollat = sollocation.center.latitude  ; 
+      sollng = sollocation.center.longitude  ;
+  
+      // Update the altitude based on the slider value
+      overlay.latLngAltitudeToVector3({ lat: sollat, lng: sollng, altitude: height + newHeight }, dummy.position);
+      
+      dummy.updateMatrix();
+      mesh.setMatrixAt(i,dummy.matrix);
+      dummy.castShadow = true;
+
+      mesh.instanceMatrix.needsUpdate = true;
+      });
+
+autocomplete.addListener('place_changed', onPlaceChanged);
+function onPlaceChanged(){
+
+  mesh.geometry.dispose();
+mesh.material.dispose();
+overlay.scene.remove(mesh);
+}
+};
+overlay.scene.add(mesh)
+      
+console.log('Net Energy Production(DC) per year in kwh',annualEnergyProd); //if max supported panels installed
+   
+// Input values
+const netEnergyProductionDC = annualEnergyProd; // Net Energy Production (DC) per year in kWh
+const dcToAcDerateFactor = 0.85; // DC to AC derate factor (typically less than 1)
+const expectedLifespanYears = 20; // Expected lifespan of the solar installation
+
+// Initialize variables
+let initialACProduction = netEnergyProductionDC * dcToAcDerateFactor;
+let totalACProduction = 0;
+let yearlyACProduction;
+// Calculate yearly AC production for each year over the expected lifespan
+for (let year = 1; year <= expectedLifespanYears; year++) {
+// Calculate yearly AC production for the current year
+yearlyACProduction = Math.round(initialACProduction * Math.pow(0.995, year - 1)); // Assuming 0.995 as efficiency depreciation factor
+
+// Add yearly AC production to the total
+totalACProduction += yearlyACProduction;
+}
+console.log('Net Energy Production(AC) per year in kwh', yearlyACProduction); //if max supported panels installed
+// Display the total AC production over the life of the installation
+console.log("Total AC production over", expectedLifespanYears, "years:", totalACProduction, "kWh");
+let savings1yr = Math.round(yearlyACProduction*0.17) ; //per kwh $0.17 US average taken from official website
+console.log("Approx Electricity Bill Savings Per Year(USD) : ",savings1yr);
+let savings20yrs = Math.round(totalACProduction*0.17);
+console.log("Approx Electricity Bill Savings in 20 Years(USD) : ",savings20yrs);
+document.getElementById("netEnergyProductionDC").innerHTML =  netEnergyProductionDC;
+document.getElementById("yearlyACProduction").innerHTML=yearlyACProduction;
+document.getElementById("totalACProduction").innerHTML = totalACProduction;
+document.getElementById("roundedAverage").innerHTML=roundedAverage;
+document.getElementById("savings1yr").innerHTML = savings1yr;
+document.getElementById("savings20yrs").innerHTML = savings20yrs;
+document.getElementById("maxArrayPanelsCount").innerHTML = maxArrayPanelsCount;
+document.getElementById("maxSunshinehoursPerYear").innerHTML = maxSunshinehoursPerYear;
+document.getElementById("MaxRoofSpace").innerHTML= MaxRoofSpace;
+  })
+  .catch((error) => {
+    console.error('Error fetching solar data:', error);
+  });  
+}
+const matrix = new THREE.Matrix4();
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(overlay.scene,overlay.camera);
+  renderer.ColorSpace = THREE.sRGBEncoding;
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap; 
+  overlay.requestRedraw();
+}
+animate();
+ 
+}//end of time
+    </script>
+  </body>
+
+</html>
