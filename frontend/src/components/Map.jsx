@@ -88,7 +88,6 @@ function Map() {
 			};
 
 			const response = await fetch(apiUrl, requestOptions);
-			console.log(response)
 
 			setLoading(false);
 
@@ -122,6 +121,7 @@ function Map() {
 const addresultmarker = (response) => {
 	const observations1 = response["observation1"];
 	const observations2 = response["observation2"];
+	const competitors = response.competitors;
 	const rank = response["rank"];
 
 	if (
@@ -134,6 +134,34 @@ const addresultmarker = (response) => {
 		console.error("Invalid response data.");
 		return;
 	}
+
+	//competitor
+	const competitorMarkersGroup = L.layerGroup();
+
+	for (const competitorName in competitors) {
+			const competitor = competitors[competitorName][0]; // Access the first element of the array
+			const lat = competitor.lat;
+			const lng = competitor.lng;
+
+			const competitorMarker = L.circle([lat, lng], {
+				color: "red",
+				fillColor: "#f03",
+				fillOpacity: 0.5,
+				radius: 20,
+			});
+
+			// Set the competitor's name as the tooltip content
+			competitorMarker.bindTooltip(competitorName, {
+				permanent: false,
+				direction: "top",
+				offset: [0, -10], // Adjust the offset as needed
+			});
+
+			competitorMarkersGroup.addLayer(competitorMarker);
+	}
+
+	// Add the competitor markers layer group to the map
+	competitorMarkersGroup.addTo(map);
 
 	const newResultMarkers = observations1.map((observation, i) => {
 		const marker = L.marker([
