@@ -21,6 +21,7 @@ Authentication: OAuth or JWT for secure user authentication.
   In houseapp-frontend folder run the below command
   ionic serve
   In houseapp-backend folder run the below command
+  npm install dotenv
   node index
   when you see connected to Db it means all set, you can see the app in localhost
   
