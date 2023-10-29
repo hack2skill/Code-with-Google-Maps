@@ -1,0 +1,64 @@
+<!-- This code block is a navbar template for a Django web application. It displays different links based on whether the user is authenticated or not. If the user is authenticated, links to the user's account, profile, route, map, and logout pages are displayed. If the user is not authenticated, links to the login and register pages are displayed. The active link is highlighted with a different style. -->
+<!-- Add this to main.html file -->
+
+{% if request.user.is_authenticated %}
+<ul class="sidenav">
+
+    <!-- Add different pages link here -->
+
+    <!-- Account page link -->
+    {% if request.path == "/" %}
+    <li><a class="active" href="{% url 'users:account' %}">User Account</a></li>
+    {% else %}
+    <li><a href="{% url 'users:account' %}">User Account</a></li>
+    {% endif %}
+
+    <!-- Profile page link -->
+    {% if "profile" in request.path %}
+    <li><a class="active" href="{% url 'users:profile_view' %}">User Profile</a></li>
+    {% else %}
+    <li><a href="{% url 'users:profile_view' %}">User Profile</a></li>
+    {% endif %}
+
+    <!-- Route page link -->
+    {% if "route" in request.path %}
+    <li><a class="active" href="{% url 'main:routing' %}">Route</a></li>
+    {% else %}
+    <li><a href="{% url 'main:routing' %}">Route</a></li>
+    {% endif %}
+
+    <!-- Map page link -->
+    {% if "map" in request.path %}
+    <li><a class="active" href="{% url 'main:maps_view' %}">Map</a></li>
+    {% else %}
+    <li><a href="{% url 'main:maps_view' %}">Map</a></li>
+    {% endif %}
+
+    <!-- Logout page link -->
+    {% if "logout" in request.path %}
+    <li><a class="active" href="{% url 'users:logout_view' %}">Sign Out</a></li>
+    {% else %}
+    <li><a href="{% url 'users:logout_view' %}">Sign Out</a></li>
+    {% endif %}
+
+</ul>
+
+{% else %}
+<ul class="sidenav">
+
+    <!-- Sign In page link -->
+    {% if "login" in request.path %}
+    <li><a class="active" href="{% url 'users:login' %}">Sign In</a></li>
+    {% else %}
+    <li><a href="{% url 'users:login' %}">Sign In</a></li>
+    {% endif %}
+
+    <!-- Register/Sign up page link -->
+    {% if "register" in request.path %}
+    <li><a class="active" href="{% url 'users:register' %}">Sign Up</a></li>
+    {% else %}
+    <li><a href="{% url 'users:register' %}">Sign Up</a></li>
+    {% endif %}
+
+</ul>
+{% endif %}
