@@ -18,9 +18,8 @@ export default function Form() {
 		// Store data in localStorage
 		localStorage.setItem("company_name", name);
 		localStorage.setItem("Company_Type", ctype);
-		localStorage.setItem("Company_location", cloc);
 		localStorage.setItem("Company_target", target);
-		localStorage.setItem("Company_scale", scale);
+		localStorage.setItem("Company_size", scale);
 		navigate("/map");
 	};
 
@@ -86,42 +85,8 @@ export default function Form() {
 								/>
 							</div>
 						</div>
-						<div className="sm:col-span-2">
-							<label
-								htmlFor="cloc"
-								className="block text-sm font-semibold leading-6 text-gray-900"
-							>
-								Location
-							</label>
-							<div className="mt-2.5">
-								<input
-									type="text"
-									name="cloc"
-									id="cloc"
-									value={cloc}
-									onChange={(e) => setCloc(e.target.value)}
-									className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-								/>
-							</div>
-						</div>
-						<div className="sm:col-span-2">
-							<label
-								htmlFor="target"
-								className="block text-sm font-semibold leading-6 text-gray-900"
-							>
-								Target Customers
-							</label>
-							<div className="mt-2.5">
-								<input
-									type="text"
-									name="target"
-									id="target"
-									value={target}
-									onChange={(e) => setTarget(e.target.value)}
-									className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-								/>
-							</div>
-						</div>
+						
+					
 						<div className="sm:col-span-2">
 							<label
 								htmlFor="scale"
