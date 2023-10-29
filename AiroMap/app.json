@@ -1,39 +1,38 @@
 {
-  "expo": {
-    "name": "AiroMap",
-    "slug": "AiroMap",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.newayanahmad.AiroMap"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "33caa355-1c29-4cb7-8978-89b30aca7b28"
-      }
-    },
-    "plugins": [
-      "expo-router"
-    ]
-  }
+    "expo": {
+        "name": "AiroMap",
+        "slug": "AiroMap",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/images/adaptive-icon.png",
+        "userInterfaceStyle": "light",
+        "scheme": "airomap",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain"
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/images/adaptive-icon.png"
+            },
+            "package": "com.newayanahmad.AiroMap"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "33caa355-1c29-4cb7-8978-89b30aca7b28"
+            }
+        },
+        "plugins": [
+            "expo-router"
+        ]
+    }
 }
