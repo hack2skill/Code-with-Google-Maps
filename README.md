@@ -1,5 +1,5 @@
 #### Team Name - Lone Tech Wolf
-#### Problem Statement #### - “Individuals seeking to adopt a sustainable lifestyle often struggle due to the lack of a centralized platform for discovering eco-friendly resources and businesses. This, coupled with a general lack of awareness about sustainable choices, hinders their transition towards a greener lifestyle.”
+#### Problem Statement  - “Individuals seeking to adopt a sustainable lifestyle often struggle due to the lack of a centralized platform for discovering eco-friendly resources and businesses. This, coupled with a general lack of awareness about sustainable choices, hinders their transition towards a greener lifestyle.”
 
 #### Team Leader Email - Tushar2010@outlook.com
 
