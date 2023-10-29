@@ -44,7 +44,7 @@ IDE: Visual Studio Code
 2. **Navigate to the Project Directory**: Once cloning is complete, navigate into the project directory:
 
     ```bash
-    cd <project_name>
+    cd sustainable-living-guide-app
     ```
 
 
