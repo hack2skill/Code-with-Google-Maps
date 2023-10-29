@@ -17,17 +17,17 @@ IDE: Visual Studio Code
 
 APIs and Libraries:
 
-  Google Maps API: Used to display maps and place markers on it.
-  
-  Google Places API: Used to find nearby recycling centers.
-  
-  Geolocation API: Used to get the current location of the user.
-  
-  NewsAPI: Used to fetch news articles related to sustainability and eco-friendliness.
-  
-  OpenAI API: Used to interact with an AI model for chat support.
-  
-  supabase API : To interact with the global database .
+      Google Maps API: Used to display maps and place markers on it.
+      
+      Google Places API: Used to find nearby recycling centers.
+      
+      Geolocation API: Used to get the current location of the user.
+      
+      NewsAPI: Used to fetch news articles related to sustainability and eco-friendliness.
+      
+      OpenAI API: Used to interact with an AI model for chat support.
+      
+      supabase API : To interact with the global database .
 
 
 ### Step-by-Step Code Execution Instructions:
