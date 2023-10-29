@@ -1,0 +1,134 @@
+.i-phone1415-pro-max1-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.i-phone1415-pro-max1-i-phone1415-pro-max1 {
+  width: 100%;
+  height: 932px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.i-phone1415-pro-max1-text {
+  top: 222px;
+  left: 23px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 40px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Baloo;
+  font-weight: 400;
+  line-height: 108.39999914169312%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.i-phone1415-pro-max1-text05 {
+  top: 327px;
+  left: 23px;
+  color: rgba(124, 124, 124, 1);
+  height: auto;
+  position: absolute;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Baloo;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.i-phone1415-pro-max1-rectangle1 {
+  top: 774px;
+  left: 30px;
+  width: 369px;
+  height: 68px;
+  position: absolute;
+  border-radius: 34px;
+}
+.i-phone1415-pro-max1-text07 {
+  top: 783px;
+  left: 139px;
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Baloo;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.i-phone1415-pro-max1-group19 {
+  top: 399px;
+  left: 13px;
+  width: 404px;
+  height: 80px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.i-phone1415-pro-max1-rectangle38 {
+  top: 0px;
+  left: 0px;
+  width: 92px;
+  height: 80px;
+  position: absolute;
+  border-radius: 26px;
+}
+.i-phone1415-pro-max1-rectangle39 {
+  top: 0px;
+  left: 98px;
+  width: 306px;
+  height: 80px;
+  position: absolute;
+  border-radius: 26px;
+}
+.i-phone1415-pro-max1-text09 {
+  top: 29px;
+  left: 117px;
+  color: rgba(124, 124, 124, 1);
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Baloo;
+  font-weight: 400;
+  line-height: 108.39999914169312%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.i-phone1415-pro-max1-text11 {
+  top: 29px;
+  left: 21px;
+  color: rgba(124, 124, 124, 1);
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Baloo;
+  font-weight: 400;
+  line-height: 108.39999914169312%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.i-phone1415-pro-max1-vector1 {
+  top: 35px;
+  left: 63px;
+  width: 10px;
+  height: 7px;
+  position: absolute;
+}
