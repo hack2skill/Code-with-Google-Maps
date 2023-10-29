@@ -21,10 +21,10 @@ Authentication: OAuth or JWT for secure user authentication.
    
 ### Step-by-Step Code Execution Instructions:
   In houseapp-frontend(cd houseapp-frontend)  folder run the below command
-  ionic serve
+  # ionic serve
   In houseapp-backend (cd houseapp-backend) folder run the below command
-  npm install dotenv
-  node index
+  # npm install dotenv
+  # node index
   when you see connected to Db it means all set, you can see the app in localhost
 
   In houseopenAi folder run the main.py file by clicking on run icon in any editor(vs code, pycharm)
