@@ -38,7 +38,7 @@ IDE: Visual Studio Code
 1. **Clone the Repository**: Start by cloning the repository to your local machine. To do this, open your terminal or command prompt, navigate to the directory where you want to clone the repository and run:
 
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/I-am-the-coder-Tusharbola/lone-tech-wolf.git
     ```
 
 
