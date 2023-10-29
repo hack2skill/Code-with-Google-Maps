@@ -26,7 +26,7 @@ ease of use.
 
 
 
-#### A Brief of the Prototype:
+### A Brief of the Prototype:
   The prototype of the "Pathfinder Pro" app provides a user-friendly, interactive experience that empowers commuters to navigate through traffic and parking with ease. Here's a brief description of the prototype:
 
 #### **User Profile & Preferences:**
@@ -81,7 +81,7 @@ The prototype offers a holistic solution for traffic and parking, allowing users
 
   
    
-#### Step-by-Step Code Execution Instructions:
+### Step-by-Step Code Execution Instructions:
   Cloning and Running the Prototype:
 
 #### Access the Project:
@@ -101,7 +101,7 @@ The prototype offers a holistic solution for traffic and parking, allowing users
 
 
   
-#### Future Scope:
+### Future Scope:
    The "Pathfinder Pro" project has significant future scope and can further enhance daily life in various ways. Here are some potential future developments and their impact:
 
 1. **Integration with Autonomous Vehicles:** As autonomous vehicles become more prevalent, the app can integrate with them to optimize routes and parking spots, leading to safer and more efficient commutes.
