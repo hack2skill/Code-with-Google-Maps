@@ -1,4 +1,4 @@
-.env
+*.env
 node modules
 **/sentiment-analysis-402517-f2e5d7c9cdd8.json
 

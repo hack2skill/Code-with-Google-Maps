@@ -8,11 +8,15 @@ In today's fast-paced world, personal safety is a top concern for travelers and 
 ## Team Leader Email - 1218.muskangupta@gmail.com
 
 ## A Brief Of the Prototype
-In today's fast-paced world, personal safety is a top concern for travelers and commuters, with 87% expressing a heightened need for safety-aware navigation tools. Current navigation apps predominantly prioritize speed and distance, often overlooking safety.
-Our project is designed to bridge this crucial gap. We've developed a web-based platform that rates the safety of various areas, assigning a safety score from 0 to 5. This score is determined by user reviews and sentiment analysis.
-Our platform equips users with the means to make well-informed decisions by displaying safety ratings and user reviews for searched areas. Additionally, it offers visual representations of the surroundings to aid decision-making.
-Going beyond traditional navigation apps, our platform calculates route safety scores for the most optimized route. These scores factor in the safety ratings of both the source and destination. The routes are visualized on a map, enhancing user comprehension and confidence.
-Our ultimate goal is to champion personal safety during travel, instilling a sense of security and trust in every navigation decision.
+In today's fast-paced world, personal safety is a top concern for travelers and commuters. Many people prioritize safety when choosing where to go and how to get there. However, current navigation apps mostly focus on speed and distance, ignoring safety. Recent studies have shown that 87% of travelers and commuters express a heightened need for safety-aware navigation tools. This highlights the critical need for a reliable and user-centric system that not only provides safety ratings for different areas but also recommends the safest and quickest routes based on comprehensive user reviews and area safety data.
+
+Our project is designed to address this pressing issue by leveraging Google Maps API suite. Our web-based platform rates the safety of various areas, assigning a safety score on a scale of 0-5, derived from user reviews and sentiment analysis. 
+
+Our system goes beyond traditional navigation apps by calculating route safety scores for multiple route options, factoring in the safety ratings of the areas traversed during the journey. 
+
+We empower users to make well-informed decisions by offering the top three route recommendations that prioritize both safety and travel time. These routes are visualized on a map, with highlighted safety ratings for each area, enhancing user understanding and confidence.
+
+Our goal is to make personal safety a paramount consideration during travel, fostering a sense of security and trust in navigation choices.
 
 ## Tech Stacks:
 * Front-End Development: HTML, CSS, JavaScript, React, Next.js
@@ -54,11 +58,14 @@ node server.js
 ```
 * The backend server will be up and running on http://localhost:8000.
 ## Future Scope
-* Safety-Optimized Routes:
+* Real time Safety-Optimized Routes:
 
-Next, we plan to implement safety-focused route guidance. Our system will calculate safety scores for areas along your route, ensuring you're guided through the safest path possible. Real-time safety updates will keep you informed during your journey.
+Plan to implement real-time safety updates system which will keep you informed during your journey at every point of time about varoius situations such as accidents, riots, protests, etc.
 
-* Multiple Route Options:
+* Detailed Safety Information:
 
-We'll introduce support for multiple route choices. Whether you prefer speed or safety, you can select from diverse routes tailored to your needs. Visual comparisons will be provided, making it easy to pick the route that best suits your preferences.
+Introduce support for more detailed safety information such as timing-based safety scores, demographic-based safety of areas and routes.
 
+* Customized Alerts
+
+Implement alerts or notifications for users when entering areas with lower safety ratings, offering alternative routes or safety tips.
