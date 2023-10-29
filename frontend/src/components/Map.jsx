@@ -15,7 +15,7 @@ function Map() {
 		cname: localStorage.getItem("company_name"),
 		ctype: localStorage.getItem("Company_Type"),
 		cloc: localStorage.getItem("Company_location"),
-		ctar: localStorage.getItem("Company_target"),
+		csize: localStorage.getItem("Company_size"),
 	});
 	const [showBestSolutionPopup, setShowBestSolutionPopup] = useState(false);
 
@@ -70,24 +70,34 @@ function Map() {
 
 	const onSubmitButtonClick = async () => {
 		try {
-			const apiUrl = "http://localhost:5000";
-			console.log("clicked");
+			const apiUrl = "http://haleel.pythonanywhere.com/test";
 			setLoading(true);
-			const response = await fetch(`${apiUrl}/api/add_locations`, {
+
+			const cords = selectedLocations
+				.map((location) => `${location.lat},${location.lng}`)
+				.join(",");
+			const formdata = new FormData();
+			formdata.append("cords", cords);
+			formdata.append("type", details.ctype);
+			formdata.append("size", details.csize);
+
+			const requestOptions = {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ locations: [...selectedLocations, details] }),
-			});
+				body: formdata,
+				redirect: "follow",
+			};
+
+			const response = await fetch(apiUrl, requestOptions);
+			console.log(response)
+
 			setLoading(false);
 
 			if (response.ok) {
-				const data = await response.json();
-				console.log("Response:", data);
-				addresultmarker(data);
-				BlaaMap();
-				setShowBestSolutionPopup(true);
+				const data = await response.json(); // Parse the response as JSON
+
+					console.log("Response:", data);
+					addresultmarker(data);
+					BlaaMap();
 			} else {
 				console.error("Failed to submit locations:", response.statusText);
 			}
@@ -109,31 +119,56 @@ function Map() {
 		}
 	}, [map, resultMarkers]);
 
-	const addresultmarker = (response) => {
-		const finallocations = response["locations"];
-		const rank = response["rank"];
+const addresultmarker = (response) => {
+	const observations1 = response["observation1"];
+	const observations2 = response["observation2"];
+	const rank = response["rank"];
 
-		const newResultMarkers = finallocations.map((location, i) => {
-			const marker = L.marker([location["lat"], location["lng"]]);
+	if (
+		!observations1 ||
+		!observations2 ||
+		!rank ||
+		observations1.length !== observations2.length ||
+		observations1.length !== rank.length
+	) {
+		console.error("Invalid response data.");
+		return;
+	}
 
-			const j = rank[i];
-			const i_ = i + 1;
-			const label = `Location ${i_} <br> Ranked: ${j}`;
+	const newResultMarkers = observations1.map((observation, i) => {
+		const marker = L.marker([
+			selectedLocations[i].lat,
+			selectedLocations[i].lng,
+		]);
 
-			marker.bindTooltip(label, {
-				permanent: true,
-				direction: "right",
-				offset: [3, -3],
-				className: "my-labels",
-			});
+		const j = rank[i];
+		const i_ = i + 1;
 
-			return marker;
+		let tooltipContent = `Location ${i_} <br> Ranked: ${j}`;
+
+		if (observations1[i] !== "") {
+			tooltipContent += `<br>${observations1[i]}`;
+		}
+
+		if (observations2[i] !== "") {
+			tooltipContent += `<br>${observations2[i]}`;
+		}
+
+		marker.bindTooltip(tooltipContent, {
+			permanent: true,
+			direction: "right",
+			offset: [3, -3],
+			className: "my-labels",
 		});
 
-		// Set result markers using setResultMarkers
-		setResultMarkers(newResultMarkers);
-		// setResultInfoVisible(true);
-	};
+		return marker;
+	});
+
+	setResultMarkers(newResultMarkers);
+};
+
+
+
 
 	const BlaaMap = () => {
 		markers.forEach((marker) => map.removeLayer(marker));
