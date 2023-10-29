@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "827053880336",
+    "firebase_url": "https://community-forum-db-default-rtdb.firebaseio.com",
+    "project_id": "community-forum-db",
+    "storage_bucket": "community-forum-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827053880336:android:9ce1e0bd7b71c486acc695",
+        "android_client_info": {
+          "package_name": "com.example.sustainable_living_guide_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwjbs-n9EUOvKRpBi0-aDKAlyU3_2UEW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
