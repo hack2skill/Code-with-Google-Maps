@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import L from "leaflet";
 import "./Map.css";
 import Loader from "./Loader";
@@ -40,7 +41,7 @@ function Map() {
 		const clickedLng = e.latlng.lng;
 
 		const stepIcon = L.icon({
-			iconUrl: "https://cdn-icons-png.flaticon.com/512/3082/3082383.png",
+			iconUrl: markerIcon,
 			iconSize: [30, 30],
 		});
 
