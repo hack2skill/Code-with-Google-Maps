@@ -16,7 +16,15 @@
       <link rel="stylesheet" type="text/css" href="./styles.css" />
 </head>
 <body>
+
+
   <div class="left">
+
+    <div id="distance-duration" class="distance-duration">
+      <div id="distance">Distance: </div>
+      <div id="duration">Duration: </div>
+    </div>
+    
   <div id="floating-panel">
     <input id="hide-markers" type="button" value="Hide Markers" />
     <input id="show-markers" type="button" value="Show Markers" />
@@ -30,6 +38,7 @@
         <label for="to"></label>
         <input type="text" id="to" placeholder="Destination">
       </div>
+
       <div class="form-group">
       <label for="criteria-select">Select Criteria:</label>
       <select id="criteria-select" name="criteria">
@@ -38,7 +47,12 @@
       </select>
     </div>
     </form>
-    <button class="input-btn" onclick="calcRoute();">Submit</button>
+
+    <div id="floating-panel">
+      <button class="input-btn" onclick="calcRoute();">Submit</button>
+      <button class="input-btn" onclick="clearRoute();">Clear</button>
+    </div>
+    
   </div>
   <div class="right">
     <div id="map"></div>

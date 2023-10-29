@@ -15,15 +15,6 @@
     background-color: #202125;
   }
 
-  /* .left {
-    flex: 1;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
 
 .left {
   
@@ -66,9 +57,33 @@
   border-radius: 5px;
 }
 
+/* #floating-panel, #submit-clear { */
+  /* display: flex; */
+  /* justify-content: flex-start;  */
+  /* width: 60%;  */
+/* } */
+
+#floating-panel {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 5%;
+}
+
+/* #floating-panel input[type="button"], .input-btn {
+  flex: 1; 
+  margin-right: 20px;
+} */
+
+
 .form-group {
   margin-right: 20px; /* Space between form groups */
   margin-bottom: 10px;
+}
+
+#hide-markers, #show-markers {
+  /* width: 15vw; */
+  width: 115px;
 }
 
 .form-group label {
@@ -83,17 +98,40 @@
   margin-bottom: 10px; /* Space between input/select and the next element */
 }
 
+
 .input-btn {
-  padding: 10px 20px;
-  border: 1px solid yellow;
-  background-color: #202125;;
-  color: white;
+  padding: 10px; /* Same as the other buttons */
+  border: 1px solid yellow; /* Yellow border for distinction */
+  background-color: #202125; /* Yellow background */
+  color: white; /* White text for better visibility */
   cursor: pointer;
   border-radius: 5px;
-  align-self: flex-start; /* Aligns button to the start of the div */
+  width: 115px;
+  
+  /* align-self: flex-start; */
 }
 
+
+
 label[for="criteria-select"] {
-  color: white;
+  color: #e0dede;
   font-family:'Courier New', Courier, monospace
 }
+
+
+.distance-duration {
+  display: flex; /* Makes it a flex container */
+  justify-content: flex-start; /* Aligns children to the start (left) */
+  align-items: center; /* Vertically aligns children in the middle */
+  width: 100%; /* Ensures it takes the full width of its parent */
+  padding: 10px; /* Adds some padding for better visuals */
+  color:#e0dede;
+  font-family:'Courier New', Courier, monospace
+}
+
+#distance, #duration {
+  margin-right: 10px; /* Adds some space between the distance and duration */
+}
+
+
+

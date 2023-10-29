@@ -2,6 +2,10 @@ let map, directionsService, directionsRenderer;
 let sourceAutocomplete, destAutocomplete;
 let count = 0;
 let marker_overlay = [];
+let printt;
+
+let distanceElement;
+let durationElement;
 
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");  
@@ -78,6 +82,42 @@ function showMarkers() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const hideMarkersButton = document.getElementById("hide-markers");
+  const showMarkersButton = document.getElementById("show-markers");
+  const submitButton = document.querySelector(".input-btn");
+
+  // Function to change the background color of a button temporarily
+  function changeButtonBackgroundColor(button, newColor, duration) {
+    const originalColor = button.style.backgroundColor;
+    button.style.backgroundColor = newColor;
+    setTimeout(function () {
+      button.style.backgroundColor = originalColor;
+    }, duration);
+  }
+
+  hideMarkersButton.addEventListener("click", function () {
+    // Change the background color temporarily to indicate an action
+    changeButtonBackgroundColor(hideMarkersButton, "green", 100); // Change the duration and color as needed
+
+  });
+
+  showMarkersButton.addEventListener("click", function () {
+    // Change the background color temporarily to indicate an action
+    changeButtonBackgroundColor(showMarkersButton, "green", 100); // Change the duration and color as needed
+
+  });
+
+  submitButton.addEventListener("click", function () {
+    // Change the background color of the submit button temporarily
+    changeButtonBackgroundColor(submitButton, "yellow", 100); // Change the duration and color as needed
+
+  });
+
+});
+
+
+
 ///////////////////////////////////////////////
 var directionsRenderers = [];
 function calcRoute() {
@@ -97,9 +137,10 @@ function calcRoute() {
   let min = Number.MAX_SAFE_INTEGER;
   let index = 0;
   directionsService.route(request, function(result, status) {
+    printt=result;
     if (status == 'OK') {
       for(var i = 0, len = result.routes.length; i < len; i++){
-        console.log("I" + i);
+        //console.log("I" + i);
         let temp = findPotholes(result.routes[i]);
         console.log(temp);
         if(temp < min)
@@ -112,11 +153,15 @@ function calcRoute() {
       
       const criteriaSelect = document.getElementById('criteria-select');
       const selectedValue = criteriaSelect.value;
+      
 
       if (selectedValue === 'min_distance') {
           index = 0;
-          // Additional code to handle minimum distance selection
       } 
+
+      console.log("hi does this work" + index);
+
+      displayDistanceAndDuration(result.routes[index].legs[0].distance.text, result.routes[index].legs[0].duration.text)
 
       document.getElementById('output').textContent = "";
       
@@ -134,6 +179,31 @@ function calcRoute() {
 
     }
   });
+}
+
+function displayDistanceAndDuration(distance, duration) {
+  distanceElement = document.getElementById("distance");
+  durationElement = document.getElementById("duration");
+
+  distanceElement.textContent = "Distance: " + distance;
+  durationElement.textContent = "Duration: " + duration;
+}
+
+function clearRoute() {
+  document.getElementById("from").value = "";
+  document.getElementById("to").value = "";
+  document.getElementById("output").textContent = "";
+  for (var i = 0; i < directionsRenderers.length; i++) {
+    directionsRenderers[i].setMap(null);
+  }
+
+  distanceElement = document.getElementById("distance");
+  durationElement = document.getElementById("duration");
+
+  distanceElement.textContent = "Distance:";
+  durationElement.textContent = "Duration:";
+
+
 }
 
 let markers = [];
