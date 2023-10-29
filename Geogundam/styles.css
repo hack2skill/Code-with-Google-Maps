@@ -1,0 +1,137 @@
+#map {
+    height: 100%;
+  }
+  
+  /* 
+   * Optional: Makes the sample page fill the window. 
+   */
+  html,
+  body {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #202125;
+  }
+
+
+.left {
+  
+  padding: 20px;
+  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Aligns elements to the start of the div */
+  background-color: #202125; /* Light grey background */
+  border-radius: 10px; /* Rounded corners */
+  box-sizing: border-box;
+}
+
+.right {
+    flex: 2;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#floating-panel, form {
+  width: 100%;
+  margin-bottom: 10px; /* Space between the floating panel, form, and button */
+  box-sizing: border-box;
+}
+
+#floating-panel input[type="button"] {
+  margin: 0 5px 0 0; /* Space between buttons */
+  padding: 10px;
+  border: 1px solid green;
+  background-color: #202125;;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* #floating-panel, #submit-clear { */
+  /* display: flex; */
+  /* justify-content: flex-start;  */
+  /* width: 60%;  */
+/* } */
+
+#floating-panel {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 5%;
+}
+
+/* #floating-panel input[type="button"], .input-btn {
+  flex: 1; 
+  margin-right: 20px;
+} */
+
+
+.form-group {
+  margin-right: 20px; /* Space between form groups */
+  margin-bottom: 10px;
+}
+
+#hide-markers, #show-markers {
+  /* width: 15vw; */
+  width: 115px;
+}
+
+.form-group label {
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+.form-group input[type="text"], #criteria-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #89b5f7;
+  margin-bottom: 10px; /* Space between input/select and the next element */
+}
+
+
+.input-btn {
+  padding: 10px; /* Same as the other buttons */
+  border: 1px solid yellow; /* Yellow border for distinction */
+  background-color: #202125; /* Yellow background */
+  color: white; /* White text for better visibility */
+  cursor: pointer;
+  border-radius: 5px;
+  width: 115px;
+  
+  /* align-self: flex-start; */
+}
+
+
+
+label[for="criteria-select"] {
+  color: #e0dede;
+  font-family:'Courier New', Courier, monospace
+}
+
+
+.distance-duration {
+  display: flex; /* Makes it a flex container */
+  justify-content: flex-start; /* Aligns children to the start (left) */
+  align-items: center; /* Vertically aligns children in the middle */
+  width: 100%; /* Ensures it takes the full width of its parent */
+  padding: 10px; /* Adds some padding for better visuals */
+  color:#e0dede;
+  font-family:'Courier New', Courier, monospace
+}
+
+#distance, #duration {
+  margin-right: 10px; /* Adds some space between the distance and duration */
+}
+
+
+

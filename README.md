@@ -1,32 +1,33 @@
-# Code-with-Google-Maps-2023 - Hack2skill
-
-Welcome to the official repository for the Code-with-Google-Maps-2023 organized by Hack2skill!
-
-## Getting Started
-
-To get started with the Code-with-Google-Maps-2023 repository, follow these steps:
-
-### Submission Instruction:
-  1. Fork this repository
-  2. Create a folder with your Team Name
-  3. Upload all the code and necessary files in the created folder
-  4. Upload a **README.md** file in your folder with the below mentioned informations.
-  5. Generate a Pull Request with your Team Name. (Example: submission-XYZ_team)
-
-### README.md must consist of the following information:
-
-#### Team Name -
-#### Problem Statement - 
-#### Team Leader Email -
+#### Team Name - Geogundam
+#### Problem Statement - Using Google Maps API for real-time pothole detection and safer navigation
+#### Team Leader Email - rriya1_be20@thapar.edu
 
 ### A Brief of the Prototype:
-  This section must include UML Diagrams and prototype description
+  Imagine driving without the jolt of unexpected potholes. With the power of AI, we've developed a system that not only spots these road nuisances but also displays them on a user-friendly map powered by the trusted Google Maps API. And it doesn't stop there — we guide drivers with alternative routes for a smoother journey. As we move forward, we truly value and incorporate community insights to continuously enhance our system. Together, we're redefining the standards of comfortable and safe driving.
+
+  ![Alt Text](https://github.com/D4em0nn/Code-with-Google-Maps/blob/main/images/WhatsApp%20Image%202023-10-26%20at%2010.10.03%20PM.jpeg?raw=true)
   
+  ![Website Layout](https://github.com/D4em0nn/Code-with-Google-Maps/blob/main/images/Screenshot%20(1385).png?raw=true)
+
 ### Tech Stack: 
-   List Down all technologies used to Build the prototype
+   Hyper-text markup language(HTML)
+
+  Cascading Style Sheets(CSS)
+
+  JavaScript
+
+  Google Maps API
    
 ### Step-by-Step Code Execution Instructions:
-  This Section must contain a set of instructions required to clone and run the prototype so that it can be tested and deeply analyzed
-  
+  1. Clone the github repository
+  2. Open the Geogundam folder in a terminal
+  3. Write the following command - python -m http.server 8050
+  4. Double click the index.html file to view it
+
+  Note: We have implemented a functionality to get real time pothole data using our own phone and laptop, for that we need Android adb, roboflow library and the OpenCamera app for taking continuous images. For the scope of this project, we have also made a final_coordinates.js file with dummy coordinate data for the route between Delhi and Patiala. Hence this model will work only for this particular route unless the python scripts are run and data is collected outside. You can add extra data for checking in the final_coordinates.js file.
+
 ### Future Scope:
-   Write about the scalability and futuristic aspects of the prototype developed
+   1. By getting more pothole data, we can accurately display routes which avoid potholes.
+   2. We can allow for vehicle type selection for tailored navigation.
+   3. Custom pop-ups to notify users when they're approaching areas with high density of potholes
+   4. Balanced route with less distance and potholes, both taken into account.
