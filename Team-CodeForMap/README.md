@@ -8,16 +8,15 @@ https://github.com/01ankush/houseapp-frontend
   HouseForYou, an innovative rental platform, revolutionizes the housing search process with a focus on user-centric features and advanced technologies. Tailored for a diverse audience, the app facilitates the seamless uploading of property details, covering rooms to PG accommodations.
   
 ### Tech Stack: 
-AI Assistant:
+###### AI Assistant:
 Natural Language Processing (NLP): Open AI key (text-davinci-003)
 Programming Languages: Python (common for integrating NLP models)
-Maps Integration:
+###### Maps Integration:
 Google Maps API: Google Maps Directions API, Google Maps Geocoding API, Google Maps JavaScript API and Google Maps places API
-App Development : Ionic-angular 
-Backend Development : 
-Framework: Node.js with Express.js 
-Database: MongoDB 
-Authentication: OAuth or JWT for secure user authentication.
+###### App Development : Ionic-angular 
+###### Backend Development -
+###### Framework: Node.js with Express.js 
+###### Database: MongoDB 
    
 ### Step-by-Step Code Execution Instructions:
   In houseapp-frontend(cd houseapp-frontend)  folder run the below command
