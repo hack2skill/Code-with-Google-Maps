@@ -1,0 +1,85 @@
+/* General styling for glassmorphic cyberpunk style */
+
+body {
+  background-color: #111111;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card, .detailsCard, .financeCard, .wealthMeterCard {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  position: absolute;
+  box-shadow: 0px 12px 34px rgba(0, 255, 255, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover, .detailsCard:hover, .financeCard:hover, .wealthMeterCard:hover {
+  background: rgba(0, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Your existing styles with some modifications */
+
+.card, .detailsCard, .financeCard, .wealthMeterCard {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.card {
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+.detailsCard {
+  margin-left: 65%;
+  margin-top: 3%;
+  margin-right: 5%;
+}
+
+financeCard {
+  margin-left: 70%;
+  margin-right: 1%;
+  margin-top: 5%;
+}
+
+.wealthMeterCard {
+  margin-left: 68%;
+  margin-right: 4%;
+  margin-top: 5%;
+}
+
+/* Styles for the .slider and .map elements in cyberpunk style */
+
+.slider {
+  background: rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  padding: 8px 24px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  margin-left: 5%;
+  margin-top: 30%;
+  box-shadow: 0px 12px 34px rgba(0, 255, 255, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.slider:hover {
+  background: rgba(0, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.map {
+  z-index: 0;
+  position: relative;
+}

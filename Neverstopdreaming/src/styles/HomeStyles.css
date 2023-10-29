@@ -1,0 +1,47 @@
+.mainContainer {
+  background: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+  color: #00ffaa; /* Cyberpunk green text */
+  width: 100%;
+  height: 100vh; /* 100% viewport height */
+  margin: 0;
+}
+
+.btn {
+  padding: 8px; /* Larger padding for buttons */
+  margin-right: 10px;
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  border: 1px solid #00ffaa; /* Cyberpunk green border */
+  border-radius: 5px;
+  color: #00ffaa; /* Cyberpunk green text */
+}
+
+.btnOption {
+  color: #00ffaa; /* Cyberpunk green text */
+}
+
+.btnOption:hover {
+  background: #c8ac1f; /* Yellowish hover background */
+  opacity: 0.7; /* Slightly more transparent on hover */
+}
+
+.Navbg {
+  height: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Dark background with more transparency */
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  position: absolute;
+  left: 200px;
+  top: 5px;
+  height: 30px;
+  filter: drop-shadow(0 0 5px #00ffaa); /* Cyberpunk-style drop shadow */
+  mix-blend-mode: overlay; /* Blending mode for a futuristic effect */
+}

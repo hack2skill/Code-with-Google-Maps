@@ -1,0 +1,16 @@
+
+
+.title {
+  display: flex;
+  margin-left: 12%;
+  /* padding-left: 35%;
+    padding-right: 25%; */
+  /* background-color: #00000060; */
+}
+
+.titleText {
+  font-size: 45px;
+  padding: 5px;
+  color: rgb(226, 92, 92);
+  text-shadow: none;
+}
