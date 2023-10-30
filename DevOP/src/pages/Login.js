@@ -84,7 +84,7 @@ const Login = () => {
                             </MDBBtn>
                         </form>
                     </MDBCardBody>
-                    {error && <p>{error}</p>}
+                    {/* {error && <p>{error.message}</p>} */}
                 </MDBCard>
             </MDBContainer>
 
