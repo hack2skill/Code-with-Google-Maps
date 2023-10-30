@@ -1,5 +1,5 @@
 import React from 'react'
-import { MDBBtn, MDBInput, MDBListGroup, MDBListGroupItem } from 'mdb-react-ui-kit';
+import { MDBBtn, MDBInput, MDBListGroup } from 'mdb-react-ui-kit';
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
 
 const PlacesAutocomplete = ({ setSelected }) => {

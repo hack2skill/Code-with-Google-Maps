@@ -1,21 +1,25 @@
 import React, { useState } from "react";
-import { auth } from "../utils/firebaseConfig";
+// import { auth } from "../utils/firebaseConfig";
 import {
     MDBInput,
     MDBCol,
     MDBRow,
     MDBBtn,
     MDBCard,
-    MDBCardBody
+    MDBCardBody,
+    MDBContainer
 } from 'mdb-react-ui-kit';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useToast } from "@chakra-ui/react";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const auth = getAuth();
+    const toast = useToast();
+    const navigate = useNavigate();
 
 
     const handleLogin = async (e) => {
@@ -24,12 +28,28 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
+                console.log(user);
+                toast({
+                    title: 'Login Successful',
+                    position: 'top-right',
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                })
+                navigate("/");
                 // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                setError({errorMessage, errorCode});
+                setError({ errorMessage, errorCode });
+                toast({
+                    title: errorMessage,
+                    position: 'top-right',
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                })
                 // ..
             });
         // try {
@@ -42,28 +62,31 @@ const Login = () => {
     return (
         <div>
             <h1>Login</h1>
-            <MDBCard className='p-5 w-10'>
-                <MDBCardBody>
-                    <form onSubmit={handleLogin}>
-                        <MDBInput className='mb-4' type='email' value={email} onChange={(e) => setEmail(e.target.value)} id='form1Example1' label='Email address' />
-                        <MDBInput className='mb-4' type='password' value={password} onChange={(e) => setPassword(e.target.value)} id='form1Example2' label='Password' />
+            <MDBContainer className='d-flex justify-content-center'>
+                <MDBCard className='p-5 w-10'>
+                    <MDBCardBody>
+                        <form onSubmit={handleLogin}>
+                            <MDBInput className='mb-4' type='email' value={email} onChange={(e) => setEmail(e.target.value)} id='form1Example1' label='Email address' />
+                            <MDBInput className='mb-4' type='password' value={password} onChange={(e) => setPassword(e.target.value)} id='form1Example2' label='Password' />
 
-                        <MDBRow className='mb-4'>
-                            <MDBCol className='d-flex justify-content-center'>
-                                {/* <MDBCheckbox id='form1Example3' label='Remember me' defaultChecked /> */}
-                                <Link to="/register">New user? Register here</Link>
-                            </MDBCol>
-                            <MDBCol>
-                                <Link to="/forgot-password">Forgot Password</Link>
-                            </MDBCol>
-                        </MDBRow>
+                            <MDBRow className='mb-4'>
+                                <MDBCol className='d-flex justify-content-center'>
+                                    {/* <MDBCheckbox id='form1Example3' label='Remember me' defaultChecked /> */}
+                                    <Link to="/register">New user? Register here</Link>
+                                </MDBCol>
+                                <MDBCol>
+                                    <Link to="/forgot-password">Forgot Password</Link>
+                                </MDBCol>
+                            </MDBRow>
 
-                        <MDBBtn type='submit' block>
-                            Login
-                        </MDBBtn>
-                    </form>
-                </MDBCardBody>
-            </MDBCard>
+                            <MDBBtn type='submit' block>
+                                Login
+                            </MDBBtn>
+                        </form>
+                    </MDBCardBody>
+                    {error && <p>{error}</p>}
+                </MDBCard>
+            </MDBContainer>
 
 
 
@@ -88,7 +111,6 @@ const Login = () => {
                 <br />
                 <button type="submit">Login</button>
             </form> */}
-            {error && <p>{error}</p>}
         </div>
     );
 };

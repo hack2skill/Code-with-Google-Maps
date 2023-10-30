@@ -5,7 +5,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const auth = getAuth();
 
