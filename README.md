@@ -6,9 +6,10 @@
 
 **Repository Links:**
 - Please find the houseapp-frontend repository here:
-
 - [houseapp-frontend GitHub Repository](https://github.com/01ankush/houseapp-frontend)
-
+- Prototype Presentation link :
+- [drive link](https://drive.google.com/drive/folders/1Z8LC8B9MlcAvfmvJ5qZrg_X4wMhVVcRs?usp=sharing)
+  
 **Project Overview:**
 
 HouseForYou is an innovative rental platform that simplifies the housing search process, prioritizing user-centric features and advanced technologies. The app enables users to effortlessly upload property details, encompassing everything from individual rooms to PG accommodations.
