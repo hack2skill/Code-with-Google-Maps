@@ -138,8 +138,8 @@ By following these steps, you will generate a free OpenAI API key and configure 
    - Open the "main.py" file.
    - Execute the Python script by clicking the "Run" icon in your code editor.
 
-3. **Interact with the App:**
-   - Interact with the app by speaking specific commands, such as:
+3. **Interact with the Loco:**
+   - Interact with the Loco by speaking specific commands, such as:
      1. "What is the distance between any location to any location."
      2. Asking general questions.
      3. Using specific commands like:
