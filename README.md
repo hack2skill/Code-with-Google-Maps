@@ -104,6 +104,7 @@ By following these steps, you can effectively test and debug your application wi
    - Replace `YOUR_PORT` with the specific port number configured in your backend settings.
 
 These instructions will help you run the houseapp-backend, enabling you to access the application locally.
+**----Code Execution Instructions for houseopenAi----**
 
 **Instructions for Generating a Free OpenAI API Key:**
 
