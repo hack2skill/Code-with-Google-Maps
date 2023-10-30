@@ -77,35 +77,58 @@ Before testing on an Android emulator, ensure the Android SDK, Java, and emulato
 
 By following these steps, you can effectively test and debug your application within the Android emulator.
 
-**Code Execution Instructions for houseapp-backend:**
+**Instructions for Running the houseapp-backend:**
+- Ensure that you have created a MongoDB connection string for your MongoDB cluster and added it to the .env file.
 
-1. **Navigate to the Backend Folder:**
-   - In your terminal, change the directory to "houseapp-backend" using this command:
+1. **Navigate to the Backend Directory:**
+   - Open your terminal and change the current directory to the "houseapp-backend" folder using the following command:
      ```shell
      cd houseapp-backend
      ```
 
-2. **Install Dependencies:**
-   - Install the "dotenv" package by executing the following command:
+2. **Install Required Dependencies:**
+   - Install the "dotenv" package by running this command:
      ```shell
      npm install dotenv
      ```
 
-3. **Run the Backend Server:**
-   - Start the backend server by running this command:
+3. **Start the Backend Server:**
+   - Initiate the backend server by executing the following command:
      ```shell
      node index
      ```
-   - The message "Connected to Db" indicates that the server is up and running.
+   - If you see the message "Connected to Db," it means the server is running successfully.
 
-4. **Access the App:**
-   - Access the app on your local host. Open your web browser and visit the URL, typically `http://localhost:YOUR_PORT`.
-   - Replace `YOUR_PORT` with the port number specified in your backend configuration.
+4. **Access the Application:**
+   - Access the application on your local machine by opening a web browser and navigating to the URL, usually `http://localhost:YOUR_PORT`.
+   - Replace `YOUR_PORT` with the specific port number configured in your backend settings.
 
-These steps enable you to run your backend server and access the app locally.
+These instructions will help you run the houseapp-backend, enabling you to access the application locally.
 
-**Code Execution Instructions for houseopenAi:**
+**Instructions for Generating a Free OpenAI API Key:**
 
+1. **Create an OpenAI Account:**
+   - Begin by visiting the OpenAI website (https://www.openai.com) and creating a new account if you haven't already.
+
+2. **Access Your Dashboard:**
+   - After creating your account, log in to the OpenAI platform and access your user dashboard.
+
+3. **Generate an API Key:**
+   - In your OpenAI dashboard, navigate to the API or Developer section. Look for the option to generate an API key.
+
+4. **Create a New API Key:**
+   - Follow the provided instructions to create a new API key. You may need to specify the type of access you require (e.g., GPT-3, DALL-E) and any usage restrictions.
+
+5. **Copy the API Key:**
+   - Once your API key is generated, copy it to your clipboard.
+
+6. **Configure the API Key in Your Project:**
+   - Open the `config.py` file in your project and paste the API key you copied in the previous step.
+
+7. **Save the `config.py` File:**
+   - After pasting the API key, save the `config.py` file to ensure that your project can access the OpenAI API.
+
+By following these steps, you will generate a free OpenAI API key and configure it in your project's `config.py` file, allowing you to make API requests to OpenAI services.
 1. **Navigate to the OpenAI Folder:**
    - Open your preferred code editor (e.g., VS Code, PyCharm) and access the "houseopenAi" folder.
 
