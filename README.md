@@ -12,6 +12,8 @@ Real-Time Road Blockage Reporting System with Google
 
 btushar301@gmail.com
 
+**Demo link-** https://www.youtube.com/watch?v=7grdZ-Ogf28
+
 ### A Brief of the Prototype:
 
 This section must include UML Diagrams and prototype description
@@ -65,7 +67,7 @@ _Key Features_:
 
 - *CHAKRA UI*
 
-### Step-by-Step Code Execution Instructions:
+# Step-by-Step Code Execution Instructions:
 
 ## To Start The Backend 
 
@@ -110,7 +112,7 @@ GOOGLE_CLIENT_SECRET="YOUR_GOOGLE_SECRET"
 REACT_APP_GOOGLE_MAPS_API= "YOUR_API_KEY"
 ```
 
-### Future Scope:
+### Future Scope & Scalability:
 
 **Futuristic Aspects:**
 
@@ -119,3 +121,13 @@ REACT_APP_GOOGLE_MAPS_API= "YOUR_API_KEY"
 - Emergency Services Integration: In emergencies, the application can directly notify and coordinate with local emergency services, providing real-time information about incidents to expedite responses.
 
 - Global Data Sharing: In the future, the application can facilitate data sharing with other road safety platforms and government agencies, creating a global network for incident reporting and analysis.
+
+**Scalability:**
+
+- Geographical Expansion: The prototype can scale to cover a broader geographical area, making it applicable to regions beyond its initial deployment. As the user base grows, it can accommodate reports from various locations, becoming a valuable tool for road safety worldwide.
+
+- Additional Incident Categories: The application can scale by adding more incident categories, such as construction zones, traffic accidents, or weather-related issues. This enhances its utility for diverse road safety concerns.
+
+- Multilingual Support: To cater to a global audience, multilingual support can be integrated, allowing users to report incidents and access information in their preferred language.
+
+- User Profiles and Rewards: Scalability includes the addition of user profiles and reward systems. Users could earn points or incentives for their contributions to road safety, fostering increased engagement.
