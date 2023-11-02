@@ -19,9 +19,12 @@ import {
   Marker,
   Autocomplete,
   DirectionsRenderer,
+
 } from '@react-google-maps/api'
-import { useEffect, useRef, useState, } from 'react'
-import {useNavigate} from "react-router-dom"
+// import { MarkerClusterer } from '@react
+import { MarkerClusterer } from "@googlemaps/markerclusterer";
+import { useEffect, useRef, useState, useCallback } from 'react'
+import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 
 
@@ -31,8 +34,7 @@ function Body() {
   const [markerData, setMarkerData] = useState();
   const [loading, setLoading] = useState(false);
   const isPhone = useBreakpointValue({ base: true, md: false });
-  const navigate = useNavigate(); 
-  console.log()
+  const navigate = useNavigate();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(posi => {
@@ -69,6 +71,7 @@ function Body() {
   const [directionsResponse, setDirectionsResponse] = useState(null)
   const [distance, setDistance] = useState('')
   const [duration, setDuration] = useState('')
+
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef()
@@ -112,6 +115,7 @@ function Body() {
 
 
 
+
   return (
     <Flex
       position='relative'
@@ -132,9 +136,11 @@ function Body() {
             mapTypeControl: false,
             fullscreenControl: false,
           }}
-          onLoad={map => setMap(map)}
+          // onLoad={onLoad}
+          onLoad={map => {
+            setMap(map)
+          }}
         >
-          {/* <Marker position={center} /> */}
 
           <Marker
             position={center}
@@ -143,20 +149,31 @@ function Body() {
               url: 'https://maps.google.com/mapfiles/kml/shapes/man.png', // Custom marker icon URL
               // scaledSize: map.
             }}
-          /> 
-
+          />
           {markerData.map((marker, index) => {
             // console.log(typeof(marker.latitude.$numberDecimal.))
             return (
               <Marker
-                position={{lat: Number(marker.latitude.$numberDecimal), lng: Number(marker.longitude.$numberDecimal)}}
+                position={{ lat: Number(marker.latitude.$numberDecimal), lng: Number(marker.longitude.$numberDecimal) }}
                 // name={"log"}
                 key={index}
                 icon={{
                   url: marker.icon, // Image URL
                   anchor: new window.google.maps.Point(16, 32), // Position the anchor to the center of the image
                   scaledSize: new window.google.maps.Size(32, 32), // Adjust the size as needed
-                }} />
+                }}
+                onClick={() => {
+                  // eslint-disable-next-line no-undef
+                  const infoWindow = new google.maps.InfoWindow();
+                  infoWindow.setPosition({ lat: Number(marker.latitude.$numberDecimal), lng: Number(marker.longitude.$numberDecimal) });
+                  infoWindow.setContent(`
+                    <div class="info-window">
+                      <h2>${marker.title}</h2>
+                    </div>
+                  `);
+                  infoWindow.open({ map });
+                }}
+              />
             );
           })}
 
@@ -201,33 +218,33 @@ function Body() {
               onClick={clearRoute}
             />
           </ButtonGroup> */}
-      {!isPhone &&
-        <ButtonGroup>
-          <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
-            Calculate Route
-          </Button>
-          <IconButton
-            aria-label='center back'
-            icon={<FaTimes />}
-            onClick={clearRoute}
-          />
-        </ButtonGroup>
-      }
+          {!isPhone &&
+            <ButtonGroup>
+              <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
+                Calculate Route
+              </Button>
+              <IconButton
+                aria-label='center back'
+                icon={<FaTimes />}
+                onClick={clearRoute}
+              />
+            </ButtonGroup>
+          }
         </HStack>
         {isPhone &&
-        <VStack spacing={2} m={2}>
-        <ButtonGroup>
-          <Button colorScheme='pink' w={'80%'} type='submit' onClick={calculateRoute}>
-            Calculate Route
-          </Button>
-          <IconButton
-            aria-label='center back'
-            icon={<FaTimes />}
-            onClick={clearRoute}
-          />
-        </ButtonGroup>
-        </VStack>
-      }
+          <VStack spacing={2} m={2}>
+            <ButtonGroup>
+              <Button colorScheme='pink' w={'80%'} type='submit' onClick={calculateRoute}>
+                Calculate Route
+              </Button>
+              <IconButton
+                aria-label='center back'
+                icon={<FaTimes />}
+                onClick={clearRoute}
+              />
+            </ButtonGroup>
+          </VStack>
+        }
         <HStack spacing={4} mt={4} justifyContent='space-between'>
           <Text>Distance: {distance} </Text>
           <Text>Duration: {duration} </Text>
@@ -243,18 +260,18 @@ function Body() {
         </HStack>
       </Box>
       <Flex
-      direction="column"
-      h="100vh" w="100vw" m={4} // Set the container height to 100% of the viewport height
-      justifyContent="flex-end" // Align the content at the bottom
-      alignItems="flex-end" // Align the content to the right
-    >
-      <Button colorScheme="red" type="submit" onClick={()=>{
-        navigate('/report')
-      }}>
-      <Box as="img" width="20px" marginRight="6px" src="https://img.icons8.com/ios-filled/20/000000/error--v1.png" />
-      Report
-    </Button>
-    </Flex>
+        direction="column"
+        h="100vh" w="100vw" m={4} // Set the container height to 100% of the viewport height
+        justifyContent="flex-end" // Align the content at the bottom
+        alignItems="flex-end" // Align the content to the right
+      >
+        <Button colorScheme="red" type="submit" onClick={() => {
+          navigate('/report')
+        }}>
+          <Box as="img" width="20px" marginRight="6px" src="https://img.icons8.com/ios-filled/20/000000/error--v1.png" />
+          Report
+        </Button>
+      </Flex>
 
     </Flex>
   )

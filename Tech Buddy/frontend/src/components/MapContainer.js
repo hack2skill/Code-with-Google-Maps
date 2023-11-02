@@ -13,6 +13,29 @@ const MapContainer = (props) => {
     const [center, setCenter] = useState({ lat: 48.8584, lng: 2.2945 });
     const [map, setMap] = useState(/** @type google.maps.Map */(null))
     // const [markerPosition, setMarkerPosition] = useState(null);
+    const { isLoaded } = useJsApiLoader({
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
+        libraries: ['places'],
+    })
+    async function snapToNearestRoad({lat,lng}) {
+        // console.log(lat)
+
+        // eslint-disable-next-line no-undef
+        const latlng = new google.maps.LatLng(lat, lng);
+        // eslint-disable-next-line no-undef
+        const directionsService = new google.maps.DirectionsService()
+        const results = await directionsService.route({
+          origin: latlng,
+          destination: latlng,
+          // eslint-disable-next-line no-undef
+          travelMode: google.maps.TravelMode.DRIVING,
+        })
+        setCenter(results.routes[0].legs[0].start_location)
+      }
+  
+    
+
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(posi => {
             setCenter({
@@ -23,12 +46,14 @@ const MapContainer = (props) => {
                 lat: posi.coords.latitude,
                 lng: posi.coords.longitude
             })
+            snapToNearestRoad({
+                lat: posi.coords.latitude,
+                lng: posi.coords.longitude
+            });
         })
+        
     }, [])
-    const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
-        libraries: ['places'],
-    })
+   
     if (!isLoaded) {
         return <SkeletonText />
     }
@@ -43,6 +68,9 @@ const MapContainer = (props) => {
                     streetViewControl: false,
                     mapTypeControl: false,
                     fullscreenControl: false,
+                    draggingCursor:false,
+                    draggableCursor:false,
+                    draggable: false
                 }}
                 onLoad={map => setMap(map)}
             >
@@ -50,6 +78,7 @@ const MapContainer = (props) => {
                     position={center}
                     onDragEnd={(e) => {
                         props.setMarkerPosition(e.latLng.toJSON());
+                        snapToNearestRoad(e.latLng.toJSON())
                     }}
                     draggable={true}
                 />
@@ -59,3 +88,5 @@ const MapContainer = (props) => {
 };
 
 export default MapContainer;
+
+

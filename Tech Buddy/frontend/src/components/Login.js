@@ -32,7 +32,7 @@ const Login = () => {
                 alignItems="center"
             >
                 <Avatar bg="teal.500" />
-                <Heading color="teal.400">Welcome</Heading>
+                <Heading color="teal.400">Welcome to RoadSafety!</Heading>
                 <Flex minW={{ base: "90%", md: "468px" }} justifyContent="center"
                     alignItems="center">
                     <div className="google-btn">

@@ -141,7 +141,7 @@ function Report() {
                       </ModalBody>
 
                       <ModalFooter>
-                        <Button colorScheme='blue' mr={3}>
+                        <Button colorScheme='blue' mr={3} onClick={onClose}>
                           Save
                         </Button>
                         <Button onClick={onClose}>Cancel</Button>
