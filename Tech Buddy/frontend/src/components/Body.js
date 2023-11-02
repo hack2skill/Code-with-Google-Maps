@@ -32,6 +32,9 @@ function Body() {
   const [center, setCenter] = useState({ lat: 48.8584, lng: 2.2945 });
   const [zoom, setZoom] = useState(15)
   const [markerData, setMarkerData] = useState();
+  const [markerOnRoute, setMarkerOnRoute] = useState();
+
+
   const [loading, setLoading] = useState(false);
   const isPhone = useBreakpointValue({ base: true, md: false });
   const navigate = useNavigate();
@@ -54,6 +57,7 @@ function Body() {
     try {
       const data = await axios.get('http://localhost:8800/report');
       setMarkerData(data.data);
+      setMarkerOnRoute(data.data)
       // console.log(data);
       setLoading(false);
     } catch (error) {
@@ -94,11 +98,15 @@ function Body() {
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
     })
+    // console.log(results.routes[0].overview_path)
+    var route = results.routes[0];
+    var path = route.overview_path;
     setDirectionsResponse(results)
     setDistance(results.routes[0].legs[0].distance.text)
     setDuration(results.routes[0].legs[0].duration.text)
   }
 
+  
   function clearRoute() {
     setDirectionsResponse(null)
     setDistance('')
@@ -151,7 +159,7 @@ function Body() {
             }}
           />
           {markerData.map((marker, index) => {
-            // console.log(typeof(marker.latitude.$numberDecimal.))
+            // console.log(marker)
             return (
               <Marker
                 position={{ lat: Number(marker.latitude.$numberDecimal), lng: Number(marker.longitude.$numberDecimal) }}
@@ -168,7 +176,8 @@ function Body() {
                   infoWindow.setPosition({ lat: Number(marker.latitude.$numberDecimal), lng: Number(marker.longitude.$numberDecimal) });
                   infoWindow.setContent(`
                     <div class="info-window">
-                      <h2>${marker.title}</h2>
+                      <h2>${marker.title}</h2><br/>
+                      <h3>Desc:</h3><p>${marker.description}</p>
                     </div>
                   `);
                   infoWindow.open({ map });

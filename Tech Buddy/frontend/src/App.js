@@ -5,6 +5,7 @@ import "./Main.css"
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import Report from './components/Report';
+import Demo from './components/Demo';
 
 
 function App() {
@@ -42,6 +43,11 @@ function App() {
 					path="/report"
 					element={user ? <Report/>:<Login/>}
 				/>
+				 {/* <Route
+					exact
+					path="/demo"
+					element={user ? <Demo/>:<Login/>}
+				/> */}
       </Routes>
     </div>
   )

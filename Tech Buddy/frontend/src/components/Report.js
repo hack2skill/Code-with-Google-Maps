@@ -34,6 +34,15 @@ function Report() {
   const [desc,setDesc]=useState("");
   const navigate=useNavigate();
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(posi => {
+        setMarkerPosition({
+            lat: posi.coords.latitude,
+            lng: posi.coords.longitude
+        })
+      })
+      },[])
+      // console.log(markerPosition)
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -71,6 +80,7 @@ function Report() {
       const data={
         longitude:markerPosition.lng, latitude:markerPosition.lat, icon:pic, desc:desc
       }
+      console.log(data)
       const report=await axios.post('http://localhost:8800/report',data,{
         withCredentials: true,
       });

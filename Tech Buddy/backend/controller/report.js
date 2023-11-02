@@ -1,4 +1,6 @@
 const Report = require('../models/reportModel');
+const nodemailer = require("nodemailer");
+
 const reportRegister = async (req, res) => {
     // console.log(req.isAuthenticated());
     if (req.isAuthenticated()) {
@@ -7,7 +9,23 @@ const reportRegister = async (req, res) => {
         if(!longitude || !latitude ||!icon || !desc){
             return res.status(400).json({msg: "Please fill all fields"})
         }
-        const newReport = new Report({
+        const transporter = nodemailer.createTransport({
+            host: 'smtp.ethereal.email',
+            port: 587,
+            auth: {
+                user: 'jamarcus.conn99@ethereal.email',
+                pass: 'QpNWpQGS1yfw5Jj6H6'
+            }
+        });
+
+        const info = await transporter.sendMail({
+            from: `"RoadSafety!" <${req.user._id}>`, // sender address
+            to: "municipal@gamil.com", // list of receivers
+            subject: "Reporting an Issue", // Subject line
+            text: `${desc}`, // plain text body
+            html: `<div>${desc}<div><br/><div>Image Link - <a href='${icon}'>Link</a></div>`, // html body
+          });
+        const newReport =await new Report({
             longitude: longitude, latitude: latitude, icon: icon, description: desc, title: title,userId:req.user._id
         })
         await newReport.save();
