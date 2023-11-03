@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Property</string>
+    <string name="search">Search</string>
+    <string name="location">Location</string>
+    <string name="myAccount">Account</string>
+    <string name="favorite">Favorite</string>
+    <string name="splash_appDescription">Discover your dream home with us. It\'s where your heart is. It\'s where you make it.</string>
+    <string name="splash_subTitle">Discover your new home</string>
+    <string name="splash_appTitle">Rent Property</string>
+    <string name="button_register_txt">Register</string>
+    <string name="btn_login_txt">Login</string>
+    <string name="forgotPassword"><u>Forgot Password</u></string>
+    <string name="registerNow">Don\'t have an account? <b>Register now</b></string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="send_me_link">Send me link</string>
+    <string name="forgotPasswordWithoutUnderline">Forgot Password</string>
+    <string name="find_your_house">Find your house</string>
+    <string name="results_in_area">30 results in your area</string>
+    <string name="popular">Popular</string>
+    <string name="allProperties">All Properties</string>
+    <string name="bedrooms">Bedroom(s)</string>
+    <string name="kitchens">Kitchen(s)</string>
+    <string name="bathrooms">Bathroom(s)</string>
+    <string name="garages">Garage(s)</string>
+    <string name="gardens">Garden(s)</string>
+    <string name="description">Description</string>
+    <string name="btn_rent_detailActivity">Rent</string>
+    <string name="registerWithUs">Register with us</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="btn_registration">Register</string>
+</resources>
