@@ -1,0 +1,344 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block toplink %}
+<li class="nav__item">
+    {% if page %}
+    <a href="/nearbyhome" class="nav__link" id="homeback">Back</a>
+    {% else %}
+    <a href="/nearbystations" class="nav__link" id="stationback">Back</a>
+    {% endif %}
+</li>
+<li class="nav__item">
+    <a href="/home" class="nav__link">Home</a>
+</li>
+<li class="nav__item">
+    <a href="/profile" class="nav__link">Profile</a>
+</li>
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% endblock %}
+{% block style %}
+<style>
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 100vh;
+    }
+
+    .info1 {
+        flex: 1;
+        padding: 20px;
+        background-color: #b28dc0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        text-align: center;
+        margin: 5% 20%;
+        margin-top:1%
+    }
+
+    .info1:hover {
+        box-shadow: 0 10px 66px 0 purple;
+    }
+
+    .info1 h2 {
+        color: black;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .info1 p {
+        color: black;
+        font-weight:bold;
+        font-size: 18px;
+    }
+    .mine{
+    margin-top:10%;
+    text-align:center;
+    }
+    .map-heading {
+        flex: 1;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .map {
+        height:100%;
+        width:100%;
+        background-color: #f0f0f0;
+        max-height: 100vh;
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .info1,
+        .map {
+            flex: 1;
+        }
+
+        .map {
+            max-height: 80vh;
+        }
+        .info1{
+        margin-top:10%;
+        }
+            .mine{
+    margin-top:20%;
+    text-align:center;
+    }
+    }
+
+    .container {
+        min-height: 100%;
+    }
+.table {
+  color:black;
+  display: table;
+  width: 100%;
+  font-weight:bold;
+}
+.row,.row1 {
+  display: table-row;
+}
+.row1:hover{
+  background-color:grey;
+}
+.cell {
+  display: table-cell;
+  padding: 5px;
+  border: 1px solid purple;
+}
+.mytable{
+background-color:white;
+}
+.container1 {
+  height: 800px;
+  width: calc(90% - 10%);
+  margin: 0 auto;
+}
+    #myconphone{
+    display:none;
+    }
+.button-33 {
+  margin : 5px;
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+#back,#headi{
+display: none;
+}
+#headi{
+margin-top:2%;
+margin-bottom:-3%;
+}
+
+@media only screen and (max-width: 600px) {
+  .table {
+    display: block;
+  }
+  .row {
+    display: block;
+    margin-bottom: 10px;
+    border: none;
+  }
+  .cell {
+    display: block;
+    border: none;
+  }
+
+@media only screen and (max-width: 600px) {
+    #mycon{
+     display: none;
+    }
+    #myconphone{
+    display:block;
+    }
+    .map{
+    height:100%;
+    }#headi{
+       margin: 10px;
+}
+}
+</style>
+{% endblock %}
+{% block content %}
+<h2 class="mine">Contact Information</h2>
+<div class="info1" onload="initMap()">
+    <div id="mycon">
+        {% if page %}
+    <p>Name: {{destuser.user.username}}</p>
+    <p>Email: <a href="mailto:{{destuser.user.email}}">{{destuser.user.email}}</a></p>
+    <p>Phone Number: <a href="tel:{{destuser.phone_number}}">{{destuser.phone_number}}</a></p>
+    <p>Address: {{destuser.home_address}}, {{destuser.district}}, {{destuser.state}}</p>
+    {% else %}
+    <p>Station Name: {{destuser.name}}</p>
+    <p>Address: {{destuser.address}}</p>
+    {% endif %}
+    <p>Distance: {{directions.distance}}</p>
+    <p>Duration: {{directions.duration}}</p>
+    <button class="button-33" role="button" id="openMapButton">&uarr;Start</button><br>
+    <button class="button-33" role="button" onclick="send_loc()"><i class="fa fa-mobile-phone" style="font-size:18px;color:purple"> Send To Phone</i></button><br>
+    <p id="dir-toggle">To get direction instruction <a href="javascript:void(0)" onclick="DirectionsToggle()">Click
+        here</a></p>
+    </div>
+    <div id="myconphone">
+        {% if page %}
+    <p>Name: {{destuser.user.username}}</p>
+    <p>Email: <a href="mailto:{{destuser.user.email}}">{{destuser.user.email}}</a></p>
+    <p>Phone Number: <a href="tel:{{destuser.phone_number}}">{{destuser.phone_number}}</a></p>
+    <p>Address: {{destuser.home_address}}, {{destuser.district}}, {{destuser.state}}</p>
+    {% else %}
+    <p>Station Name: {{destuser.name}}</p>
+    <p>Address: {{destuser.address}}</p>
+    {% endif %}
+    <p>Distance: {{directions.distance}}</p>
+    <p>Duration: {{directions.duration}}</p>
+    <button class="button-33" role="button" id="openMapButton1">&uarr;Start</button><br>
+    <button class="button-33" role="button" onclick="gmap()"><i class="fa fa-mobile-phone" style="font-size:18px;color:purple"> Open In Gmaps</i></button>
+    <p id="dir-toggle">To get direction instruction <a href="javascript:void(0)" onclick="DirectionsToggle()">Click
+        here</a></p>
+    </div>
+</div>
+<div class="info1" id="dir-table" hidden>
+    <div class="table">
+        <div class="row mytable">
+            <div class="cell">Directions</div>
+            <div class="cell">Distance</div>
+            <div class="cell">Duration</div>
+        </div>
+        {% for dist, dur, text in directions.steps %}
+        <div class="row1">
+            <div class="cell">{{text|safe}}</div>
+            <div class="cell">{{dist}}</div>
+            <div class="cell">{{dur}}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="map-heading">
+    <h2>Route Map</h2>
+</div>
+<div class="container1">
+    <div class="map" id="map-route"</div>
+</div>
+{% endblock %}
+{% block extend_footer %}
+<script type="text/javascript">
+    var google_api_key = "{{google_api_key|safe}}";
+    var lat_a = {{lat_a|safe}};
+    var long_a = {{long_a|safe}};
+    var lat_b = {{lat_a|safe}};
+    var long_b = {{long_b|safe}};
+    var page = {{page|safe}};
+    var origin = "{{origin|safe}}";
+    var destination = "{{destination|safe}}";
+    var directions = {{directions|safe}}
+</script>
+<script>
+    function startAction(){
+    var txn_id = "{{ txn_id }}";
+    const latLongArray = destination.split(',');
+    const lat_b = parseFloat(latLongArray[0]);
+     const long_b = parseFloat(latLongArray[1]);
+     window.alert("Are you sure!!!\nIf yes then you will be redirected to Live Routing page");
+     if(page){
+          history.replaceState(null, null,"/nearbyhome");
+          window.addEventListener('popstate', function(event) {
+            history.replaceState(null, null, "/nearbyhome");
+        });
+     }
+     else{
+     history.replaceState(null, null,"/nearbystations");
+             window.addEventListener('popstate', function(event) {
+            history.replaceState(null, null, "/nearbystations");
+        });
+     }
+     if(page){
+     window.location.href = "/liverouting/"+lat_a+"/"+long_a+"/"+ lat_b+"/"+long_b+"/"+page+"/"+txn_id;
+     }
+     else{
+     window.location.href = "/liverouting/"+lat_a+"/"+long_a+"/"+ lat_b+"/"+long_b+"/"+page;
+     }
+}
+document.getElementById("openMapButton").addEventListener("click", function() {
+  startAction();
+});
+document.getElementById("openMapButton1").addEventListener("click", function() {
+   startAction();
+});
+</script>
+<script>
+function gmap() {
+app();
+}
+function app(){
+    window.alert("Kindly Change The Start Location To Your Location On Top Of Your Screen In Gmap Application");
+    window.location.href = "https://www.google.com/maps/dir/?api=1&origin="+lat_a+","+long_b+"&destination="+lat_b+","+long_b+"&travelmode=driving"
+}
+    function send_loc() {
+mail();
+}
+function mail(){
+var link = "https://www.google.com/maps/dir/?api=1&origin="+lat_a+","+long_b+"&destination="+lat_b+","+long_b+"&travelmode=driving"
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "/diremail/");
+xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    if (xhr.status === 200) {
+          window.alert("Mail Sent Successfully\nKindly Check Your Mail");
+    } else {
+       window.alert("Error In Sending Mail");
+    }
+  }
+};
+xhr.send(JSON.stringify({link_dir: link}));
+}
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+</script>
+<script>
+    var src_url = "{% static "img/src1.png" %}";
+    var des_url = "{% static "img/des.png" %}";
+</script>
+<script src="{% static 'google_maps.js' %}"></script>
+{% endblock %}

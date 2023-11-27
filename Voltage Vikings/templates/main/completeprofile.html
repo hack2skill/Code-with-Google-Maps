@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% block toplink %}
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Home</a>
+</li>
+<li class="nav__item">
+    <a href="/home" class="nav__link">Logout</a>
+</li>
+{% endblock %}
+{% block style %}
+<style>
+.container1 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid purple;
+    border-radius: 10px;
+    margin-top:10%;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    color: purple;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label, input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    color:black;
+}
+input {
+    padding:10px;
+    border: 1px solid purple;
+    }
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#validation-msg {
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .container1 {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+        margin-top:20%;
+    }
+}
+
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container1" style="margin-top: 3cm;">
+    <form method="post" action="/completeprofile/">
+        {% csrf_token %}
+        <h1 style="color:purple;">Complete your profile</h1>
+        <h2 style="text-align:center;color:purple;">Note : Please enter the following information correctly if you
+            have home station setup and be sure that your are in the location where exactly the port exists.</h2><br>
+        <h3 style="text-align:center;color: purple;">Press skip and continue below to add details afterwards or not
+            applicable</h3>
+        <label class="my" id="skip" style="text-align:center;color:red;cursor:pointer;margin:10px;"
+               onclick="window.location.href='/home';">Skip and continue</label>
+        <label for="id_phone_number">Phone number:</label>
+        <input type="text" name="phone_number" maxlength="20" id="id_phone_number" required>
+
+        <h3 style="text-align:center;color:purple;">Add banking information</h3>
+        <label for="id_account_number">Account number:</label>
+        <input type="text" name="account_number" maxlength="30" id="id_account_number" required>
+
+        <label for="id_bank_name">Bank name:</label>
+        <input type="text" name="bank_name" maxlength="100" id="id_bank_name" required>
+
+        <label for="id_ifsc_code">Ifsc code:</label>
+        <input type="text" name="ifsc_code" maxlength="15" id="id_ifsc_code" required>
+
+        <label for="id_branch">Branch:</label>
+        <input type="text" name="branch" maxlength="100" id="id_branch" required>
+
+        <label for="id_upi_id">Upi id:</label>
+        <input type="text" name="upi_id" maxlength="50" id="id_upi_id" required>
+
+        <h3 style="text-align:center;color: purple;">Add home address where the charging setup is installed<br>Its
+            necessary to allow location</h3>
+        <label type="submit" id="get-location" style="margin-top:3%;cursor:pointer;color:red;text-align:center;">Allow
+            Location First</label>
+        <label for="id_home_address">Home address:</label>
+        <input type="text" name="home_address" maxlength="200" id="id_home_address" required>
+
+        <label for="id_district">District:</label>
+        <input type="text" name="district" maxlength="50" id="id_district" required>
+
+        <label for="id_state">State:</label>
+        <input type="text" name="state" maxlength="50" id="id_state" required>
+
+        <label for="id_country">Country:</label>
+        <input type="text" name="country" maxlength="50" id="id_country" required>
+
+        <label for="id_zipcode">Zipcode:</label>
+        <input type="text" name="zipcode" maxlength="10" id="id_zipcode" required>
+        <input class="my" type="submit" value="Save" style="text-align:center;cursor:pointer;">
+    </form>
+
+</div>
+
+
+<script>
+  var getLocationButton = document.getElementById("get-location");
+
+  getLocationButton.addEventListener("click", function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  });
+
+  function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    // Send location to server using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/getlocation/");
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          console.log(xhr.response);
+        } else {
+          console.log("Error:", xhr.status);
+        }
+      }
+    };
+    xhr.send(JSON.stringify({latitude: latitude, longitude: longitude}));
+  }
+
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+
+</script>
+
+{% endblock %}

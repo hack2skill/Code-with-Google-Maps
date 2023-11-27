@@ -1,0 +1,16 @@
+{% extends "account/email/base_message.html" %}
+{% load i18n %}
+{% block content %}
+{% autoescape off %}
+{% blocktrans %}
+<h3 style="font-size: 24px; margin-top: 0;color:black;">You are receiving this e-mail because you or someone else tried to signup for an
+account using e-mail address:<br>
+{{ email }}
+</h3>
+<p style="font-size: 14px;">
+However, an account using that e-mail address already exists.  In case you have
+forgotten about this, please use the password forgotten procedure to recover
+your account:
+</p><br>
+<a class="button" href="{{ password_reset_url }}">Click Here!</a>
+{% endblocktrans %}{% endautoescape %}{% endblock %}

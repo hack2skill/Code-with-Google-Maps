@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block toplink %}
+<li class="nav__item">
+    <a href="javascript:history.go(-1)" class="nav__link">Back</a>
+</li>
+<li class="nav__item">
+    <a href="/home" class="nav__link">Home</a>
+</li>
+<li class="nav__item">
+    <a href="/profile" class="nav__link">Profile</a>
+</li>
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% endblock %}
+{% block style %}
+<style>
+    .info1:hover {
+        box-shadow: 0 10px 66px 0 purple;
+    }
+    .button {
+  padding: 10;
+  width: auto;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  color:white;
+  transition: all 0.3s ease-in-out;
+}
+</style>
+{% endblock %}
+{% block content %}
+<main class="main">
+    <section class="featured section" id="featured">
+        <h2 class="section__title">Near By Charging Stations</h2>
+        <div class="sort-by" style="float:right;margin-right:15%;">
+            <label class="sort-by__label">Sort By Distance: </label>
+            <select onchange="sort()" class="sort-by__select">
+                <option value="1">1 Kms</option>
+                <option value="2">2 Kms</option>
+                <option value="3">3 Kms</option>
+                <option value="5">5 Kms</option>
+                <option value="10">10 Kms</option>
+                <option value="15">15 Kms</option>
+                <option value="25" selected>25 Kms</option>
+            </select>
+        </div>
+        <br><br>
+
+        <div class="featured__container container">
+            <ul class="featured__filters">
+                <li>
+                    <button class="featured__item button active-featured" data-filter="all">
+                        <span>Charging Stations</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="featured__item button" data-filter=".tesla" id="nearbyhome"
+                            onclick="window.location.href='/nearbyhome'">
+                        <span>Home Stations</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="featured__content grid">
+            {% if stat %}
+            {% for i in stat %}
+            <article class="featured__card mix tesla">
+                <div class="shape shape__smaller info1"></div>
+                <h1 class="featured__title">{{i.address.name}}</h1>
+                <h3 class="featured__price">{{i.address.address}}</h3>
+                <h3 class="featured__price">{{i.address.phone_number}}</h3>
+                <button class="button featured__button"
+                        onclick="myFunction(this.getAttribute('data-foo'), this.getAttribute('data-bar'), this.getAttribute('data-user'), this.getAttribute('data-page'))"
+                        data-foo="{{i.address.lat}}" data-bar="{{i.address.lon}}" data-user="{{i.address.id}}"
+                        data-page=0>
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+            </article>
+            {% endfor %}
+        </div>
+                    {% else %}
+           <h2>Not Found</h2>
+            {% endif %}
+    </section>
+</main>
+{% block script %}
+<script>
+    function myFunction(dest_lat, dest_long, user, page) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      showPosition(position, dest_lat, dest_long, user, page);
+    });
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+function showPosition(position, dest_lat, dest_long, user, page) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/route/"+dest_lat+"/"+dest_long+"/"+user+"/"+page+"/");
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        window.location.href =  "/route/"+dest_lat+"/"+dest_long+"/"+user+"/"+page
+      } else {
+        console.log("Error:", xhr.status);
+      }
+    }
+  };
+  xhr.send(JSON.stringify({
+    latitude: latitude,
+    longitude: longitude,
+    dest_lat: dest_lat,
+    dest_long: dest_long
+  }));
+}
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+function sort() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(sort_dist);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+}
+function sort_dist(position){
+ var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+const sortSelect = document.querySelector('.sort-by__select');
+const selectedValue = sortSelect.value;
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "/nearbystations/");
+xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    if (xhr.status === 200) {
+          document.body.innerHTML = xhr.responseText;
+          var sortSelect = document.querySelector('.sort-by__select');
+          sortSelect.value = selectedValue;
+    } else {
+      console.log("Error:", xhr.status);
+    }
+  }
+};
+xhr.send(JSON.stringify({latitude: latitude, longitude: longitude, dest_got: selectedValue}));
+}
+</script>
+{% endblock %}
+{% endblock %}
+

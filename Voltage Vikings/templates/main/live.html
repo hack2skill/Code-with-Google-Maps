@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/favion.png' %}" type="image/x-icon" class="favicon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .nav__logo {
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+
+        .map-container {
+            height: 87vh;
+            width: 100%;
+        }
+        .stop{
+        display:none;
+        }
+    </style>
+    <title>Voltage Vikings</title>
+</head>
+<body onload="initMap()">
+<nav class="nav container" onload="updateMapWithCurrentLocation()">
+    <a href="#" class="nav__logo">
+        <i class="ri-steering-fill" style="font-size: 1rem;margin-top:1px;"></i>
+        Voltage Vikings
+    </a>
+    {% if page %}
+    <a  class="nav__link" onclick="homeback()">Back</a>
+    {% else %}
+    <a class="nav__link" onclick="stationback()">Back</a>
+    {% endif %}
+</nav>
+<h3 id="myRoute" style="text-align:center;"></h3>
+<h3 id="distance_remaining" style="text-align:center;"></h3>
+<div id="map" class="map-container"></div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIKOWjBoOrpKcddfDKSu0U6M-pXhLmbK4&libraries=places&callback=initMap"></script>
+<script type="text/javascript">
+    var google_api_key = "{{google_api_key|safe}}";
+    var origin = "{{origin|safe}}";
+    var destination = "{{destination|safe}}";
+    var txn_id = "{{ txn_id }}";
+    var page = "{{page|safe}}";
+</script>
+<script>
+    var src_url = "{% static "img/src1.png" %}";
+    var des_url = "{% static "img/des.png" %}";
+</script>
+<script src="{% static 'mymap.js' %}"></script>
+</body>
+</html>
+

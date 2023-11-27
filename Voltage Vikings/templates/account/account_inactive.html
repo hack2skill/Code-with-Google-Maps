@@ -1,0 +1,22 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% block links %}
+{% if user.is_authenticated %}
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% else %}
+<li class="nav__item">
+    <a href="/account/login" class="nav__link">Login</a>
+</li>
+<li class="nav__item">
+    <a href="/account/signup" class="nav__link">Sign In</a>
+</li>
+{% endif %}
+{% endblock %}
+{% block content %}
+<main class="main" style="display: flex; justify-content: center; align-items: center; height: 100vh;text-align:center;">
+  <h1>{% trans "Account Inactive" %}<br>
+      <p>{% trans "This account is inactive." %}</p></h1>
+</main>
+{% endblock %}

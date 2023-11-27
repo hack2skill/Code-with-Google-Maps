@@ -1,0 +1,61 @@
+{% extends "account/base.html" %}
+{% block links %}
+{% if user.is_authenticated %}
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% else %}
+<li class="nav__item">
+    <a href="/account/login" class="nav__link">Login</a>
+</li>
+<li class="nav__item">
+    <a href="/account/signup" class="nav__link">Sign In</a>
+</li>
+{% endif %}
+{% endblock %}
+{% block content %}
+<main class="main" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <section class="sign-out" id="sign-out" style="max-width: 400px; padding: 1rem; text-align: center; background-color: #f5f5f5; border-radius: 10px;">
+        <div class="sign-out__container">
+            <h1 class="sign-out__title" style="font-size: 2rem; margin-bottom: 2rem;color:black;">Transaction</h1>
+            <p style="color: black;"><strong></strong>Total Amount: {{txn.charge_amt}}</p>
+            <p style="color: black;">Final Amount</p>
+            <input readonly id="rzp-button1" value="Pay Now" style="text-align:center;width: 100%; padding: 0.5rem; margin-top: 1rem; background-color: purple; color: #fff; font-size: 18px; border: none; cursor: pointer;">
+            <p style="color: black;">Please contact us if you have any trouble.</p>
+        </div>
+    </section>
+</main>
+<style>
+    label {
+        color: black;
+    }
+</style>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "{{key}}",
+    "name": "Voltage Vikings",
+    "description": "Transaction",
+    "image": "/static/img/logo.png",
+    "order_id": "{{ord_id}}",
+    "callback_url": "/finpaysuc/"+"{{txn.id}}"+"/",
+    "prefill": {
+        "name": "{{txn.to_user.user.username}}", //your customer's name
+        "email": "{{txn.to_user.user.email}}",
+        "contact": "{{txn.to_user.phone_number}}"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+{% endblock %}
+

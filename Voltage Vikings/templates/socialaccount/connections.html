@@ -1,0 +1,64 @@
+{% extends "socialaccount/base.html" %}
+{% load i18n %}
+{% block links %}
+{% if user.is_authenticated %}
+<li class="nav__item">
+    <a href="/account/logout" class="nav__link">Logout</a>
+</li>
+{% else %}
+<li class="nav__item">
+    <a href="/account/login" class="nav__link">Login</a>
+</li>
+<li class="nav__item">
+    <a href="/account/signup" class="nav__link">Sign In</a>
+</li>
+{% endif %}
+{% endblock %}
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; padding: 0;">
+    <div style="max-width: 400px; padding: 20px; background-color: #ffffff; text-align: center; border: 1px solid #e0e0e0; border-radius: 5px;color:black;">
+        <h1 style="font-size: 24px; margin-top: 0;color:black;">{% trans "Account Connections" %}</h1>
+        <br>
+        {% if form.accounts %}
+        <p style="font-size: 14px;">{% blocktrans %}You can sign in to your account using any of the following third party accounts:{% endblocktrans %}</p>
+        <form method="post" action="{% url 'socialaccount_connections' %}">
+            {% csrf_token %}
+            <fieldset>
+            {% if form.non_field_errors %}
+            <div style="font-size: 14px;color:red;">{{ form.non_field_errors }}</div>
+            {% endif %}
+            {% for base_account in form.accounts %}
+            {% with base_account.get_provider_account as account %}
+            <div>
+            <label for="id_account_{{ base_account.id }}">
+            <input id="id_account_{{ base_account.id }}" type="radio" name="account" value="{{ base_account.id }}"/>
+            <span class="socialaccount_provider {{ base_account.provider }} {{ account.get_brand.id }}">{{account.get_brand.name}}</span>
+            {{ account }}
+            </label>
+            </div>
+            {% endwith %}
+            {% endfor %}
+            <div>
+            <button class="button-73" type="submit" style="width: 100%; padding: 0.5rem; margin-top: 1rem; background-color: purple; color: #fff; font-size: 18px; border: none; cursor: pointer;">{% trans 'Remove' %}</button>
+            </div>
+            </fieldset>
+            </form>
+            {% else %}
+            <p style="font-size: 14px;">{% trans 'You currently have no social network accounts connected to this account.' %}</p>
+            {% endif %}
+
+            <h2 style="font-size: 24px; margin-top: 0;color:black;">{% trans 'Add a 3rd Party Account' %}</h2>
+
+            <ul class="socialaccount_providers">
+            {% include "socialaccount/snippets/provider_list.html" with process="connect" %}
+            </ul>
+            {% include "socialaccount/snippets/login_extra.html" %}
+            {% endblock %}
+    </div>
+</div>
+
+
+
+
+
+
