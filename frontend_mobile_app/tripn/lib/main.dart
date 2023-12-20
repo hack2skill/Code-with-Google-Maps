@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:tripn/view/navigationpage.dart';
+import 'package:tripn/view/Screens/homescreen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, deviceType) {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: NavigationPage(),
+        home: HomeScreen(),
       );
     });
   }

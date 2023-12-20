@@ -1,13 +1,10 @@
 // ignore_for_file: file_names
-import 'dart:collection';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
-import 'package:tripn/view/navigationpage.dart';
-
 import '../widgets/mapsview.dart';
 
 bool isVisible = false;
@@ -49,7 +46,7 @@ class _DashBoardState extends State<DashBoard> {
                         width: 23.w,
                       ),
                       backgroundColor: const Color(0xffffffff)),
-                  const StoryBlock(),
+              
                   const Divider(
                     thickness: 0.7,
                     color: Colors.grey,
@@ -254,16 +251,17 @@ class _DashBoardState extends State<DashBoard> {
 
   Future<void> getTrip(question, context) async {
     Map resultMap = {};
+    print(question);
     final result = await http.post(
-      Uri.parse('https://web-production-9823.up.railway.app/text'),
+      Uri.parse('https://web-production-77cb.up.railway.app/text'),
       headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
       },
       body: jsonEncode(<String, dynamic>{
-        "text": question,
         "address": "Govt.Model Engineering College,Thrikakara",
         "latitude": "10.02817195",
-        "longitude": "76.32843611331214"
+        "longitude": "76.32843611331214",
+        "text": question
       }),
     );
     if (result.statusCode == 200) {
@@ -275,7 +273,10 @@ class _DashBoardState extends State<DashBoard> {
         isVisible = false;
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>   MapSample(pointMap: resultMap,)),
+          MaterialPageRoute(
+              builder: (context) => MapSample(
+                    pointMap: resultMap,
+                  )),
         );
       });
       print(
@@ -286,7 +287,7 @@ class _DashBoardState extends State<DashBoard> {
       setState(() {
         isVisible = false;
       });
-      throw Exception('Failed to send');
+      throw Exception(result.statusCode);
     }
   }
 }

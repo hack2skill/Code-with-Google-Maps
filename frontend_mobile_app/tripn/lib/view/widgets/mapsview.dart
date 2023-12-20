@@ -35,51 +35,7 @@ class MapSampleState extends State<MapSample> {
   List<LatLng> polyLineCordinates = [];
   LocationData? currentLocation;
 
-  getCurrentLocation() async {
-    Location location = Location();
-
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
-    LocationData _locationData;
-
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
-        return;
-      }
-    }
-
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
-        return;
-      }
-    }
-
-    location.getLocation().then((location) {
-      setState(() {
-        currentLocation = location;
-      });
-    });
-    GoogleMapController googleMapController = await _controller.future;
-    location.onLocationChanged.listen(
-      (newLoc) {
-        setState(() {
-          currentLocation = newLoc;
-          googleMapController.animateCamera(
-            CameraUpdate.newCameraPosition(
-              CameraPosition(
-                zoom: 14,
-                target: LatLng(places[0]["lat"], places[0]["lng"]),
-              ),
-            ),
-          );
-        });
-      },
-    );
-  }
+ 
 
   void getPolyPoints() async {
     PolylinePoints polylinePoints = PolylinePoints();
@@ -176,7 +132,7 @@ class MapSampleState extends State<MapSample> {
   ];
   @override
   void initState() {
-    getCurrentLocation();
+   
     getPolyPoints();
     places = widget.pointMap["result"];
     super.initState();

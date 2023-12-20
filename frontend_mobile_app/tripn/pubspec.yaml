@@ -18,6 +18,7 @@ dependencies:
   location: ^5.0.3
   lottie: ^2.7.0
   sizer: ^2.0.15
+  video_player: ^2.8.1
 
 dev_dependencies:
   flutter_test:
@@ -28,5 +29,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/videos/
 
 
