@@ -51,5 +51,27 @@ Video Demo : [YouTube Demo](https://youtu.be/sTKdz-MUnoY)
 
 These future prospects align with SnapTrash's mission to not only address current urban cleanliness challenges but also to evolve into a comprehensive and impactful tool for community-driven environmental improvement.
 
+## November 2023 Development Timeline:
+
+1. **November 1-7: Refinement Phase**
+   - UI Enhancement: Refining the user interface for a more intuitive experience.
+2. **November 8-14: Feature Expansion**
+   - Auto-Location Overlays: Implementing precise reporting features.
+3. **November 15-21: Notification System Implementation**
+   - Real-time Notifications: Developing notification features.
+4. **November 22-25: Community Voucher System**
+   - Community Voucher System: Introducing leaderboard and community vouchers.
+5. **November 26-28: Platform Compatibility**
+   - Extended Platform Support: Exploring compatibility with additional platforms.
+6. **November 29-30: Optimization and Bug Fixes**
+   - Optimization: Conducting thorough optimization and bug fixes.
+7. **December 1: Google and Apple Authentication**
+   - Authentication Options: Implementing additional login choices.
+8. **December 2-6: Final Testing and Quality Assurance**
+   - Comprehensive Testing: Ensuring seamless functionality.
+9. **December 8: Launch Day**
+    - Official Launch: Releasing SnapTrash to the public with the support of Bennett University and the Times Group.
   
+## Team : 
+![image](https://github.com/itsOmSarraf/Code-with-Google-Maps/assets/83817663/27385ca7-4442-44be-86cd-3359bb6ef1c6)
 

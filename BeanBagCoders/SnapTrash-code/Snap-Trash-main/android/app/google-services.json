@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "352009150596",
+    "project_id": "snaptrash-3f1c9",
+    "storage_bucket": "snaptrash-3f1c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352009150596:android:bec2ab77040f4a2b4ea2d1",
+        "android_client_info": {
+          "package_name": "com.example.snap_trash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTsOkwDPF_rs5ZMzKcTGNtAAvhvjrMSPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
